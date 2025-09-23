@@ -14,10 +14,6 @@ export default function Home() {
       <NavBar />
       
       <HeroSection 
-        title="EVOLUTION STABLES"
-        subtitle="Ownership Re-Imagined"
-        ctaText="Join the Revolution"
-        secondaryCtaText="Genuinely accessible, fully transparent, uniquely liquid"
         className="text-brand-gold bg-brand-black"
       />
 

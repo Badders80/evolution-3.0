@@ -7,24 +7,26 @@ import { Button } from '../ui/Button';
 interface HeroSectionProps {
   title?: string;
   subtitle?: string;
+  ctaText?: string;
+  secondaryCtaText?: string;
   description?: string;
-  primaryCTA?: string;
-  secondaryCTA?: string;
   backgroundImage?: string;
   overlay?: boolean;
+  className?: string;
 }
 
 export function HeroSection({
-  title = "Evolution Stables",
-  subtitle = "Where Excellence Meets Tradition",
-  description = "Experience the finest in equestrian training, breeding, and care. Our commitment to excellence spans generations, nurturing both horse and rider to achieve their full potential.",
-  primaryCTA = "Explore Our Services",
-  secondaryCTA = "Learn More",
+  title = "EVOLUTION STABLES",
+  subtitle = "Ownership Re-Imagined",
+  ctaText = "Join the Revolution",
+  secondaryCtaText = "Genuinely accessible, fully transparent, uniquely liquid",
+  description = "",
   backgroundImage = "/images/content/Horse-Double-Black.png",
-  overlay = true
+  overlay = true,
+  className = ""
 }: HeroSectionProps) {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className={`relative min-h-screen flex items-center justify-center overflow-hidden ${className}`}>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -36,7 +38,7 @@ export function HeroSection({
           quality={90}
         />
         {overlay && (
-          <div className="absolute inset-0 bg-black/40 bg-gradient-to-r from-black/60 to-black/30" />
+          <div className="absolute inset-0 bg-black/60 bg-gradient-to-r from-black/80 to-black/40" />
         )}
       </div>
 
@@ -53,7 +55,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-brand-gold mb-6 leading-tight"
           >
             {title}
           </motion.h1>
@@ -63,40 +65,33 @@ export function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl lg:text-3xl text-gray-200 font-light mb-8 tracking-wide"
+            className="text-xl md:text-2xl lg:text-3xl text-white font-light mb-8 tracking-wide"
           >
             {subtitle}
           </motion.h2>
 
-          {/* Description */}
+          {/* Secondary CTA Text */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            {description}
+            {secondaryCtaText}
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex justify-center"
           >
             <Button 
               size="lg" 
-              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg"
+              className="bg-brand-gold text-brand-black hover:bg-yellow-400 px-8 py-4 text-lg font-semibold shadow-lg"
             >
-              {primaryCTA}
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold"
-            >
-              {secondaryCTA}
+              {ctaText}
             </Button>
           </motion.div>
         </motion.div>

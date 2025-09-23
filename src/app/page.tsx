@@ -18,7 +18,7 @@ export default function Home() {
       />
 
       <SectionShell className="py-16 bg-brand-black">
-        <ImageBand src="/images/content/Hooves-on-grass.png" alt="Evolution Stables" className="h-[50vh]" />
+        <div className="h-[50vh] bg-black"></div>
       </SectionShell>
 
       <SectionShell className="py-24 bg-gray-900">

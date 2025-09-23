@@ -10,6 +10,10 @@ export const MARKETING = {
   }
 };
 
+// Landing prototype assets
+export const hero = '/images/content/Horse-Double-Black.png';
+export const horseLegs = '/images/content/Hooves-on-grass.png';
+
 export const LOGOS = {
   main: '/images/content/Evolution-Stables-Logo.svg',
   black: '/images/content/Evolution-Stables-Logo-Black.svg',
@@ -36,4 +40,12 @@ export const PLACEHOLDERS = {
   image: '/images/placeholder.jpg',
   avatar: '/images/avatar-placeholder.png',
   logo: '/images/logo.png'
+};
+
+// Evolution Stables Brand Colors
+export const BRAND_COLORS = {
+  gold: '#d4a964',
+  gray: '#747474', 
+  white: '#ffffff',
+  black: '#000000'
 };

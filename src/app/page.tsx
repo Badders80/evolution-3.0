@@ -1,76 +1,45 @@
-import ImageBand from "@/components/media/ImageBand";
-import MissionCombo from "@/components/marketing/MissionCombo";
-import { Section } from "@/components/site/Section";
-import { Footer } from "@/components/site/Footer";
-import { HeroSection } from "@/components/site/HeroSection";
-import { SectionShell } from "@/components/layout/SectionShell";
-import { NavBar } from "@/components/NavBar";
-import { MARKETING } from "@/lib/assets";
-import content from "@/content/marketing.json";
+'use client';
+import { motion } from 'framer-motion';
+import ImageBand from '@/components/media/ImageBand';
+import MissionCombo from '@/components/site/MissionCombo';
+import SectionShell from '@/components/layout/SectionShell';
 
-export default function Page() {
-  const c = (content as { missionCombo: any }).missionCombo;
-
+export default function Home() {
   return (
-    <>
-      <NavBar />
-      
-      {/* Hero Section */}
-      <HeroSection />
-      
-      <main className="space-y-16">
-        <SectionShell id="mission" spaceY={2}>
-          <MissionCombo mission={c.mission} support={c.support} />
-        </SectionShell>
-        
-        <ImageBand src="/images/content/Background-hooves-back-and-white.jpg" alt="Track rail detail" height={320} />
-        
-        <SectionShell id="feature-flags">
-          <Section
-            title="Feature Flags"
-            imageSrc={MARKETING.band1}
-            imageRatio="16:9"
-            body={
-              <>
-                <p>Toggle heavy UI and switch between mock and real APIs from the Dev Bar -- no rebuilds needed.</p>
-                <ul className="mt-4 space-y-2">
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                    URL overrides (e.g., <code className="px-2 py-1 bg-gray-100 rounded text-sm">?apiMode=real</code>)
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                    Environment defaults (<code className="px-2 py-1 bg-gray-100 rounded text-sm">NEXT_PUBLIC_*</code>)
-                  </li>
-                </ul>
-              </>
-            }
-          />
-        </SectionShell>
-        
-        <ImageBand src="/images/content/Hooves-on-grass.png" alt="Hooves on grass" height={320} />
-        
-        <SectionShell id="code-splitting">
-          <Section
-            title="Code-Splitting by Default"
-            imageSrc={MARKETING.band2}
-            imageRatio="1:1"
-            reverse
-            body={<p>Heavy components are dynamically imported so the core UI stays fast while prototyping.</p>}
-          />
-        </SectionShell>
-        
-        <SectionShell id="mock-real-seam">
-          <Section
-            title="Mock → Real Seam"
-            imageSrc={MARKETING.alt.horseAndFoal}
-            imageRatio="4:3"
-            body={<p>Shared types and adapters let you wire real endpoints later without touching UI components.</p>}
-          />
-        </SectionShell>
-        
-        <Footer />
-      </main>
-    </>
+    <SectionShell className="bg-brand-black min-h-screen">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-8">
+        {/* Hero */}
+        <ImageBand src="/images/content/Horse-Double-Black.png" alt="Hero" className="h-[60vh]">
+          <motion.div 
+            initial={{ y: 20 }} 
+            animate={{ y: 0 }} 
+            className="absolute inset-0 flex flex-col items-center justify-center text-center text-brand-gold"
+          >
+            <h1 className="text-6xl font-bold">EVOLUTION</h1>
+            <h1 className="text-6xl font-bold">STABLES</h1>
+          </motion.div>
+        </ImageBand>
+
+        {/* Mission */}
+        <MissionCombo className="text-white">
+          <h2 className="text-4xl font-bold mb-4 text-brand-gold">OUR MISSION</h2>
+          <h3 className="text-2xl mb-6">Ownership Re-Imagined</h3>
+          <p className="text-lg mb-6">Traditional racehorse ownership—expensive, restrictive, and opaque—has historically excluded those who dream of experiencing the thrill firsthand.</p>
+          <p className="text-lg">We deliver ownership that&apos;s genuinely accessible, fully transparent, and uniquely liquid.</p>
+          <button className="mt-6 bg-brand-gold text-brand-black px-6 py-3 rounded hover:bg-yellow-400">Join the Revolution</button>
+        </MissionCombo>
+
+        {/* Teaser Image */}
+        <ImageBand src="/images/content/Hooves-on-grass.png" alt="Teaser" className="h-[50vh]">
+          <motion.div 
+            initial={{ y: 20 }} 
+            animate={{ y: 0 }} 
+            className="absolute inset-0 flex items-end justify-center text-white p-4"
+          >
+            <h3 className="text-xl">Our Vision</h3>
+          </motion.div>
+        </ImageBand>
+      </motion.div>
+    </SectionShell>
   );
 }

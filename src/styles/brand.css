@@ -1,14 +1,72 @@
-/* Brand styles for the main theme */
+/* Evolution Stables Brand Colors */
 :root {
-  --brand-primary: #2563eb;
-  --brand-secondary: #64748b;
-  --brand-accent: #f59e0b;
-  --brand-background: #ffffff;
-  --brand-surface: #f8fafc;
-  --brand-text: #1e293b;
-  --brand-text-secondary: #64748b;
+  /* Primary Brand Colors */
+  --brand-gold: #d4a964;
+  --brand-gray: #747474;
+  --brand-white: #ffffff;
+  --brand-black: #000000;
+  
+  /* Evolution Stables Color Palette */
+  --evolution-gold: #d4a964;
+  --evolution-gray: #747474;
+  --evolution-white: #ffffff;
+  --evolution-black: #000000;
+  
+  /* Semantic Color Assignments */
+  --brand-primary: #d4a964;        /* Gold - Primary brand color */
+  --brand-secondary: #747474;      /* Gray - Secondary/neutral */
+  --brand-accent: #d4a964;         /* Gold accent */
+  --brand-background: #ffffff;     /* White background */
+  --brand-surface: #f9f9f9;        /* Light gray surface */
+  --brand-text: #000000;           /* Black text */
+  --brand-text-secondary: #747474; /* Gray secondary text */
+  --brand-border: #e5e5e5;         /* Light border */
 }
 
+/* Brand Color Classes */
+.brand-gold {
+  color: var(--brand-gold);
+}
+
+.brand-gray {
+  color: var(--brand-gray);
+}
+
+.brand-white {
+  color: var(--brand-white);
+}
+
+.brand-black {
+  color: var(--brand-black);
+}
+
+/* Background Classes */
+.bg-brand-gold {
+  background-color: var(--brand-gold);
+}
+
+.bg-brand-gray {
+  background-color: var(--brand-gray);
+}
+
+.bg-brand-white {
+  background-color: var(--brand-white);
+}
+
+.bg-brand-black {
+  background-color: var(--brand-black);
+}
+
+/* Border Classes */
+.border-brand-gold {
+  border-color: var(--brand-gold);
+}
+
+.border-brand-gray {
+  border-color: var(--brand-gray);
+}
+
+/* Legacy Classes (for backward compatibility) */
 .brand-primary {
   color: var(--brand-primary);
 }

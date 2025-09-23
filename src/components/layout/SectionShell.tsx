@@ -8,7 +8,7 @@ interface SectionShellProps {
   spaceY?: number;
 }
 
-export function SectionShell({ 
+export default function SectionShell({ 
   children, 
   className, 
   id,
@@ -18,7 +18,7 @@ export function SectionShell({
     <section
       id={id}
       className={clsx(
-        'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+        'w-full',
         {
           'space-y-4': spaceY === 1,
           'space-y-6': spaceY === 1.5,
@@ -33,3 +33,5 @@ export function SectionShell({
     </section>
   );
 }
+
+export { SectionShell };

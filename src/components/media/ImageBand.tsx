@@ -6,18 +6,20 @@ interface ImageBandProps {
   alt: string;
   height?: number;
   className?: string;
+  children?: React.ReactNode;
 }
 
 export default function ImageBand({ 
   src, 
   alt, 
   height = 300,
-  className = '' 
+  className = '',
+  children
 }: ImageBandProps) {
   return (
     <div 
       className={`relative w-full overflow-hidden ${className}`}
-      style={{ height: `${height}px` }}
+      style={{ height: height ? `${height}px` : undefined }}
     >
       <Image
         src={src}
@@ -26,6 +28,7 @@ export default function ImageBand({
         className="object-cover"
         priority
       />
+      {children}
     </div>
   );
 }

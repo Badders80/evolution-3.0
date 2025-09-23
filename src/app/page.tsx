@@ -2,6 +2,7 @@ import ImageBand from "@/components/media/ImageBand";
 import MissionCombo from "@/components/marketing/MissionCombo";
 import { Section } from "@/components/site/Section";
 import { Footer } from "@/components/site/Footer";
+import { HeroSection } from "@/components/site/HeroSection";
 import { SectionShell } from "@/components/layout/SectionShell";
 import { NavBar } from "@/components/NavBar";
 import { MARKETING } from "@/lib/assets";
@@ -13,10 +14,12 @@ export default function Page() {
   return (
     <>
       <NavBar />
-      <main className="pt-16 space-y-12">
-        <ImageBand src="/images/content/Hooves-on-grass.png" alt="Thoroughbreds in motion" height={380} />
-        
-        <SectionShell id="mission" spaceY={1.5}>
+      
+      {/* Hero Section */}
+      <HeroSection />
+      
+      <main className="space-y-16">
+        <SectionShell id="mission" spaceY={2}>
           <MissionCombo mission={c.mission} support={c.support} />
         </SectionShell>
         
@@ -45,7 +48,7 @@ export default function Page() {
           />
         </SectionShell>
         
-        <ImageBand src="/images/content/Horse-Double-Black.png" alt="Saddle and silk" height={320} />
+        <ImageBand src="/images/content/Hooves-on-grass.png" alt="Hooves on grass" height={320} />
         
         <SectionShell id="code-splitting">
           <Section

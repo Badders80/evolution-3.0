@@ -7,8 +7,8 @@ import "../styles/brand.light.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Evolution 3.0",
-  description: "Next.js application with modern UI components",
+  title: "Evolution Stables - Where Excellence Meets Tradition",
+  description: "Experience the finest in equestrian training, breeding, and care. Our commitment to excellence spans generations.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={inter.className}>{children}</body>
     </html>
   );

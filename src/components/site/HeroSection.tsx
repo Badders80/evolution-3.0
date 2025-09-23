@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -10,49 +11,53 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({
-  backgroundImage = "/images/content/Horse-Double-Black.png",
+  backgroundImage = '/images/Horse-Double-Black.png',
   overlay = true,
-  className = ""
+  className = '',
 }: HeroSectionProps) {
   return (
-    <section id="hero" className={`relative min-h-screen flex items-center justify-center overflow-hidden ${className}`}>
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+    <section
+      id="hero"
+      className={`relative flex min-h-screen items-center justify-center overflow-hidden pt-24 ${className}`}
+    >
+      <div className="absolute inset-0">
         <Image
           src={backgroundImage}
           alt="Evolution Stables"
           fill
-          className="object-cover object-center"
           priority
-          quality={90}
+          className="object-cover"
         />
         {overlay && (
-          <div className="absolute inset-0 bg-black/60 bg-gradient-to-r from-black/80 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/95" />
         )}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-start gap-6 px-8 pb-16 md:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto flex items-center justify-center"
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="w-full max-w-[720px]"
         >
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="flex justify-center items-center"
-          >
-            <div className="text-center">
-              <h1 className="text-6xl md:text-8xl font-bold text-brand-gold leading-tight">
-                EVOLUTION<br />STABLES
-              </h1>
-            </div>
-          </motion.div>
+          <Image
+            src="/images/Evolution-Stables-Logo.png"
+            alt="Evolution Stables"
+            width={1200}
+            height={400}
+            priority
+            className="h-auto w-full"
+          />
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          className="max-w-lg text-sm font-medium uppercase tracking-[0.45em] text-gray-300"
+        >
+          Ownership re-imagined for a new generation of race-goers.
+        </motion.p>
       </div>
     </section>
   );

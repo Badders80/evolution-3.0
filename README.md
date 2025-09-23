@@ -1,6 +1,6 @@
 # Evolution 3.0
 
-A modern Next.js application built with TypeScript, Tailwind CSS, and Framer Motion.
+A modern Next.js application built with TypeScript, Tailwind CSS, and Framer Motion for Evolution Stables.
 
 ## Features
 
@@ -8,7 +8,7 @@ A modern Next.js application built with TypeScript, Tailwind CSS, and Framer Mot
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
 - **Framer Motion** for animations
-- **Mock/Real API switching** for development flexibility
+- **Storybook** for component development and testing
 - **Component library** with reusable UI components
 - **Responsive design** with mobile-first approach
 
@@ -26,13 +26,30 @@ A modern Next.js application built with TypeScript, Tailwind CSS, and Framer Mot
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## API Mode Switching
+## Storybook Development
 
-The application supports switching between mock and real APIs:
+This project includes Storybook for component development and testing:
 
-- **URL Parameter**: Add `?apiMode=real` or `?apiMode=mock` to any URL
-- **Environment Variable**: Set `NEXT_PUBLIC_API_MODE=real` in your `.env.local`
-- **Default**: Mock mode for development
+1. Start Storybook:
+   ```bash
+   npm run storybook
+   ```
+
+2. Open [http://localhost:6006](http://localhost:6006) in your browser.
+
+3. **Dev Tip**: Click the "Login (Stories)" button in the navigation bar to quickly access Storybook from the main application.
+
+## Development Workflow
+
+1. **Terminal 1**: `npm run dev` (main application on port 3000)
+2. **Terminal 2**: `npm run storybook` (component stories on port 6006)
+3. Develop components in Storybook → Test in the main application → Instant visual feedback
+
+## Component Stories
+
+- **Button**: Primary, Outline, Secondary, Ghost variants with different sizes
+- **Evolution Stables Branded**: Custom gold/black themed components
+- **Interactive**: Test component variants before implementing in the main app
 
 ## Project Structure
 

@@ -1,0 +1,36 @@
+{
+  "missionCombo": {
+    "mission": {
+      "title": "Our Mission",
+      "description": "Building the future of web development with modern tools, clean architecture, and seamless user experiences.",
+      "highlights": [
+        "Next.js 14 with App Router",
+        "TypeScript for type safety",
+        "Tailwind CSS for styling",
+        "Framer Motion for animations"
+      ]
+    },
+    "support": {
+      "title": "Support & Community",
+      "description": "Join our growing community of developers building amazing applications with Evolution 3.0.",
+      "features": [
+        {
+          "name": "24/7 Support",
+          "description": "Get help when you need it most"
+        },
+        {
+          "name": "Active Community",
+          "description": "Connect with other developers"
+        },
+        {
+          "name": "Regular Updates",
+          "description": "Stay current with latest features"
+        },
+        {
+          "name": "Documentation",
+          "description": "Comprehensive guides and examples"
+        }
+      ]
+    }
+  }
+}

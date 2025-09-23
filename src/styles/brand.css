@@ -1,0 +1,38 @@
+/* Brand styles for the main theme */
+:root {
+  --brand-primary: #2563eb;
+  --brand-secondary: #64748b;
+  --brand-accent: #f59e0b;
+  --brand-background: #ffffff;
+  --brand-surface: #f8fafc;
+  --brand-text: #1e293b;
+  --brand-text-secondary: #64748b;
+}
+
+.brand-primary {
+  color: var(--brand-primary);
+}
+
+.brand-secondary {
+  color: var(--brand-secondary);
+}
+
+.brand-accent {
+  color: var(--brand-accent);
+}
+
+.brand-bg {
+  background-color: var(--brand-background);
+}
+
+.brand-surface {
+  background-color: var(--brand-surface);
+}
+
+.brand-text {
+  color: var(--brand-text);
+}
+
+.brand-text-secondary {
+  color: var(--brand-text-secondary);
+}

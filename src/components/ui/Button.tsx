@@ -14,10 +14,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={clsx(
           'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
           {
-            'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500': variant === 'primary',
-            'bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500': variant === 'secondary',
-            'border border-gray-300 bg-transparent hover:bg-gray-50 focus-visible:ring-gray-500': variant === 'outline',
-            'hover:bg-gray-100 focus-visible:ring-gray-500': variant === 'ghost',
+            'bg-brand-gold text-black hover:bg-brand-gold/90 focus-visible:ring-brand-gold': variant === 'primary',
+            'bg-surface text-foreground hover:bg-white/5 border border-border focus-visible:ring-brand-gold/40': variant === 'secondary',
+            'border border-brand-gold bg-transparent text-brand-gold hover:bg-brand-gold hover:text-black focus-visible:ring-brand-gold/60': variant === 'outline',
+            'text-foreground hover:bg-white/5 focus-visible:ring-brand-gold/30': variant === 'ghost',
           },
           {
             'h-8 px-3 text-sm': size === 'sm',

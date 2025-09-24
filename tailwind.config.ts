@@ -3,7 +3,36 @@ module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: {
+        '2xl': '1280px',
+      },
+    },
     extend: {
+      fontFamily: {
+        sans: [
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'sans-serif',
+        ],
+      },
+      borderRadius: {
+        sm: '6px',
+        md: '10px',
+        lg: '14px',
+        xl: '20px',
+      },
       colors: {
         brand: {
           gold: '#d4a964',
@@ -17,6 +46,11 @@ module.exports = {
           white: '#ffffff',
           black: '#000000',
         },
+        background: '#000000',
+        surface: '#111113',
+        muted: '#9ca3af',
+        border: '#27272a',
+        foreground: '#e5e7eb',
       },
     },
   },

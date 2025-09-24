@@ -7,11 +7,27 @@
 }
 
 body {
-  @apply bg-[#141019] text-gray-100 font-sans antialiased;
+  @apply bg-background text-foreground font-sans antialiased;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll from full-bleed elements */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  * { @apply border-border; }
+  h1 { @apply text-3xl md:text-5xl font-semibold tracking-tight; }
+  h2 { @apply text-2xl md:text-3xl font-semibold tracking-tight; }
+  h3 { @apply text-xl md:text-2xl font-semibold tracking-tight; }
+  p  { @apply text-[0.95rem] leading-7 text-foreground/90; }
+  a  { @apply text-brand-gold hover:opacity-90 transition-opacity; }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-gold) 25%, transparent);
 }

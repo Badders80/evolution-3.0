@@ -7,11 +7,12 @@ type AccordionItem = {
 
 type AccordionProps = {
   items: AccordionItem[];
+  className?: string;
 };
 
-export function Accordion({ items }: AccordionProps) {
+export function Accordion({ items, className = "" }: AccordionProps) {
   return (
-    <div className="space-y-3">
+    <div className={`space-y-3 ${className}`}>
       {items.map((item) => (
         <details
           key={item.question}

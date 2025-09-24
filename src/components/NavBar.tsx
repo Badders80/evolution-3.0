@@ -4,11 +4,13 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LOGOS } from '@/lib/assets';
+import { useUser, useClerk, SignInButton, SignUpButton, SignOutButton } from '@clerk/nextjs';
 
 const navLinks = [
   { label: 'Our Mission', href: '#mission' },
   { label: 'About', href: '#about' },
   { label: 'Innovation', href: '#innovation' },
+  { label: 'Marketplace', href: '/marketplace' },
   { label: 'MyStable', href: '#stable' },
 ];
 
@@ -16,6 +18,8 @@ export function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(false);
+  const { isLoaded, isSignedIn, user } = useUser();
+  const { openSignIn, openSignUp } = useClerk();
 
   useEffect(() => {
     // Prefer observing the hero section; stay grey while hero is in view
@@ -101,28 +105,41 @@ export function NavBar() {
         </Link>
 
         <div className="hidden md:flex items-center">
-          <Link
-            href="#get-started"
-            className={`mr-2 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.35em] transition-colors duration-300 ${
-              scrolled
-                ? 'bg-brand-gold text-black hover:bg-brand-gold/90'
-                : 'bg-transparent text-gray-200 border border-white/30 hover:border-gray-400 hover:text-white'
-            }`}
-          >
-            Get Started
-          </Link>
-          <Link
-            href="http://localhost:6006"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.35em] transition-colors duration-300 ${
-              scrolled
-                ? 'border border-white/30 text-gray-100 hover:border-brand-gold hover:text-brand-gold'
-                : 'border border-white/30 text-gray-300 hover:border-gray-400 hover:text-white'
-            }`}
-          >
-            Login (Stories)
-          </Link>
+          {!isSignedIn ? (
+            <>
+              <SignUpButton mode="modal">
+                <button
+                  className={`mr-2 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.35em] transition-colors duration-300 ${
+                    scrolled 
+                      ? 'bg-brand-gold text-black hover:bg-brand-gold/90' 
+                      : 'bg-transparent text-gray-200 border border-white/30 hover:border-gray-400 hover:text-white'
+                  }`}
+                >
+                  Get Started
+                </button>
+              </SignUpButton>
+              <SignInButton mode="modal">
+                <button
+                  className={`rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.35em] transition-colors duration-300 ${
+                    scrolled
+                      ? 'border border-white/30 text-gray-100 hover:border-brand-gold hover:text-brand-gold'
+                      : 'border border-white/30 text-gray-300 hover:border-gray-400 hover:text-white'
+                  }`}
+                >
+                  Login
+                </button>
+              </SignInButton>
+            </>
+          ) : (
+            <div className="flex items-center space-x-4">
+              <span className="text-sm text-gray-300">Hi, {user?.firstName || 'User'}</span>
+              <SignOutButton>
+                <button className="rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.35em] border border-white/30 text-gray-300 hover:border-brand-gold hover:text-brand-gold">
+                  Sign Out
+                </button>
+              </SignOutButton>
+            </div>
+          )}
         </div>
 
         <button
@@ -132,7 +149,7 @@ export function NavBar() {
               ? 'border border-white/20 text-gray-200 hover:border-brand-gold hover:text-brand-gold'
               : 'border border-white/10 text-gray-300 hover:border-gray-400 hover:text-white'
           }`}
-          onClick={() => setIsMenuOpen((open) => !open)}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span className="sr-only">Toggle navigation</span>
           {isMenuOpen ? (
@@ -147,50 +164,53 @@ export function NavBar() {
         </button>
       </div>
 
+      {/* Mobile menu */}
       {isMenuOpen && (
-        <div
-          className={`md:hidden backdrop-blur transition-colors duration-300 ${
-            scrolled ? 'border-t border-white/10 bg-black/95' : 'border-t border-white/5 bg-black/80'
-          }`}
-        >
-          <div className="space-y-4 px-6 py-6">
+        <div className="md:hidden">
+          <div className="space-y-4 px-6 py-6 border-t border-white/10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block text-sm transition-colors duration-300 ${
-                  scrolled ? 'text-gray-200 hover:text-brand-gold' : 'text-gray-400 hover:text-gray-200'
-                }`}
+                className="block py-2 text-gray-300 hover:text-white"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4">
-              <Link
-                href="#get-started"
-                className={`mb-3 block rounded-full px-5 py-2 text-center text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300 ${
-                  scrolled
-                    ? 'bg-brand-gold text-black hover:bg-brand-gold/90'
-                    : 'bg-transparent text-gray-200 border border-white/30 hover:border-gray-400 hover:text-white'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Get Started
-              </Link>
-              <Link
-                href="http://localhost:6006"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block rounded-full px-5 py-2 text-center text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300 ${
-                  scrolled
-                    ? 'border border-white/30 text-gray-100 hover:border-brand-gold hover:text-brand-gold'
-                    : 'border border-white/30 text-gray-300 hover:border-gray-400 hover:text-white'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Login (Stories)
-              </Link>
+            <div className="pt-4 space-y-3">
+              {!isSignedIn ? (
+                <>
+                  <SignUpButton mode="modal">
+                    <button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-full rounded-full bg-brand-gold px-4 py-2 text-center text-xs font-semibold uppercase tracking-wider text-black hover:bg-brand-gold/90"
+                    >
+                      Get Started
+                    </button>
+                  </SignUpButton>
+                  <SignInButton mode="modal">
+                    <button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-full rounded-full border border-white/30 px-4 py-2 text-center text-xs font-semibold uppercase tracking-wider text-white hover:border-brand-gold hover:text-brand-gold"
+                    >
+                      Login
+                    </button>
+                  </SignInButton>
+                </>
+              ) : (
+                <div className="space-y-3">
+                  <p className="text-center text-sm text-gray-300">Signed in as {user?.firstName || 'User'}</p>
+                  <SignOutButton>
+                    <button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-full rounded-full border border-white/30 px-4 py-2 text-center text-xs font-semibold uppercase tracking-wider text-white hover:border-brand-gold hover:text-brand-gold"
+                    >
+                      Sign Out
+                    </button>
+                  </SignOutButton>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -2,24 +2,33 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/contexts/AuthContext';
+import { useUser } from '@clerk/nextjs';
 
 export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, login } = useAuth();
+  const { isLoaded, isSignedIn } = useUser();
   const router = useRouter();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (isLoaded && !isSignedIn) {
       // Store the current URL to redirect back after login
       const currentPath = window.location.pathname + window.location.search;
-      login(currentPath);
+      router.push(`/sign-in?redirect_url=${encodeURIComponent(currentPath)}`);
     }
-  }, [isAuthenticated, login]);
+  }, [isLoaded, isSignedIn, router]);
 
-  if (!isAuthenticated) {
+  if (!isLoaded) {
+    // Show a loading state while checking authentication
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black border border-white/10">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-gold"></div>
+      </div>
+    );
+  }
+
+  if (!isSignedIn) {
     // Show a loading state while redirecting
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
+      <div className="min-h-screen flex items-center justify-center bg-black border border-white/10">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-gold"></div>
       </div>
     );

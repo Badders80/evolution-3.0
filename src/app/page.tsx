@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Image from 'next/image';
 import { FixedBg } from '@/components/ui/FixedBg';
@@ -146,10 +146,10 @@ export default function Home() {
 
   return (
     <main className="text-gray-100">
-      <div className="container w-full bg-black px-0 shadow-[0_0_80px_rgba(0,0,0,0.35)]">
+      <div className="w-full bg-black px-0 shadow-[0_0_80px_rgba(0,0,0,0.35)] m-0 p-0 border-none max-w-none">
         <HeroSection />
 
-        <section id="mission" className="px-6 pb-24 sm:px-12 md:px-24">
+        <section id="mission" className="px-6 py-48 sm:px-12 md:px-24 lg:px-32 xl:px-48 m-0 p-0 border-none mx-auto max-w-7xl">
           <div className="space-y-6">
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
               Our Mission
@@ -160,7 +160,7 @@ export default function Home() {
               Re-Imagined
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-gray-300">
-              Traditional racehorse ownership is often limited and complex. We are changing that. Evolution Stables makes it accessible, transparent, and flexible, putting the thrill of racing into the hands of everyone - from first-time fans to seasoned owners.
+              Traditional racehorse ownership? Limited. Complex. Not anymore. Evolution Stables delivers accessible, transparent, flexible thrills—empowering first-time fans and seasoned pros alike to own the track.
             </p>
             <Button
               variant="outline"
@@ -175,16 +175,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="evolution-way" className="px-6 pb-24 pt-24 sm:px-12 md:px-24">
-          <div className="space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+        <section className="px-0 md:px-0 m-0 p-0 border-none">
+          <FixedBg src="/images/Background-hooves-back-and-white.jpg" height="h-[50vh]" overlay="from-black/10 to-black/30" />
+        </section>
+
+        <section id="evolution-way" className="px-6 py-48 sm:px-12 md:px-24 lg:px-32 xl:px-48 m-0 p-0 border-none mx-auto max-w-7xl">
+          <div className="space-y-6">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
               About
             </span>
-            <h2 className="text-4xl font-semibold text-foreground md:text-5xl">
+            <h2 className="text-4xl font-semibold uppercase text-white sm:text-5xl">
               The <span className="text-brand-gold">Evolution</span> Way
             </h2>
-            <p className="text-lg leading-relaxed text-foreground/85">
-              Our digital-syndication ownership model delivers benefits across the thoroughbred racing industry.
+            <p className="max-w-2xl text-base leading-relaxed text-gray-300">
+              Our digital syndication model unlocks value for all in thoroughbred racing.
             </p>
           </div>
           <div className="mt-12">
@@ -192,19 +196,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-0 md:px-0">
+        <section className="px-0 md:px-0 m-0 p-0 border-none">
           <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" overlay="from-black/10 to-black/30" />
         </section>
 
-        <section id="digital-syndication" className="px-6 pb-24 pt-24 sm:px-12 md:px-24">
+        <section id="digital-syndication" className="px-6 py-48 sm:px-12 md:px-24 lg:px-32 xl:px-48 m-0 p-0 border-none mx-auto max-w-7xl">
           <div className="space-y-6">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
               Ownership, the Evolution Way
             </span>
-            <h2 className="text-4xl font-semibold text-foreground md:text-5xl">
+            <h2 className="text-4xl font-semibold uppercase text-white sm:text-5xl">
               Digital-<span className="text-brand-gold">Syndication</span>
             </h2>
-            <p className="text-lg leading-relaxed text-foreground/85">
+            <p className="max-w-2xl text-base leading-relaxed text-gray-300">
               The modern way to experience ownership - traditional syndication with a digital twist. We have taken the time-tested principles of syndication and evolved them into a model that adds clarity, flexibility, and borderless access.
             </p>
           </div>
@@ -213,96 +217,90 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-0 md:px-0">
+        <section className="px-0 md:px-0 m-0 p-0 border-none">
           <FixedBg src="/images/Horse-and-foal.jpg" height="h-[50vh]" overlay="from-black/10 to-black/40" />
         </section>
 
-        <section id="innovation" className="px-6 pb-24 pt-24 sm:px-12 md:px-24">
-          <div className="flex flex-col gap-16">
-            <div className="space-y-3 text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+        <section id="innovation" className="px-6 py-48 sm:px-12 md:px-24 lg:px-32 xl:px-48 m-0 p-0 border-none mx-auto max-w-7xl">
+          <div className="space-y-6 text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
+              Innovation
+            </span>
+            <h2 className="text-4xl font-semibold uppercase text-white sm:text-5xl">
+              <span className="bg-gradient-to-b from-gray-300 via-white to-gray-300 bg-clip-text text-transparent">
                 Innovation
               </span>
-              <h2 className="text-4xl font-semibold text-transparent sm:text-5xl">
-                <span className="bg-gradient-to-b from-gray-300 via-white to-gray-300 bg-clip-text text-transparent">
-                  Innovation
-                </span>
-                :
-                <span className="bg-gradient-to-b from-gray-500 via-gray-600 to-gray-400 bg-clip-text text-transparent">
-                  {' '}
-                  Digital Syndication
-                </span>
-              </h2>
-            </div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-10% 0px' }}
-              variants={{
-                hidden: { opacity: 0, y: 16 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { staggerChildren: 0.12 },
-                },
-              }}
-              className="grid gap-6 md:grid-cols-3"
-            >
-              {innovationPanels.map((panel) => (
-                <motion.div
-                  key={panel.title}
-                  variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
-                  className="flex h-full flex-col gap-3 rounded-lg border border-border bg-surface/50 p-6 text-left shadow-lg shadow-black/20"
-                >
-                  <h3 className="text-base font-semibold uppercase tracking-[0.2em] text-brand-gold">
-                    {panel.title}
-                  </h3>
-                  {panel.body.map((paragraph) => (
-                    <p key={paragraph} className="text-sm leading-relaxed text-foreground/85">
-                      {paragraph}
-                    </p>
-                  ))}
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <div className="flex justify-center">
-              <Button
-                variant="outline"
-                className="rounded-full border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-black"
-                onClick={() => scrollToId('get-started')}
-              >
-                Explore Digital Ownership
-              </Button>
-            </div>
+              :
+              <span className="bg-gradient-to-b from-gray-500 via-gray-600 to-gray-400 bg-clip-text text-transparent">
+                {' '}
+                Digital Syndication
+              </span>
+            </h2>
+            <p className="max-w-2xl text-base leading-relaxed text-gray-300 mx-auto">
+              Revolutionary technology meets traditional racing - experience the future of thoroughbred ownership with our cutting-edge digital platform that makes investing accessible to everyone.
+            </p>
           </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-10% 0px' }}
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { staggerChildren: 0.12 },
+              },
+            }}
+            className="grid gap-6 md:grid-cols-3 mt-12"
+          >
+            {innovationPanels.map((panel) => (
+              <motion.div
+                key={panel.title}
+                variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
+                className="flex h-full flex-col gap-3 rounded-lg border border-border bg-surface/50 p-6 text-left shadow-lg shadow-black/20"
+              >
+                <h3 className="text-base font-semibold uppercase tracking-[0.2em] text-brand-gold">
+                  {panel.title}
+                </h3>
+                {panel.body.map((paragraph) => (
+                  <p key={paragraph} className="text-sm leading-relaxed text-foreground/85">
+                    {paragraph}
+                  </p>
+                ))}
+              </motion.div>
+            ))}
+          </motion.div>
         </section>
 
-        <section id="faq" className="px-6 pb-24 pt-24 sm:px-12 md:px-24">
-          <div className="flex flex-col gap-12">
-            <div className="space-y-4 text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
-                Support
-              </span>
-              <h2 className="text-4xl font-semibold uppercase text-white sm:text-5xl">
-                Frequently Asked Questions
-              </h2>
-            </div>
+        <section id="faq" className="px-6 py-48 sm:px-12 md:px-24 lg:px-32 xl:px-48 m-0 p-0 border-none mx-auto max-w-7xl">
+          <div className="space-y-6 text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
+              Support
+            </span>
+            <h2 className="text-4xl font-semibold uppercase text-white sm:text-5xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="max-w-2xl text-base leading-relaxed text-gray-300 mx-auto">
+              Got questions about digital racehorse ownership? We've got answers. Our comprehensive FAQ covers everything from getting started to managing your stable.
+            </p>
+          </div>
+          <div className="mt-12">
             <SplitFaq items={faqItems} className="mx-auto max-w-4xl" />
           </div>
         </section>
 
-        <section className="px-0 md:px-0">
+        <section className="px-0 md:px-0 m-0 p-0 border-none">
           <FixedBg src="/images/Hooves-on-grass.png" height="h-[50vh]" overlay="from-black/10 to-black/30" />
         </section>
 
-        <section id="mystable" className="px-6 pb-24 pt-24 text-center sm:px-12 md:px-24">
+        <section id="mystable" className="px-6 py-48 text-center sm:px-12 md:px-24 lg:px-32 xl:px-48 m-0 p-0 border-none mx-auto max-w-7xl">
           <div className="space-y-6">
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
               MyStable
             </span>
-            <h2 className="text-4xl font-semibold uppercase text-transparent sm:text-5xl">
+            <h2 className="text-4xl font-semibold uppercase text-white sm:text-5xl">
               <span className="bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300 bg-clip-text text-transparent">
                 MyStable
               </span>
@@ -312,7 +310,7 @@ export default function Home() {
                 Everything You Need, In One Stable Place
               </span>
             </h2>
-            <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-300">
+            <p className="max-w-2xl text-base leading-relaxed text-gray-300 mx-auto">
               Manage your ownership, monitor your assets, stay connected. Simple, secure, and all in one spot.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

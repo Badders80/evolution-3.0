@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className="dark">
-        <body className={`${inter.className} min-h-screen antialiased bg-background text-foreground`}>
+        <body className={`${inter.className} min-h-screen antialiased bg-black text-foreground`}>
           <NavBar />
           {children}
         </body>

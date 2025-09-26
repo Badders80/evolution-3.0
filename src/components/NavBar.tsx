@@ -11,7 +11,6 @@ const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Innovation', href: '#innovation' },
   { label: 'Marketplace', href: '/marketplace' },
-  { label: 'MyStable', href: '#stable' },
 ];
 
 export function NavBar() {

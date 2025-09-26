@@ -16,13 +16,13 @@ type FixedBgProps = {
  */
 export function FixedBg({ src, height = 'h-[60vh]', overlay = 'from-black/20 to-black/40', className = '' }: FixedBgProps) {
   return (
-    <div className={`relative w-screen left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] ${className}`}>
+    <div className={`relative w-full m-0 p-0 border-none ${className}`}>
       <div
-        className={`relative ${height} bg-center bg-cover bg-no-repeat bg-scroll md:bg-fixed`}
+        className={`relative ${height} bg-center bg-cover bg-no-repeat bg-scroll md:bg-fixed m-0 p-0 border-none`}
         style={{ backgroundImage: `url(${src})` }}
         aria-hidden
       >
-        <div className={`absolute inset-0 pointer-events-none bg-gradient-to-b ${overlay}`} />
+        <div className={`absolute inset-0 pointer-events-none bg-gradient-to-b ${overlay} m-0 p-0 border-none`} />
       </div>
     </div>
   );

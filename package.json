@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.32.2",
+    "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.30",

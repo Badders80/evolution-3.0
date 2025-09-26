@@ -2,12 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font Definitions */
+@font-face {
+  font-family: 'GeistMono';
+  src: url('/fonts/GeistMono.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UniversalSans';
+  src: url('/fonts/UniversalSans.woff2') format('woff2');
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Custom Properties */
 :root {
+  --font-heading: 'UniversalSans', system-ui, sans-serif;
+  --font-body: 'UniversalSans', system-ui, sans-serif;
+  --font-mono: 'GeistMono', monospace;
   color-scheme: dark;
 }
 
 body {
-  @apply bg-background text-foreground font-sans antialiased;
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-body);
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* prevent horizontal scroll from full-bleed elements */

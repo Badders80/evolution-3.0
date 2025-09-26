@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -12,20 +14,20 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: [
-          'system-ui',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'Arial',
-          'Noto Sans',
-          'Apple Color Emoji',
-          'Segoe UI Emoji',
-          'Segoe UI Symbol',
-          'sans-serif',
-        ],
+        sans: ['var(--font-body)', ...fontFamily.sans],
+        heading: ['var(--font-heading)', ...fontFamily.sans],
+        mono: ['var(--font-mono)', ...fontFamily.mono],
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#e5e7eb',
+            h1: { fontFamily: 'var(--font-heading)', fontWeight: '600' },
+            h2: { fontFamily: 'var(--font-heading)', fontWeight: '600' },
+            h3: { fontFamily: 'var(--font-heading)', fontWeight: '500' },
+            p: { fontFamily: 'var(--font-body)' },
+          }
+        }
       },
       borderRadius: {
         sm: '6px',
@@ -54,5 +56,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

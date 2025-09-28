@@ -60,7 +60,7 @@ const faqItems = [
   {
     question: 'How is Evolution Stables different?',
     answer:
-      "We're the home of digital-syndication — combining industry knowledge with a financial-grade platform to lower barriers and grow racing for the next generation.",
+      "We&apos;re the home of digital-syndication — combining industry knowledge with a financial-grade platform to lower barriers and grow racing for the next generation.",
   },
 ];
 
@@ -82,15 +82,13 @@ export default function Home() {
             </p>
 
             {/* Headline */}
-            <h2 className="text-4xl font-bold mb-6">
-              Ownership
-              <br />
-              Re-Imagined
+            <h2 className="text-4xl font-medium mb-6">
+              OWN THE EXPERIENCE
             </h2>
 
             {/* Lead Paragraph */}
             <p className="text-lg leading-relaxed text-gray-300 max-w-3xl">
-              Traditional racehorse ownership — limited and complex, but that's about to change. Evolution Stables removes the barriers, making ownership accessible and flexible for everyone—empowering first-time fans and seasoned pros alike to own the track.
+              Racehorse ownership has always been limited and complex. Evolution Stables is here to change that. Removing barriers—delivering access to first-time fans and seasoned owners alike to not just participate, but own the thrill of thoroughbred horse racing.
             </p>
 
             {/* CTA Button */}
@@ -121,13 +119,11 @@ export default function Home() {
             </p>
 
             {/* Headline */}
-            <h2 className="text-4xl font-bold mb-6">
-              The <span className="text-brand-gold">Evolution</span> Way
+            <h2 className="text-4xl font-medium mb-6">
+              Our <span className="text-brand-gold">Promise</span>: How It Works
             </h2>
-
-            {/* Lead Paragraph */}
-            <p className="text-lg leading-relaxed text-gray-300 max-w-3xl">
-              Our digital-syndication model unlocks value for all in thoroughbred racing.
+            <p className="text-lg leading-relaxed text-gray-300 max-w-3xl mb-12">
+              Empowering every role in racing with transparent, flexible paths forward.
             </p>
           </div>
 
@@ -142,9 +138,10 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold">For Investors & Fans</h3>
+                  <h3 className="text-lg font-semibold"><span className="text-brand-gold">For</span> Investors & Fans</h3>
                   <p className="text-gray-400 leading-relaxed">
-                    Experience ownership without long-term commitments. Transparent costs, shared stakes, and community.
+                    Step into ownership without long-term commitments.<br />
+                    <span className="text-gray-300">Transparent costs, fractional stakes, and the genuine thrill of racing.</span>
                   </p>
                 </div>
               </div>
@@ -157,9 +154,10 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold">For Breeders & Syndicators</h3>
+                  <h3 className="text-lg font-semibold"><span className="text-brand-gold">For</span> Breeders & Syndicators</h3>
                   <p className="text-gray-400 leading-relaxed">
-                    Unlock new income streams with flexible terms while keeping control of your ownership.
+                    Unlock new income streams on your terms—flexible structures while retaining control.<br />
+                    <span className="text-gray-300">Access a fresh market of passionate investors.</span>
                   </p>
                 </div>
               </div>
@@ -172,9 +170,9 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V9.75M9 21h6m-6-4h6m-6-4h6" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold">For Clubs & Organisations</h3>
+                  <h3 className="text-lg font-semibold"><span className="text-brand-gold">For</span> Clubs & Organisations</h3>
                   <p className="text-gray-400 leading-relaxed">
-                    Futureproof racing through inclusivity, participation, and new revenue models.
+                    Future-proof racing by welcoming broader audiences, fostering participation, and unlocking sustainable revenue pathways.
                   </p>
                 </div>
               </div>
@@ -199,13 +197,13 @@ export default function Home() {
                 </p>
 
                 {/* Headline */}
-                <h2 className="text-4xl font-bold">
+                <h2 className="text-4xl font-medium">
                   Digital <span className="text-brand-gold">Syndication</span>
                 </h2>
 
                 {/* Lead Paragraph */}
                 <p className="text-lg leading-relaxed text-gray-300">
-                  Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn't here to replace it — but to evolve it.
+                  Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn&apos;t here to replace it — but to evolve it.
                 </p>
               </div>
 
@@ -215,43 +213,46 @@ export default function Home() {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <svg className="h-12 w-12 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <svg className="h-12 w-12 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth={0.75} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                       </svg>
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-2">Increased Access</h4>
-                      <p className="text-gray-400 leading-relaxed">
-                        A digital platform that lowers barriers and opens ownership to everyone.
+                      <p className="text-gray-400 leading-relaxed max-w-[42ch]">
+                        <span className="block">A digital platform that lowers barriers and</span>
+                        <span className="block">opens ownership to everyone.</span>
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <svg className="h-12 w-12 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <svg className="h-12 w-12 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth={0.75} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-2">Greater Transparency</h4>
-                      <p className="text-gray-400 leading-relaxed">
-                        Real-time performance, clear costs, and open communication.
+                      <p className="text-gray-400 leading-relaxed max-w-[42ch]">
+                        <span className="block">Real-time performance, clear costs, and</span>
+                        <span className="block">open communication.</span>
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <svg className="h-12 w-12 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <svg className="h-12 w-12 text-gray-500 mt-1" fill="none" stroke="currentColor" strokeWidth={0.75} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
                       </svg>
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-2">Borderless Flexibility</h4>
-                      <p className="text-gray-400 leading-relaxed">
-                        Fractional shares and short-term commitments for modern investors.
+                      <p className="text-gray-400 leading-relaxed max-w-[42ch]">
+                        <span className="block">Fractional shares and short-term</span>
+                        <span className="block">commitments for modern investors.</span>
                       </p>
                     </div>
                   </div>
@@ -269,17 +270,17 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-6">
             {/* Section Label */}
             <p className="text-sm tracking-widest text-gray-400 uppercase mb-4">
-              MARKETPLACE
+              REGULATED MARKETPLACE
             </p>
 
             {/* Headline */}
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl font-medium mb-6">
               Transformation Powered by <span className="text-brand-gold">Tokinvest</span>
             </h2>
 
             {/* Lead Paragraph */}
             <p className="text-lg leading-relaxed text-gray-300 max-w-3xl">
-              The Evolution Stables Marketplace is where digital-syndication comes alive — a seamless platform powered by Tokinvest's secure digital infrastructure.
+              The Evolution Stables Marketplace is where digital-syndication comes alive — a seamless platform powered by Tokinvest&apos;s secure, compliant, and globally scalable infrastructure.
             </p>
           </div>
 
@@ -311,7 +312,7 @@ export default function Home() {
                   </div>
                   <h4 className="text-lg font-semibold text-white">Trade with Confidence</h4>
                   <p className="text-gray-400 leading-relaxed">
-                    Tokinvest's regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
+                    Tokinvest&apos;s regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
                   </p>
                 </div>
               </div>
@@ -335,10 +336,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-0 md:px-0 m-0 p-0 border-none">
-          <FixedBg src="/images/Hooves-on-grass.png" height="h-[50vh]" overlay="from-black/10 to-black/30" />
-        </section>
-
         <section id="faq" className="py-48 bg-black text-white">
           <div className="max-w-5xl mx-auto px-6">
             {/* Section Label */}
@@ -347,13 +344,13 @@ export default function Home() {
             </p>
 
             {/* Headline */}
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl font-medium mb-6">
               Frequently Asked Questions
             </h2>
 
             {/* Lead Paragraph */}
             <p className="text-lg leading-relaxed text-gray-300 max-w-3xl mx-auto">
-              Got questions about digital racehorse ownership? We've got answers. Our comprehensive FAQ covers everything from getting started to managing your stable.
+              Got questions about digital racehorse ownership? We&apos;ve got answers. Our comprehensive FAQ covers everything from getting started to managing your stable.
             </p>
           </div>
 

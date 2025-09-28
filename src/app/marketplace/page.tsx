@@ -1,9 +1,8 @@
-import React from 'react';
 'use client';
 
-import { UserButton, useUser } from '@clerk/nextjs';
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
 
 export default function MarketplacePage() {
   const { isLoaded, isSignedIn } = useUser();
@@ -51,7 +50,7 @@ export default function MarketplacePage() {
       <div className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold mb-6">Ownership Dashboard</h2>
+            <h2 className="text-4xl font-medium mb-6">Ownership Dashboard</h2>
             <p className="text-gray-300 mb-8 text-lg">
               Manage your digital assets and track your portfolio in one place.
               More features coming soon.
@@ -75,7 +74,7 @@ export default function MarketplacePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
               <div>
-                <h3 className="text-2xl font-bold mb-2">Information Hub</h3>
+                <h3 className="text-2xl font-medium mb-2">Information Hub</h3>
                 <p className="text-gray-300">Stay updated with the latest news and updates</p>
               </div>
             </div>

@@ -30,14 +30,13 @@ export function Section({
   return (
     <div className={clsx('grid gap-8 md:gap-12', reverse ? 'md:grid-cols-2' : 'md:grid-cols-2', className)}>
       <div className={clsx('flex flex-col justify-center', reverse ? 'md:order-2' : '')}>
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-3xl font-medium tracking-tight text-gray-900 sm:text-4xl">
           {title}
         </h2>
         <div className="mt-6 text-lg text-gray-600">
           {body}
         </div>
       </div>
-      
       {imageSrc && (
         <div className={clsx('relative', aspectRatioClass, reverse ? 'md:order-1' : '')}>
           <Image

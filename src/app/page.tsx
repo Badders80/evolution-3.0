@@ -1,42 +1,25 @@
 'use client';
 
+import React from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FixedBg } from '@/components/ui/FixedBg';
-import { HeroSection } from '@/components/site/HeroSection';
 import { Footer } from '@/components/site/Footer';
 import { SplitFaq } from '@/components/ui/SplitFaq';
 import { Button } from '@/components/ui/Button';
-import { motion } from 'framer-motion';
+import { SectionCard } from '@/components/SectionCard';
+import dynamic from 'next/dynamic';
 
-const innovationPanels = [
-  {
-    title: 'For Owners',
-    body: [
-      "Generate reliable income while keeping full control over your horse's future.",
-      'Tailor lease or syndication terms to fit your model, creating stability and long-term value.',
-    ],
-  },
-  {
-    title: 'For Investors',
-    body: [
-      'Enjoy the thrill of ownership with the flexibility to choose your level of involvement.',
-      'Buy in with transparent terms, share in race performance, and connect with the racing community without traditional barriers.',
-    ],
-  },
-  {
-    title: 'For the Industry',
-    body: [
-      'Drive greater participation and engagement by opening the doors to new investors.',
-      'More owners, more energy, and more investment build a stronger, sustainable future for racing.',
-    ],
-  },
-];
+// Dynamically import HeroSection with SSR disabled
+const HeroSection = dynamic(
+  () => import('@/components/site/HeroSection').then(mod => mod.HeroSection),
+  { ssr: false }
+);
 
 const faqItems = [
   {
     question: 'What do investors or racing fans get out of it?',
-    answer:
-      'The thrill of ownership without long-term commitments. Transparent costs, flexible stakes, and real participation.',
+    answer: 'The thrill of ownership without long-term commitments. Transparent costs, flexible stakes, and real participation.'
   },
   {
     question: "What's in it for owners, syndicators, or breeders?",
@@ -64,14 +47,18 @@ const faqItems = [
   },
 ];
 
-export default function Home() {
+const Home = () => {
   const scrollToId = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <main className="text-gray-100">
-      <div className="w-full bg-black px-0 shadow-[0_0_80px_rgba(0,0,0,0.35)] m-0 p-0 border-none max-w-none">
+    <div className="min-h-screen">
+      <main className="text-gray-100">
+        <div className="w-full bg-black px-0 shadow-[0_0_80px_rgba(0,0,0,0.35)] m-0 p-0 border-none max-w-none">
         <HeroSection />
 
         <section id="mission" className="py-48 bg-black text-white">
@@ -130,50 +117,67 @@ export default function Home() {
           {/* Grid */}
           <div className="max-w-5xl mx-auto px-6 mt-20">
             <div className="grid gap-12 md:grid-cols-3">
-              <div className="flex flex-col gap-4 relative">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-700 h-full"></div>
-                <div className="pl-6">
-                  <div className="mb-4">
-                    <svg className="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-semibold"><span className="text-brand-gold">For</span> Investors & Fans</h3>
-                  <p className="text-gray-400 leading-relaxed">
+              {/* Investors & Fans */}
+              <SectionCard
+                title="Investors & Fans"
+                description={
+                  <>
                     Step into ownership without long-term commitments.<br />
-                    <span className="text-gray-300">Transparent costs, fractional stakes, and the genuine thrill of racing.</span>
+                    <span className="group-hover:text-gray-200 transition-colors duration-300">
+                      Transparent costs, fractional stakes, and the genuine thrill of racing.
+                    </span>
+                  </>
+                }
+                imageSrc="/images/Untitled design (8).svg"
+                imageAlt="Investors & Fans"
+              />
+
+              {/* Breeders & Syndicators */}
+              <div className="flex flex-col relative group p-6 rounded-lg">
+                <div className="absolute left-0 -top-5 -bottom-5 w-[1px] bg-gradient-to-b from-transparent via-gray-600 to-transparent group-hover:via-brand-gold group-hover:shadow-[0_0_8px_1px_rgba(210,179,103,0.3)] transition-all duration-300"></div>
+                <div className="pl-6 transform group-hover:scale-105 transition-transform duration-300 ease-in-out origin-top-left">
+                  <h3 className="text-lg font-medium text-white mb-4">
+                    <span className="text-brand-gold">For</span> <span className="group-hover:text-brand-gold transition-colors duration-300">Breeders & Syndicators</span>
+                  </h3>
+                  <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed mb-6 transition-all duration-300">
+                    <span className="group-hover:text-gray-200 transition-colors duration-300">Unlock new income streams on your terms—flexible structures while retaining control. Access a fresh market of passionate investors.</span>
                   </p>
+                  <div className="mt-8 w-[80%] mx-auto transform group-hover:scale-105 transition-transform duration-300 ease-in-out">
+                    <div className="relative overflow-hidden rounded-lg group/image-container">
+                      <img 
+                        src="/images/Untitled design (16).svg" 
+                        alt="Breeders & Syndicators"
+                        className="w-full h-auto filter grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out transform group-hover:scale-105"
+                      />
+                      {/* Pulsing ripple effect */}
+                      <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-brand-gold/3 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-ripple transition-all duration-700"></div>
+                      </div>
+                      
+                      {/* Shimmer effect */}
+                      <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute -inset-y-full -left-full w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent transform rotate-45 opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-all duration-700"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-4 relative">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-700 h-full"></div>
+              {/* Clubs & Organisations */}
+              <div className="flex flex-col relative group">
+                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-gray-800"></div>
                 <div className="pl-6">
-                  <div className="mb-4">
-                    <svg className="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-semibold"><span className="text-brand-gold">For</span> Breeders & Syndicators</h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Unlock new income streams on your terms—flexible structures while retaining control.<br />
-                    <span className="text-gray-300">Access a fresh market of passionate investors.</span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4 relative">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-700 h-full"></div>
-                <div className="pl-6">
-                  <div className="mb-4">
-                    <svg className="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V9.75M9 21h6m-6-4h6m-6-4h6" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-semibold"><span className="text-brand-gold">For</span> Clubs & Organisations</h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <h3 className="text-lg font-medium text-white mb-4"><span className="text-brand-gold">For</span> Clubs & Organisations</h3>
+                  <p className="text-gray-400 leading-relaxed mb-6">
                     Future-proof racing by welcoming broader audiences, fostering participation, and unlocking sustainable revenue pathways.
                   </p>
+                  <div className="mt-8 w-full pr-6">
+                    <img 
+                      src="/images/Untitled design (19).svg" 
+                      alt="Clubs & Organisations"
+                      className="w-full max-w-[200px] h-auto"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -288,7 +292,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-6 mt-20">
             <div className="grid gap-12 md:grid-cols-3">
               <div className="flex flex-col gap-4 relative">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-700 h-full"></div>
+                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-gray-800"></div>
                 <div className="pl-6">
                   <div className="mb-4">
                     <svg className="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -303,7 +307,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col gap-4 relative">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-700 h-full"></div>
+                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-gray-800"></div>
                 <div className="pl-6">
                   <div className="mb-4">
                     <svg className="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -318,7 +322,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col gap-4 relative">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-700 h-full"></div>
+                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-gray-800"></div>
                 <div className="pl-6">
                   <div className="mb-4">
                     <svg className="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -359,9 +363,10 @@ export default function Home() {
             <SplitFaq items={faqItems} className="mx-auto max-w-4xl" />
           </div>
         </section>
-
-        <Footer />
-      </div>
-    </main>
+        </div>
+      </main>
+    </div>
   );
-}
+};
+
+export default Home;

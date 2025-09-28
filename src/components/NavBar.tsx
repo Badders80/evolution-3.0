@@ -8,8 +8,9 @@ import { useUser, useClerk, SignInButton, SignUpButton, SignOutButton } from '@c
 
 const navLinks = [
   { label: 'Mission', href: '#mission' },
+  { label: 'About', href: '#evolution-way' },
   { label: 'Model', href: '#digital-syndication' },
-  { label: 'Marketplace', href: '#marketplace' },
+  { label: 'Marketplace', href: '/marketplace' },
 ];
 
 export function NavBar() {

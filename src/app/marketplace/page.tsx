@@ -68,7 +68,7 @@ export default function MarketplacePage() {
           </div>
           <div className="relative rounded-xl overflow-hidden">
             <img 
-              src="/images/Gemini_Generated_Image_r4hnnzr4hnnzr4.jpg" 
+              src="/images/Gemini_Generated_Image_r4hnnzr4hnnzr4hn.jpg" 
               alt="Digital Ownership"
               className="w-full h-auto rounded-xl"
             />

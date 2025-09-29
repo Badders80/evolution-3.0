@@ -55,18 +55,17 @@ This project includes Storybook for component development and testing:
 
 ```
 src/
-├── app/                 # Next.js app router pages
-├── components/          # Reusable UI components
-│   ├── ui/             # Basic UI components (Button, Card, etc.)
-│   ├── layout/         # Layout components
-│   ├── site/           # Site-specific components
-│   ├── marketing/      # Marketing components
-│   ├── media/          # Media components
-│   └── icons/          # Icon components
-├── content/            # Static content (JSON)
-├── lib/                # Utility libraries
-│   └── api/           # API integration layer
-└── styles/            # Global styles and themes
+|-- app/                 # Next.js app router pages
+|-- components/          # Reusable UI components
+|   |-- ui/             # Basic UI components (Button, Card, etc.)
+|   |-- layout/         # Layout components
+|   |-- site/           # Site-specific components
+|   |-- marketing/      # Marketing components
+|   |-- media/          # Media components
+|   `-- icons/          # Icon components
+|-- lib/                # Utility libraries
+|   `-- api/            # API integration layer
+`-- styles/             # Global styles and themes
 ```
 
 ## Components
@@ -80,7 +79,6 @@ src/
 - `NavBar` - Navigation bar
 - `Footer` - Site footer
 - `SectionShell` - Section wrapper
-- `NavFadeIn` - Animated navigation wrapper
 
 ### Site Components
 - `Section` - Content section with image
@@ -89,7 +87,7 @@ src/
 
 ## Development
 
-To add new images, place them in the `public/images/content/` directory and update the asset references in `src/lib/assets.ts`.
+To add new images, place them in the `public/images/` directory and update the asset references in `src/lib/assets.ts`.
 
 ## Build and Deploy
 

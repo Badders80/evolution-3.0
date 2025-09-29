@@ -7,10 +7,11 @@ import { LOGOS } from '@/lib/assets';
 import { useUser, useClerk, SignInButton, SignUpButton, SignOutButton } from '@clerk/nextjs';
 
 const navLinks = [
-  { label: 'Mission', href: '#mission' },
-  { label: 'About', href: '#evolution-way' },
-  { label: 'Model', href: '#digital-syndication' },
+  { label: 'About', href: '#about' },
+  { label: 'Our Mission', href: '#mission' },
+  { label: 'Our Model', href: '#digital-syndication' },
   { label: 'Marketplace', href: '/marketplace' },
+  { label: 'FAQ', href: '#faq' },
 ];
 
 export function NavBar() {

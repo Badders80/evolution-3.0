@@ -1,122 +1,127 @@
 import React from 'react';
+import Image from 'next/image';
 
-interface SectionCardProps {
-  title: string;
+interface SectionCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+  title: React.ReactNode;
   description: string | React.ReactNode;
-  imageSrc: string;
-  imageAlt: string;
+  imageSrc?: string;
+  hoverImageSrc?: string;
+  imageAlt?: string;
   children?: React.ReactNode;
 }
 
-export const SectionCard: React.FC<SectionCardProps> = ({
+export const SectionCard: React.FC<SectionCardProps> = ({ className = '',
   title,
   description,
   imageSrc,
-  imageAlt,
+  hoverImageSrc = imageSrc?.replace('30', '32').replace('31', '32').replace('29', '32'),
+  imageAlt = '',
   children,
 }) => {
+  const resolvedAlt = imageAlt || '';
+  const hasHoverImage = hoverImageSrc && hoverImageSrc !== imageSrc;
+  
   return (
-    <div className="flex flex-col relative group p-6 rounded-lg">
-      <div className="absolute left-0 -top-5 -bottom-5 w-[1px] bg-gradient-to-b from-transparent via-gray-600 to-transparent group-hover:via-brand-gold group-hover:shadow-[0_0_8px_1px_rgba(210,179,103,0.3)] transition-all duration-300"></div>
-      <div className="pl-6 transform group-hover:scale-105 transition-transform duration-300 ease-in-out origin-top-left">
-        <h3 className="text-lg font-medium text-white mb-4">
-          <span className="text-brand-gold">For</span>{' '}
-          <span className="relative inline-block group/heading">
-            <span className="relative z-10 whitespace-nowrap">
-              {title.split('').map((char, i) => (
-                <span 
-                  key={i}
-                  className="inline-block transition-all duration-200 group-hover:text-brand-gold"
-                  style={{
-                    transitionProperty: 'color',
-                    transitionDuration: '0.2s',
-                    transitionDelay: `calc(var(--is-hover, 0) * ${i * 0.03}s + var(--is-leaving, 0) * ${(10 - i) * 0.02}s)`,
-                    transform: 'translateZ(0)'
-                  }}
-                >
-                  {char}
-                </span>
-              ))}
-            </span>
-          </span>
-        </h3>
-        <p className="text-gray-400 group-hover:text-gray-200 leading-relaxed mb-6 transition-all duration-300">
-          {description}
-        </p>
-        <div className="mt-8 w-[80%] mx-auto">
+    <div 
+      className={`flex flex-col h-full relative ${className}`}
+      style={{ willChange: 'transform, opacity' }}
+    >
+      {/* Vertical line with hover effects */}
+      <div 
+        className="absolute -left-6 -top-24 -bottom-24 w-px bg-gradient-to-b from-transparent via-gray-600 via-20% to-transparent 
+                 transition-all duration-300 group-hover:via-brand-gold group-hover:shadow-[0_0_25px_rgba(212,175,55,1)] 
+                 group-hover:shadow-brand-gold/80 group-hover:scale-x-200 origin-center overflow-visible"
+        style={{ willChange: 'transform, box-shadow' }}
+      >
+        {/* Horizontal pulse line */}
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-gold/0 via-brand-gold/100 to-brand-gold/0 opacity-0 
+                    group-hover:opacity-100 transition-opacity duration-300">
           <div 
-            className="relative overflow-hidden rounded-lg group/image-container transform transition-all duration-500 ease-out hover:rotate-0 hover:scale-105" 
+            className="absolute inset-y-1/2 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"
             style={{
-              transform: 'perspective(1000px) rotateX(3deg) rotateY(-2deg)',
-              boxShadow: '8px 8px 16px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(255, 255, 255, 0.05)'
+              boxShadow: '0 0 15px 2px rgba(255,255,255,0.8)',
+              maskImage: 'linear-gradient(90deg, transparent 0%, white 15%, white 85%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, white 15%, white 85%, transparent 100%)',
+              willChange: 'opacity, transform'
             }}
-          >
-            <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src={imageSrc} 
-                alt={imageAlt}
-                className="w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105 border border-white/10"
-              />
-              {/* Subtle reflection effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none mix-blend-overlay"></div>
-              
-              {/* Pulsing ripple effect */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-brand-gold/10 to-transparent opacity-70 animate-ripple-slow transition-all duration-700"></div>
-              </div>
-              
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -inset-y-full -left-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent transform rotate-45 animate-shimmer-slow transition-all duration-700"></div>
-              </div>
-            </div>
+          />
+        </div>
+        
+        {/* Vertical bolt with tapered ends */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-brand-gold/0 via-brand-gold/100 to-brand-gold/0 
+                   opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            maskImage: 'linear-gradient(to bottom, transparent 0%, white 15%, white 85%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, white 15%, white 85%, transparent 100%)'
+          }}
+        >
+          <div 
+            className="absolute inset-y-1/2 left-1/2 w-1 h-0 bg-gradient-to-b from-transparent via-white to-transparent 
+                      group-hover:h-full group-hover:inset-y-0 transition-all duration-700 ease-out"
+            style={{
+              transform: 'translateX(-50%)',
+              boxShadow: '0 0 20px 2px rgba(255,255,255,0.9)',
+              maskImage: 'linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%)',
+              willChange: 'height, transform, opacity'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="pl-6 flex flex-col h-full">
+        <div>
+          <div className="mb-1">
+            <span className="text-brand-gold group-hover:text-brand-gold text-sm font-bold tracking-wider">
+              FOR
+            </span>
+          </div>
+          <h3 className="text-lg font-medium text-white group-hover:text-brand-gold mb-4 uppercase transition-colors duration-300">
+            {title}
+          </h3>
+          <div className="leading-relaxed mb-6 text-gray-400 group-hover:text-white transition-colors duration-300">
+            {description}
           </div>
         </div>
-        {children}
+        
+        {/* Image Container */}
+        <div className="mt-auto">
+          {imageSrc && (
+            <div 
+              className="mt-6 w-[60%] mx-auto transform group-hover:scale-120 transition-transform duration-300"
+              style={{ willChange: 'transform' }}
+            >
+              <div className="relative overflow-hidden rounded-lg border border-white/10 group-hover:border-brand-gold/30 transition-all duration-300">
+                <div className="relative w-full aspect-square">
+                  <Image
+                    src={imageSrc}
+                    alt={resolvedAlt}
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-contain transition-all duration-300 ease-out brightness-75 group-hover:opacity-0 group-hover:brightness-100"
+                    priority={false}
+                    loading="lazy"
+                  />
+                  {hasHoverImage && (
+                    <Image
+                      src={hoverImageSrc}
+                      alt={resolvedAlt}
+                      width={200}
+                      height={200}
+                      className="absolute inset-0 w-full h-full object-contain transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 brightness-100"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black/50 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-300" />
+                </div>
+              </div>
+            </div>
+          )}
+          {children}
+        </div>
       </div>
     </div>
   );
 };
-
-// Animation styles that should be added to your global CSS or styles
-const animationStyles = `
-  @keyframes ripple-slow {
-    0%, 100% {
-      transform: scale(0.98);
-      opacity: 0.5;
-    }
-    50% {
-      transform: scale(1.02);
-      opacity: 0.7;
-    }
-  }
-  @keyframes shimmer-slow {
-    0% {
-      left: -100%;
-    }
-    100% {
-      left: 200%;
-    }
-  }
-  .animate-ripple-slow {
-    animation: ripple-slow 8s ease-in-out infinite;
-  }
-  .animate-shimmer-slow {
-    animation: shimmer-slow 8s ease-in-out infinite;
-  }
-  .group\/heading:hover span {
-    --is-hover: 1;
-    --is-leaving: 0;
-  }
-  .group\/heading:not(:hover) span {
-    --is-hover: 0;
-    --is-leaving: 1;
-  }
-`;
-
-// Add the styles to the head
-if (typeof document !== 'undefined') {
-  const style = document.createElement('style');
-  style.innerHTML = animationStyles;
-  document.head.appendChild(style);
-}

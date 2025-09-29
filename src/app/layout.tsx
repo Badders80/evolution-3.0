@@ -25,8 +25,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className="dark">
         <body className="min-h-screen bg-background text-foreground antialiased">
-          <NavBar />
           {children}
+          <NavBar />
         </body>
       </html>
     </ClerkProvider>

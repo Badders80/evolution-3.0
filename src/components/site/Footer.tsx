@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { WaveText } from '@/components/ui/WaveText';
 
 export function Footer() {
   return (
@@ -9,9 +10,21 @@ export function Footer() {
         {/* Hero Tagline - Centerpiece */}
         <div className="flex flex-col items-center justify-center text-center min-h-[40vh]">
           <div className="max-w-4xl space-y-8">
-            <h2 className="font-legacy text-xl md:text-2xl font-normal text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300 leading-relaxed">
-              Powered by <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-500 via-gray-600 to-gray-400">innovation</span>, driven by <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-500 via-gray-600 to-gray-400">passion</span>,<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300">digital-syndication</span>. <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300">Own the experience</span>.
+            <h2 className="font-legacy text-2xl md:text-3xl lg:text-4xl font-normal leading-tight">
+              <div className="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300">
+                Powered by <span className="font-medium">innovation</span>, driven by <span className="font-medium">passion</span>,
+              </div>
+              <div className="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300">
+                <span className="mr-2">
+                  <WaveText 
+                    text="digital-syndication" 
+                    highlightWords={['digital-syndication']}
+                    className="inline"
+                    highlightColor="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300"
+                  />
+                </span>
+                Own the experience.
+              </div>
             </h2>
           </div>
         </div>

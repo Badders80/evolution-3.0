@@ -16,13 +16,13 @@ export function Accordion({ items, className = "" }: AccordionProps) {
       {items.map((item) => (
         <details
           key={item.question}
-          className="group border border-white/10 bg-black/60 px-6 py-4 transition hover:border-brand-gold/60"
+          className="group border border-border/60 bg-surface/60 px-6 py-4 transition hover:border-primary/60"
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold uppercase tracking-[0.3em] text-gray-200">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold uppercase tracking-[0.3em] text-foreground/80">
             <span>{item.question}</span>
-            <span className="text-brand-gold transition group-open:rotate-90">&rsaquo;</span>
+            <span className="text-primary transition group-open:rotate-90">&rsaquo;</span>
           </summary>
-          <div className="mt-3 text-sm leading-relaxed text-gray-300">
+          <div className="mt-3 text-sm leading-relaxed text-muted">
             {item.answer}
           </div>
         </details>
@@ -30,3 +30,4 @@ export function Accordion({ items, className = "" }: AccordionProps) {
     </div>
   );
 }
+

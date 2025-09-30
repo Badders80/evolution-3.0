@@ -19,6 +19,13 @@ const config: Config = {
         heading: ["var(--font-heading)", ...defaultTheme.fontFamily.sans],
         mono: ["var(--font-mono)", ...defaultTheme.fontFamily.mono],
       },
+      fontSize: {
+        hero: ["3.5rem", { lineHeight: "0.95", letterSpacing: "-0.015em" }],
+        section: ["2.25rem", { lineHeight: "1.05", letterSpacing: "-0.01em" }],
+        subheading: ["1.5rem", { lineHeight: "1.15", letterSpacing: "-0.005em" }],
+        body: ["1rem", { lineHeight: "1.6" }],
+        caption: ["0.875rem", { lineHeight: "1.4" }],
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -43,15 +50,21 @@ const config: Config = {
           white: "#ffffff",
           black: "#000000",
         },
-        evolution: {
-          gold: "#d4a964",
-          gray: "#747474",
-          white: "#ffffff",
-          black: "#000000",
+        primary: {
+          DEFAULT: "#d4a964",
+          foreground: "#111113",
+        },
+        accent: {
+          DEFAULT: "#f3d59f",
+          foreground: "#111113",
         },
         background: "#000000",
         surface: "#111113",
-        muted: "#9ca3af",
+        surfaceAlt: "#16161a",
+        muted: {
+          DEFAULT: "#9ca3af",
+          foreground: "#6b7280",
+        },
         border: "#27272a",
         foreground: "#e5e7eb",
       },

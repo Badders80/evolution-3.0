@@ -15,18 +15,31 @@ export const hero = MARKETING.band2;
 export const horseLegs = MARKETING.alt.hoovesOnGrass;
 
 export const LOGOS = {
+  // Main logos
   main: '/images/Evolution-Stables-Logo.svg',
   black: '/images/Evolution-Stables-Logo-Black.svg',
   white: '/images/Evolution-Stables-Logo-White.svg',
+  
+  // Monochrome variants
   mono: {
     black: '/images/EvolutionStables-Mono-Black.svg',
     white: '/images/EvolutionStables-Mono-White.svg',
     gold: '/images/EvolutionStables-Mono-Gold.svg',
   },
+  
+  // Simple/icon versions
   simple: {
     black: '/images/Logo-Black.png',
     gold: '/images/Logo-Gold.png',
     grey: '/images/Logo-Grey.png',
+  },
+  
+  // Name logos (new)
+  name: {
+    black: '/images/Evolution-Stables-Name-Logo-Black.svg',
+    white: '/images/Evolution-Stables-Name-Logo-White.svg',
+    gold: '/images/Evolution-Stables-Name-Logo-Gold.svg',
+    grey: '/images/Evolution-Stables-Name-Logo-Grey.svg',
   },
 };
 

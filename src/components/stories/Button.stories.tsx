@@ -87,7 +87,7 @@ export const Large: Story = {
 export const EvolutionPrimary: Story = {
   args: {
     variant: 'primary',
-    className: 'bg-brand-gold text-brand-black hover:bg-yellow-400',
+    className: 'bg-primary text-primary-foreground hover:bg-primary/90',
     children: 'Join the Revolution',
   },
 };
@@ -95,7 +95,8 @@ export const EvolutionPrimary: Story = {
 export const EvolutionOutline: Story = {
   args: {
     variant: 'outline',
-    className: 'border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-black',
+    className: 'border-primary text-primary hover:bg-primary hover:text-primary-foreground',
     children: 'Explore Opportunities',
   },
 };
+

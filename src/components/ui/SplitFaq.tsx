@@ -37,14 +37,14 @@ export function SplitFaq({ items, className = "" }: SplitFaqProps) {
               aria-controls={contentId}
               onClick={() => setOpenIndex(isOpen ? null : index)}
               className={`group flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors ${
-                isOpen ? 'bg-white/5' : 'hover:bg-white/5'
+                isOpen ? 'bg-foreground/10' : 'hover:bg-foreground/10'
               }`}
             >
               <span className="flex-1 text-base md:text-lg font-medium leading-6 text-foreground">
                 {item.question}
               </span>
               <svg
-                className={`h-5 w-5 shrink-0 text-brand-gold transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+                className={`h-5 w-5 shrink-0 text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -76,7 +76,4 @@ export function SplitFaq({ items, className = "" }: SplitFaqProps) {
     </div>
   );
 }
-
-
-
 

@@ -12,12 +12,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={clsx(
-          'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+          'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50',
           {
-            'bg-brand-gold text-black hover:bg-brand-gold/90 focus-visible:ring-brand-gold': variant === 'primary',
-            'bg-surface text-foreground hover:bg-white/5 border border-border focus-visible:ring-brand-gold/40': variant === 'secondary',
-            'border border-brand-gold bg-transparent text-brand-gold hover:bg-brand-gold hover:text-black focus-visible:ring-brand-gold/60': variant === 'outline',
-            'text-foreground hover:bg-white/5 focus-visible:ring-brand-gold/30': variant === 'ghost',
+            'bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary': variant === 'primary',
+            'bg-surface text-foreground hover:bg-foreground/10 border border-border focus-visible:ring-primary/40': variant === 'secondary',
+            'border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/60': variant === 'outline',
+            'text-foreground hover:bg-foreground/5 focus-visible:ring-primary/30': variant === 'ghost',
           },
           {
             'h-8 px-3 text-sm': size === 'sm',
@@ -36,3 +36,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
+

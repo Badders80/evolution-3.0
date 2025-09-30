@@ -14,7 +14,7 @@ export function WaveText({
   text, 
   className = '', 
   highlightWords = [],
-  highlightColor = 'text-brand-gold'
+  highlightColor = 'text-primary'
 }: WaveTextProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const words = text.split(' ');
@@ -94,3 +94,4 @@ export function WaveText({
 }
 
 export default WaveText;
+

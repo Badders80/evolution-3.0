@@ -11,7 +11,7 @@ export default function TermsPage() {
         </p>
         <p className="text-gray-400">
           By using Evolution Stables digital products you agree to abide by all applicable regulations and our platform guidelines.
-          Contact <a href="mailto:alex@evolutionstables.nz" className="text-brand-gold">alex@evolutionstables.nz</a> with any questions.
+          Contact <a href="mailto:alex@evolutionstables.nz" className="text-primary">alex@evolutionstables.nz</a> with any questions.
         </p>
       </section>
       <Footer />

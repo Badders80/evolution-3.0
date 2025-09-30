@@ -24,9 +24,32 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className="dark">
+        <head>
+          <link
+            rel="preload"
+            href="/fonts/GeistSans-VF.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/GeistSans-VFItalic.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/GeistMono-VF.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        </head>
         <body className="min-h-screen bg-background text-foreground antialiased">
-          {children}
           <NavBar />
+          {children}
         </body>
       </html>
     </ClerkProvider>

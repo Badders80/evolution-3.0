@@ -50,7 +50,7 @@ export function AnimatedText({ text, className = '', delay = 0 }: AnimatedTextPr
               key={`${wordIndex}-${charIndex}`}
               className={`inline-block ${
                 (text.includes('innovation') || text.includes('passion') || text.includes('digital-syndication')) 
-                  ? 'text-brand-gold' 
+                  ? 'text-primary' 
                   : 'text-white'
               }`}
               animate={isAnimating ? {

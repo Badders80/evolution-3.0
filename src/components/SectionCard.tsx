@@ -28,13 +28,11 @@ export const SectionCard: React.FC<SectionCardProps> = ({ className = '',
     >
       {/* Vertical line with hover effects */}
       <div 
-        className="absolute -left-6 -top-24 -bottom-24 w-px bg-gradient-to-b from-transparent via-gray-600 via-20% to-transparent 
-                 transition-all duration-300 group-hover:via-brand-gold group-hover:shadow-[0_0_25px_rgba(212,175,55,1)] 
-                 group-hover:shadow-brand-gold/80 group-hover:scale-x-200 origin-center overflow-visible"
+        className="absolute -left-6 -top-24 -bottom-24 w-px bg-gradient-to-b from-transparent via-muted/60 to-transparent transition-all duration-300 origin-center overflow-visible group-hover:via-primary group-hover:shadow-[0_0_25px_rgba(212,169,100,0.65)] group-hover:scale-x-[1.6]"
         style={{ willChange: 'transform, box-shadow' }}
       >
         {/* Horizontal pulse line */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-gold/0 via-brand-gold/100 to-brand-gold/0 opacity-0 
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/100 to-primary/0 opacity-0 
                     group-hover:opacity-100 transition-opacity duration-300">
           <div 
             className="absolute inset-y-1/2 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"
@@ -49,7 +47,7 @@ export const SectionCard: React.FC<SectionCardProps> = ({ className = '',
         
         {/* Vertical bolt with tapered ends */}
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-brand-gold/0 via-brand-gold/100 to-brand-gold/0 
+          className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/100 to-primary/0 
                    opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{
             maskImage: 'linear-gradient(to bottom, transparent 0%, white 15%, white 85%, transparent 100%)',
@@ -74,14 +72,14 @@ export const SectionCard: React.FC<SectionCardProps> = ({ className = '',
       <div className="pl-6 flex flex-col h-full">
         <div>
           <div className="mb-1">
-            <span className="text-brand-gold group-hover:text-brand-gold text-sm font-bold tracking-wider">
+            <span className="text-primary group-hover:text-primary text-sm font-bold tracking-wider">
               FOR
             </span>
           </div>
-          <h3 className="text-lg font-medium text-white group-hover:text-brand-gold mb-4 uppercase transition-colors duration-300">
+          <h3 className="text-subheading font-medium text-foreground group-hover:text-primary mb-4 uppercase transition-colors duration-300">
             {title}
           </h3>
-          <div className="leading-relaxed mb-6 text-gray-400 group-hover:text-white transition-colors duration-300">
+          <div className="leading-relaxed mb-6 text-muted group-hover:text-foreground transition-colors duration-300">
             {description}
           </div>
         </div>
@@ -90,10 +88,10 @@ export const SectionCard: React.FC<SectionCardProps> = ({ className = '',
         <div className="mt-auto">
           {imageSrc && (
             <div 
-              className="mt-6 w-[60%] mx-auto transform group-hover:scale-120 transition-transform duration-300"
+              className="mt-6 w-[60%] mx-auto transform group-hover:scale-[1.2] transition-transform duration-300"
               style={{ willChange: 'transform' }}
             >
-              <div className="relative overflow-hidden rounded-lg border border-white/10 group-hover:border-brand-gold/30 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-lg border border-foreground/10 group-hover:border-primary/30 transition-all duration-300">
                 <div className="relative w-full aspect-square">
                   <Image
                     src={imageSrc}
@@ -114,7 +112,7 @@ export const SectionCard: React.FC<SectionCardProps> = ({ className = '',
                       loading="lazy"
                     />
                   )}
-                  <div className="absolute inset-0 bg-black/50 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-background/50 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-300" />
                 </div>
               </div>
             </div>
@@ -125,3 +123,4 @@ export const SectionCard: React.FC<SectionCardProps> = ({ className = '',
     </div>
   );
 };
+

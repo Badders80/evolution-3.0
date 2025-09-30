@@ -62,7 +62,7 @@ export function HeroSection({
           intensity={shouldFixBackground ? 0 : 30}
         />
         {overlay && (
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/80 to-background/95" />
         )}
       </motion.div>
 
@@ -89,7 +89,7 @@ export function HeroSection({
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="w-full max-w-[720px] mt-8 text-sm font-medium uppercase tracking-[0.35em] text-gray-300"
+          className="eyebrow mt-8 max-w-[720px] font-medium"
         >
           Ownership re-imagined for a new generation<br />
           of race-goers.
@@ -98,3 +98,4 @@ export function HeroSection({
     </section>
   );
 }
+

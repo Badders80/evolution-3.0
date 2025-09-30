@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import FixedBg from "./FixedBg";
 
 type GrassBgProps = {
@@ -9,39 +9,32 @@ type GrassBgProps = {
   className?: string;
 };
 
-export function GrassBg({ 
-  src, 
-  height = 'h-[50vh]', 
-  className = '' 
+export function GrassBg({
+  src,
+  height = 'h-[50vh]',
+  className = '',
 }: GrassBgProps) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div 
-      className={`relative group ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <FixedBg 
-        src={src} 
-        height={height} 
-        overlay="from-black/10 to-black/40"
+    <div className={`relative group overflow-hidden ${className}`}>
+      <FixedBg
+        src={src}
+        height={height}
+        overlay="from-background/20 to-background/60"
       />
-      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${
-        isHovered ? 'opacity-100' : 'opacity-0'
-      }`}>
-        <div className="relative z-10 text-center p-6 max-w-2xl">
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 transform transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+      <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-700 opacity-95 group-hover:opacity-100">
+        <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/45 to-transparent pointer-events-none transition-opacity duration-700 group-hover:opacity-90" />
+        <div className="relative z-10 max-w-2xl p-6 text-center">
+          <h3 className="heading-lg md:text-4xl text-foreground mb-4 transition-transform duration-700 group-hover:-translate-y-1">
             Experience the Future of Horse Racing
           </h3>
-          <p className="text-gray-200 text-lg md:text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200">
+          <p className="body-text text-lg md:text-xl text-foreground/90 transition-colors duration-700 group-hover:text-foreground">
             Join the revolution in racehorse ownership today
           </p>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>
     </div>
   );
 }
 
 export default GrassBg;
+

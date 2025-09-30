@@ -11,7 +11,7 @@ export default function PrivacyPage() {
         </p>
         <p className="text-gray-400">
           We collect only the information necessary to provide Evolution Stables services and never sell personal data.
-          For detailed questions, contact <a href="mailto:alex@evolutionstables.nz" className="text-brand-gold">alex@evolutionstables.nz</a>.
+          For detailed questions, contact <a href="mailto:alex@evolutionstables.nz" className="text-primary">alex@evolutionstables.nz</a>.
         </p>
       </section>
       <Footer />

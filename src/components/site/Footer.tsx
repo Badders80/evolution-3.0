@@ -5,22 +5,22 @@ import { WaveText } from '@/components/ui/WaveText';
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-800/70 bg-black shadow-inner">
+    <footer className="border-t border-border/70 bg-background shadow-inner">
       <div className="mx-auto flex max-w-6xl flex-col gap-24 px-8 py-32 md:px-16">
         {/* Hero Tagline - Centerpiece */}
         <div className="flex flex-col items-center justify-center text-center min-h-[40vh]">
           <div className="max-w-4xl space-y-8">
-            <h2 className="font-legacy text-2xl md:text-3xl lg:text-4xl font-normal leading-tight">
-              <div className="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300">
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight">
+              <div className="text-transparent bg-clip-text bg-gradient-to-b from-muted/70 via-muted/90 to-foreground/80">
                 Powered by <span className="font-medium">innovation</span>, driven by <span className="font-medium">passion</span>,
               </div>
-              <div className="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300">
+              <div className="text-transparent bg-clip-text bg-gradient-to-b from-muted/70 via-muted/90 to-foreground/80">
                 <span className="mr-2">
                   <WaveText 
                     text="digital-syndication" 
                     highlightWords={['digital-syndication']}
                     className="inline"
-                    highlightColor="text-transparent bg-clip-text bg-gradient-to-b from-gray-400 via-gray-500 to-gray-300"
+                    highlightColor="text-transparent bg-clip-text bg-gradient-to-b from-muted/70 via-muted/90 to-foreground/80"
                   />
                 </span>
                 Own the experience.
@@ -30,7 +30,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Section - Brand & Legal */}
-        <div className="flex flex-col gap-12 pt-12 shadow-sm shadow-black/10">
+        <div className="flex flex-col gap-12 pt-12 shadow-sm shadow-background/10">
           <div className="flex flex-col gap-8 text-left">
             <div className="flex justify-start">
               <Image
@@ -41,16 +41,16 @@ export function Footer() {
                 className="h-12 w-auto object-contain grayscale"
               />
             </div>
-            <div className="border-t border-gray-800/60" />
+            <div className="border-t border-border/60" />
           </div>
 
-          <div className="flex flex-col gap-8 text-sm text-gray-500 md:grid md:grid-cols-3 md:items-center md:gap-8">
-            <div className="flex items-center justify-start gap-6 text-gray-500">
+          <div className="flex flex-col gap-8 text-sm text-muted md:grid md:grid-cols-3 md:items-center md:gap-8">
+            <div className="flex items-center justify-start gap-6 text-muted">
               <a
                 href="https://x.com/evostables"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 transition hover:text-gray-400 flex items-center"
+                className="text-muted transition hover:text-muted/80 flex items-center"
                 aria-label="Follow us on X"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ export function Footer() {
                 href="https://instagram.com/evostables"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 transition hover:text-gray-400 flex items-center"
+                className="text-muted transition hover:text-muted/80 flex items-center"
                 aria-label="Follow us on Instagram"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/alex-baddeley/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 transition hover:text-gray-400 flex items-center"
+                className="text-muted transition hover:text-muted/80 flex items-center"
                 aria-label="Connect on LinkedIn"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ export function Footer() {
               </a>
               <a
                 href="mailto:alex@evolutionstables.nz"
-                className="text-gray-500 transition hover:text-gray-400 flex items-center"
+                className="text-muted transition hover:text-muted/80 flex items-center"
                 aria-label="Send us an email"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -91,12 +91,12 @@ export function Footer() {
             </div>
 
             <div className="flex justify-center items-center">
-              <p className="text-gray-500 text-sm leading-tight">
+              <p className="text-muted text-sm leading-tight">
                 &copy; 2025 Evolution Stables.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-end gap-3 [&_a]:text-gray-500 [&_a:hover]:text-gray-400 [&_a]:transition-colors">
+            <div className="flex flex-wrap items-center justify-end gap-3 [&_a]:text-muted [&_a:hover]:text-muted/80 [&_a]:transition-colors">
               <Link href="/privacy" className="leading-tight">
                 Privacy Policy
               </Link>

@@ -48,12 +48,27 @@ export function ParallaxImage({
   scale = 1.05,
 }: ParallaxImageProps) {
   const ref = React.useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const { scrollYProgress } = useScroll({ 
+    target: ref, 
+    offset: ["start end", "end start"] 
+  });
+
+  // Only start parallax after scrolling 50% of the page
+  const delayedScrollProgress = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [0, 0, 1]
+  );
 
   // Map scroll progress to a y-translation range
-  const yRaw = useTransform(scrollYProgress, [0, 1], [intensity, -intensity]);
+  const yRaw = useTransform(delayedScrollProgress, [0, 1], [0, -intensity * 2]);
+  
   // Spring for smoothness
-  const y = useSpring(yRaw, { stiffness: 120, damping: 20, mass: 0.3 });
+  const y = useSpring(yRaw, { 
+    stiffness: 120, 
+    damping: 20, 
+    mass: 0.3 
+  });
 
   return (
     <div

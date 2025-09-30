@@ -4,31 +4,43 @@
 
 /* Font Definitions */
 @font-face {
-  font-family: 'GeistMono';
-  src: url('/fonts/GeistMono.woff2') format('woff2');
+  font-family: 'Geist Sans';
+  src: url('/fonts/GeistSans-VF.woff2') format('woff2-variations');
   font-weight: 100 900;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'LegacyGrotesk';
-  src: url('/fonts/SpaceGrotesk.woff2') format('woff2');
-  font-weight: 300 700;
+  font-family: 'Geist Sans';
+  src: url('/fonts/GeistSans-VFItalic.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-VF.woff2') format('woff2-variations');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 /* CSS Custom Properties */
 :root {
-  --font-heading: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'GeistMono', monospace;
+  --font-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-display: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'Roboto Mono', monospace;
   color-scheme: dark;
 }
 
 body {
   @apply bg-background text-foreground antialiased;
   font-family: var(--font-body);
+  font-variation-settings: 'opsz' 16;
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* prevent horizontal scroll from full-bleed elements */
@@ -41,30 +53,24 @@ body {
 }
 
 @layer base {
-  /* Removed global border application to prevent thin lines between sections */
-  h1 { @apply font-heading text-4xl md:text-5xl font-semibold tracking-tight; }
-  h2 { @apply font-heading text-3xl md:text-4xl font-semibold tracking-tight; }
-  h3 { @apply font-heading text-2xl md:text-3xl font-semibold tracking-tight; }
-  p  { @apply text-base leading-relaxed tracking-[0.01em] text-foreground/90; }
-  a  { @apply text-brand-gold hover:opacity-90 transition-opacity; }
+  h1 { @apply font-heading text-[2.75rem] md:text-[3.5rem] font-bold leading-[0.95] tracking-[-0.015em]; }
+  h2 { @apply font-heading text-[2rem] md:text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.01em]; }
+  h3 { @apply font-heading text-xl md:text-[1.5rem] font-medium leading-[1.15] tracking-[-0.005em]; }
+  p  { @apply text-base leading-[1.6] tracking-[0em] text-foreground/90; }
+  a  { @apply text-primary hover:opacity-90 transition-opacity; }
 }
 
-
 @layer components {
-  .heading-xl { @apply font-heading text-4xl md:text-5xl font-semibold tracking-tight text-white; }
-  .heading-lg { @apply font-heading text-3xl md:text-4xl font-semibold tracking-tight text-white; }
-  .body-text { @apply text-base leading-relaxed tracking-[0.01em] text-gray-300; }
-  .eyebrow { @apply text-xs md:text-sm uppercase tracking-[0.35em] text-gray-400; }
-  .font-legacy { font-family: 'LegacyGrotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+  .heading-hero { @apply font-heading text-[2.75rem] md:text-[3.5rem] font-bold leading-[0.95] tracking-[-0.015em] text-foreground; }
+  .heading-xl { @apply font-heading text-[2rem] md:text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.01em] text-foreground; }
+  .heading-lg { @apply font-heading text-xl md:text-[1.5rem] font-medium leading-[1.15] tracking-[-0.005em] text-foreground; }
+  .body-text { @apply text-base md:text-lg leading-[1.6] tracking-[0em] text-foreground/90; }
+  .caption-text { @apply text-sm leading-[1.4] text-foreground/70; }
+  .eyebrow { @apply text-xs md:text-sm uppercase tracking-[0.35em] text-muted; }
+  .font-display { font-family: var(--font-display); font-variation-settings: 'opsz' 48; }
+  .mono-accent { font-family: var(--font-mono); }
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--brand-gold) 25%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
 }
-
-
-
-
-
-
-

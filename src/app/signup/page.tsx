@@ -5,35 +5,55 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 
-export default function LoginPage() {
+export default function SignupPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
   const router = useRouter()
 
-  const handleEmailLogin = async (e: React.FormEvent) => {
+  const handleEmailSignup = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
     setLoading(true)
 
+    // Validate passwords match
+    if (password !== confirmPassword) {
+      setError('Passwords do not match')
+      setLoading(false)
+      return
+    }
+
+    // Validate password strength
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters')
+      setLoading(false)
+      return
+    }
+
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
       })
 
       if (error) throw error
 
-      router.push('/dashboard')
+      setSuccess(true)
+      // After showing success message, redirect to login
+      setTimeout(() => {
+        router.push('/login')
+      }, 3000)
     } catch (error: any) {
-      setError(error.message || 'Failed to sign in')
+      setError(error.message || 'Failed to create account')
     } finally {
       setLoading(false)
     }
   }
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleSignup = async () => {
     setError('')
     try {
       const { error } = await supabase.auth.signInWithOAuth({
@@ -44,19 +64,43 @@ export default function LoginPage() {
       })
       if (error) throw error
     } catch (error: any) {
-      setError(error.message || 'Failed to sign in with Google')
+      setError(error.message || 'Failed to sign up with Google')
     }
+  }
+
+  if (success) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background px-4">
+        <div className="w-full max-w-md space-y-8 rounded-xl bg-surface p-8 shadow-xl">
+          <div className="text-center">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+              <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="mt-6 text-3xl font-bold text-foreground">Check your email!</h2>
+            <p className="mt-2 text-sm text-muted">
+              We&apos;ve sent you a confirmation link to <strong>{email}</strong>. 
+              Please check your inbox and click the link to verify your account.
+            </p>
+            <p className="mt-4 text-xs text-muted-foreground">
+              Redirecting to login page...
+            </p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="w-full max-w-md space-y-8 rounded-xl bg-surface p-8 shadow-xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-foreground">Welcome back</h2>
+          <h2 className="text-3xl font-bold text-foreground">Create your account</h2>
           <p className="mt-2 text-sm text-muted">
-            Don&apos;t have an account?{' '}
-            <Link href="/signup" className="font-medium text-primary hover:text-primary/80">
-              Sign up
+            Already have an account?{' '}
+            <Link href="/login" className="font-medium text-primary hover:text-primary/80">
+              Sign in
             </Link>
           </p>
         </div>
@@ -76,7 +120,7 @@ export default function LoginPage() {
           </div>
         )}
 
-        <form onSubmit={handleEmailLogin} className="mt-8 space-y-6">
+        <form onSubmit={handleEmailSignup} className="mt-8 space-y-6">
           <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-foreground">
@@ -95,24 +139,35 @@ export default function LoginPage() {
               />
             </div>
             <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium text-foreground">
-                  Password
-                </label>
-                <Link href="/forgot-password" className="text-sm font-medium text-primary hover:text-primary/80">
-                  Forgot password?
-                </Link>
-              </div>
+              <label htmlFor="password" className="block text-sm font-medium text-foreground">
+                Password
+              </label>
               <input
                 id="password"
                 name="password"
                 type="password"
-                autoComplete="current-password"
+                autoComplete="new-password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="mt-1 block w-full rounded-md border border-border bg-surfaceAlt px-3 py-2 text-foreground placeholder-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                placeholder="Enter your password"
+                placeholder="At least 6 characters"
+              />
+            </div>
+            <div>
+              <label htmlFor="confirm-password" className="block text-sm font-medium text-foreground">
+                Confirm password
+              </label>
+              <input
+                id="confirm-password"
+                name="confirm-password"
+                type="password"
+                autoComplete="new-password"
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="mt-1 block w-full rounded-md border border-border bg-surfaceAlt px-3 py-2 text-foreground placeholder-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                placeholder="Confirm your password"
               />
             </div>
           </div>
@@ -123,7 +178,7 @@ export default function LoginPage() {
               disabled={loading}
               className="flex w-full justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Signing in...' : 'Sign in'}
+              {loading ? 'Creating account...' : 'Create account'}
             </button>
           </div>
 
@@ -139,7 +194,7 @@ export default function LoginPage() {
           <div>
             <button
               type="button"
-              onClick={handleGoogleLogin}
+              onClick={handleGoogleSignup}
               className="flex w-full items-center justify-center gap-3 rounded-md border border-border bg-surfaceAlt px-4 py-2 text-sm font-medium text-foreground hover:bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <svg width="20" height="20" viewBox="0 0 24 24">
@@ -160,10 +215,21 @@ export default function LoginPage() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Sign in with Google
+              Sign up with Google
             </button>
           </div>
         </form>
+
+        <p className="mt-4 text-center text-xs text-muted-foreground">
+          By signing up, you agree to our{' '}
+          <Link href="/terms" className="text-primary hover:text-primary/80">
+            Terms of Service
+          </Link>{' '}
+          and{' '}
+          <Link href="/privacy" className="text-primary hover:text-primary/80">
+            Privacy Policy
+          </Link>
+        </p>
       </div>
     </div>
   )

@@ -108,7 +108,28 @@ Create a `.env.local` file in the root directory:
 ```env
 NEXT_PUBLIC_API_MODE=mock
 NEXT_PUBLIC_API_URL=https://your-api-url.com
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 ```
+
+## Authentication Pages
+
+This project includes comprehensive authentication page examples powered by Supabase:
+
+- **Signup** (`/signup`) - User registration with email/password and OAuth
+- **Login** (`/login`) - Sign in with multiple authentication methods
+- **Forgot Password** (`/forgot-password`) - Password reset request
+- **Reset Password** (`/reset-password`) - Set new password
+- **Email Verification** (`/verify-email`) - Confirm email address
+- **Dashboard** (`/dashboard`) - Protected user area
+
+### Documentation
+
+- [AUTH_QUICK_START.md](./AUTH_QUICK_START.md) - Quick reference guide
+- [AUTH_PAGES_GUIDE.md](./AUTH_PAGES_GUIDE.md) - Comprehensive documentation
+- [AUTH_PAGES_VISUAL_GUIDE.md](./AUTH_PAGES_VISUAL_GUIDE.md) - Visual examples and mockups
+
+These pages serve as production-ready examples and can be used as-is or customized for your needs.
 
 ## License
 

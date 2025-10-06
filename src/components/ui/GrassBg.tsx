@@ -5,7 +5,7 @@ import FixedBg from "./FixedBg";
 
 type GrassBgProps = {
   src: string;
-  height?: string;
+  height?: React.ComponentProps<typeof FixedBg>["height"];
   className?: string;
 };
 
@@ -37,4 +37,5 @@ export function GrassBg({
 }
 
 export default GrassBg;
+
 

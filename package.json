@@ -12,7 +12,6 @@
     "postinstall": "next telemetry disable"
   },
   "dependencies": {
-    "@next/swc-win32-x64-msvc": "^15.5.4",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.58.0",
@@ -30,6 +29,7 @@
     "@storybook/addon-a11y": "^9.1.7",
     "@storybook/addon-docs": "^9.1.7",
     "@storybook/addon-vitest": "^9.1.7",
+    "@storybook/nextjs": "^9.1.7",
     "@storybook/nextjs-vite": "^9.1.7",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -47,5 +47,8 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18.17"
   }
 }

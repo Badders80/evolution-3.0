@@ -25,19 +25,20 @@ export function AnimatedText({ text, className = '', delay = 0 }: AnimatedTextPr
   // Trigger wave animation randomly every 5-15 seconds
   useEffect(() => {
     if (!isAnimating) return;
-    
-    const animateRandomly = () => {
+
+    let timer: ReturnType<typeof setTimeout>;
+
+    const scheduleAnimation = () => {
       const randomDelay = 5000 + Math.random() * 10000; // 5-15 seconds
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setIsAnimating(false);
         setTimeout(() => setIsAnimating(true), 100);
-        animateRandomly();
+        scheduleAnimation();
       }, randomDelay);
-      
-      return () => clearTimeout(timer);
     };
-    
-    const timer = animateRandomly();
+
+    scheduleAnimation();
+
     return () => clearTimeout(timer);
   }, [isAnimating]);
 
@@ -80,3 +81,4 @@ export function AnimatedText({ text, className = '', delay = 0 }: AnimatedTextPr
 }
 
 export default AnimatedText;
+

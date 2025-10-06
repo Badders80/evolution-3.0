@@ -1,24 +1,41 @@
-import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
- 
-// This example protects all routes including api/trpc routes
-// Please edit this to allow other routes to be public as needed.
-export default auth((req) => {
-  const { userId } = req.auth;
-  const isPublicRoute = ['/', '/sign-in(.*)', '/sign-up(.*)'].some(
-    (path) => new RegExp(`^${path}$`).test(req.nextUrl.pathname)
-  );
+import type { NextRequest } from 'next/server';
+import { supabase } from '@/lib/supabase';
 
-  // If the user is not signed in and the current path is not public, redirect to sign-in
-  if (!userId && !isPublicRoute) {
-    const signInUrl = new URL('/sign-in', req.url);
-    signInUrl.searchParams.set('redirect_url', req.nextUrl.pathname);
-    return NextResponse.redirect(signInUrl);
+const publicPaths = ['/', '/login', '/api/auth/callback'];
+
+export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // Skip middleware for public paths
+  if (publicPaths.some(path => pathname.startsWith(path))) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
-});
- 
+  try {
+    // Get the session
+    const { data: { session } } = await supabase.auth.getSession();
+
+    // If no session and trying to access protected route, redirect to login
+    if (!session) {
+      const loginUrl = new URL('/login', req.url);
+      loginUrl.searchParams.set('redirectedFrom', req.nextUrl.pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    return NextResponse.next();
+  } catch (error) {
+    console.error('Auth error:', error);
+    // In case of error, redirect to login
+    return NextResponse.redirect(new URL('/login', req.url));
+  }
+}
+
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    // Always run for API routes
+    '/(api|trpc)(.*)',
+  ],
 };

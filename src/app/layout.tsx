@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import "../styles/brand.css";
 import { NavBar } from "@/components/NavBar";
-import { ClerkProvider } from "@clerk/nextjs";
+import SupabaseProvider from "@/providers/supabase-provider";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Evolution Stables - Where Excellence Meets Tradition",
@@ -22,36 +25,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" className="dark">
-        <head>
-          <link
-            rel="preload"
-            href="/fonts/GeistSans-VF.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/GeistSans-VFItalic.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/GeistMono-VF.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-        </head>
-        <body className="min-h-screen bg-background text-foreground antialiased">
+    <html lang="en" className="h-full">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/GeistSans-VFItalic.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className={`${inter.className} min-h-screen bg-background antialiased`}>
+        <SupabaseProvider>
           <NavBar />
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+          <main className="flex-1">{children}</main>
+        </SupabaseProvider>
+      </body>
+    </html>
   );
 }

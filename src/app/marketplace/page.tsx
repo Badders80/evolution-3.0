@@ -1,37 +1,17 @@
 'use client';
 
-import { useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { useUser } from '@clerk/nextjs';
 
 export default function MarketplacePage() {
-  const { isLoaded, isSignedIn } = useUser();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      router.push('/sign-in?redirect_url=' + encodeURIComponent('/marketplace'));
-    }
-  }, [isLoaded, isSignedIn, router]);
-
-  if (!isLoaded || !isSignedIn) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
-  
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section with Video */}
       <div className="relative h-screen w-full overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/images/Jockey-walk-out.mp4" type="video/mp4" />

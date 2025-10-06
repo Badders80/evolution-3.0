@@ -51,7 +51,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <main className="text-foreground">
-        <div className="w-full bg-background px-0 shadow-[0_0_80px_rgba(0,0,0,0.35)] m-0 p-0 border-none max-w-none">
+        <div className="w-full bg-background px-0 shadow-[0_0_80px_RGBA(0,0,0,0.35)] m-0 p-0 border-none max-w-none">
           <HeroSection />
         </div>
         
@@ -110,27 +110,31 @@ const Home = () => {
             </div>
 
             {/* Steps List */}
-            <div className="space-y-16">
+            <div className="space-y-4">
               {/* Step 1 */}
-              <div className="flex flex-col sm:flex-row gap-8">
-                <div className="sm:w-32 flex-shrink-0">
-                  <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase">
-                    Step 1
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold mb-3">For Investors & Fans</h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-md">
-                    Step into ownership without long-term commitments. Transparent costs, 
-                    fractional stakes, and the genuine thrill of racing.
-                  </p>
+              <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <div className="flex flex-col sm:flex-row gap-8">
+                  <div className="sm:w-32 flex-shrink-0 flex items-center justify-center">
+                    <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase group-hover:scale-110 group-hover:text-primary transition-all duration-300">
+                      Step 1
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold mb-3">For Investors & Fans</h3>
+                    <p className="text-muted-foreground leading-relaxed max-w-md">
+                      Step into ownership without long-term commitments. Transparent costs, 
+                      fractional stakes, and the genuine thrill of racing.
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              {/* Step 2 */}
+            {/* Step 2 */}
+            <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <div className="flex flex-col sm:flex-row gap-8">
-                <div className="sm:w-32 flex-shrink-0">
-                  <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase">
+                <div className="sm:w-32 flex-shrink-0 flex items-center justify-center">
+                  <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase group-hover:scale-110 group-hover:text-primary transition-all duration-300">
                     Step 2
                   </span>
                 </div>
@@ -142,11 +146,13 @@ const Home = () => {
                   </p>
                 </div>
               </div>
+            </div>
 
-              {/* Step 3 */}
+            {/* Step 3 */}
+            <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <div className="flex flex-col sm:flex-row gap-8">
-                <div className="sm:w-32 flex-shrink-0">
-                  <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase">
+                <div className="sm:w-32 flex-shrink-0 flex items-center justify-center">
+                  <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase group-hover:scale-110 group-hover:text-primary transition-all duration-300">
                     Step 3
                   </span>
                 </div>

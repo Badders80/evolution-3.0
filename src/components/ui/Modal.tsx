@@ -19,11 +19,10 @@ export default function Modal({
 }: ModalProps) {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center px-6 py-16 overflow-hidden">
-      {/* Radial gradient background */}
-      <div className="fixed inset-0" style={{
+      {/* Radial gradient background - covers everything including NavBar */}
+      <div className="fixed inset-0 bg-black" style={{
         background: 'radial-gradient(ellipse at center, #2a2a2a 0%, #1a1a1a 20%, #0a0a0a 40%, black 80%)',
-        opacity: 0.9,
-        pointerEvents: 'none'
+        opacity: 1
       }} />
       
       {/* Subtle grid pattern */}

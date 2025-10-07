@@ -12,10 +12,10 @@ export default function AuthForm() {
   const router = useRouter()
   const [redirectTo, setRedirectTo] = useState<string>()
   const searchParams = useSearchParams()
-  const redirectTargetRaw = searchParams?.get('redirectedFrom') ?? '/dashboard'
-  const redirectTarget = redirectTargetRaw.startsWith('/') ? redirectTargetRaw : '/dashboard'
+  const redirectTargetRaw = searchParams?.get('redirectedFrom') ?? '/mystable'
+  const redirectTarget = redirectTargetRaw.startsWith('/') ? redirectTargetRaw : '/mystable'
 
-  // Redirect to dashboard if already signed in
+  // Redirect to MyStable if already signed in
   useEffect(() => {
     const checkUser = async () => {
       const { data: { session } } = await supabase.auth.getSession()
@@ -36,7 +36,7 @@ export default function AuthForm() {
     }
   }, [redirectTarget])
 
-  // Auto-forward to dashboard after sign-in completes
+  // Auto-forward to MyStable after sign-in completes
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(event => {
       if (event === 'SIGNED_IN') {
@@ -50,12 +50,11 @@ export default function AuthForm() {
   }, [redirectTarget, router, supabase])
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-black px-6 py-16 overflow-hidden">
-      {/* Radial gradient background */}
-      <div className="fixed inset-0" style={{
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center px-6 py-16 overflow-hidden">
+      {/* Radial gradient background - covers everything including NavBar */}
+      <div className="fixed inset-0 bg-black" style={{
         background: 'radial-gradient(ellipse at center, #2a2a2a 0%, #1a1a1a 20%, #0a0a0a 40%, black 80%)',
-        opacity: 0.9,
-        pointerEvents: 'none'
+        opacity: 1
       }} />
       
       {/* Subtle grid pattern */}
@@ -84,7 +83,7 @@ export default function AuthForm() {
                 Welcome Back
               </h1>
               <p className="mt-2 text-sm text-neutral-400">
-                Sign in to continue to your account
+                Access your stable in seconds.
               </p>
             </div>
 

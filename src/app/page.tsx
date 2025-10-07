@@ -89,7 +89,7 @@ const Home = () => {
         </section>
         
         <section className="px-0 md:px-0 m-0 p-0 border-none">
-          <FixedBg src="/images/Background-hooves-back-and-white.jpg" height="h-[50vh]" overlay="from-background/70 via-background/80 to-background/95" />
+          <FixedBg src="/images/Background-hooves-back-and-white.jpg" height="h-[50vh]" />
         </section>
 
         <section id="mission" className="py-48 bg-background text-foreground">
@@ -169,7 +169,7 @@ const Home = () => {
         </section>
 
         <section className="px-0 md:px-0 m-0 p-0 border-none">
-          <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" overlay="from-background/70 via-background/80 to-background/95" />
+          <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" />
         </section>
 
         <section id="digital-syndication" className="py-48 bg-background text-foreground">
@@ -286,7 +286,7 @@ const Home = () => {
         </section>
 
         <section className="px-0 md:px-0 m-0 p-0 border-none">
-          <FixedBg src="/images/Horse-and-foal.jpg" height="h-[50vh]" overlay="from-background/70 via-background/80 to-background/95" />
+          <FixedBg src="/images/Horse-and-foal.jpg" height="h-[50vh]" />
         </section>
 
         <section id="innovation" className="py-48 bg-background text-foreground">

@@ -1,33 +1,46 @@
-import { NextResponse } from 'next/server';
+import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
 import type { NextRequest } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { NextResponse } from 'next/server';
+import type { Database } from '@/lib/database.types';
 
-const publicPaths = ['/', '/login', '/api/auth/callback'];
+const publicPaths = ['/', '/login', '/auth/callback', '/api/auth/callback'];
+
+const isPublicPath = (pathname: string) =>
+  publicPaths.some(path => {
+    if (path === '/') {
+      return pathname === '/';
+    }
+
+    return pathname === path || pathname.startsWith(`${path}/`);
+  });
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Skip middleware for public paths
-  if (publicPaths.some(path => pathname.startsWith(path))) {
+  if (isPublicPath(pathname)) {
     return NextResponse.next();
   }
 
-  try {
-    // Get the session
-    const { data: { session } } = await supabase.auth.getSession();
+  const res = NextResponse.next();
 
-    // If no session and trying to access protected route, redirect to login
+  try {
+    const supabase = createMiddlewareClient<Database>({ req, res });
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
     if (!session) {
       const loginUrl = new URL('/login', req.url);
-      loginUrl.searchParams.set('redirectedFrom', req.nextUrl.pathname);
+      loginUrl.searchParams.set('redirectedFrom', pathname);
       return NextResponse.redirect(loginUrl);
     }
 
-    return NextResponse.next();
+    return res;
   } catch (error) {
-    console.error('Auth error:', error);
-    // In case of error, redirect to login
-    return NextResponse.redirect(new URL('/login', req.url));
+    console.error('Auth middleware error:', error);
+    const loginUrl = new URL('/login', req.url);
+    loginUrl.searchParams.set('redirectedFrom', pathname);
+    return NextResponse.redirect(loginUrl);
   }
 }
 

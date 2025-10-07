@@ -46,3 +46,4 @@ Logs
 *.log
 Misc
 *.pem
+.clerk/

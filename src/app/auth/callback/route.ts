@@ -6,6 +6,9 @@ export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
   const error = requestUrl.searchParams.get('error');
+  const redirectedFrom = requestUrl.searchParams.get('redirectedFrom');
+  const safeRedirectPath =
+    redirectedFrom && redirectedFrom.startsWith('/') ? redirectedFrom : '/dashboard';
 
   // If there's an error, redirect to home with error message
   if (error) {
@@ -39,5 +42,5 @@ export async function GET(request: Request) {
   }
 
   // Redirect to home page after successful sign-in
-  return NextResponse.redirect(requestUrl.origin);
+  return NextResponse.redirect(new URL(safeRedirectPath, requestUrl.origin));
 }

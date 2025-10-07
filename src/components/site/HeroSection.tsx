@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ParallaxImage } from '@/components/ui/ParallaxImage';
+import StaticImage from '@/components/ui/ParallaxImage';
 
 interface HeroSectionProps {
   backgroundImage?: string;
@@ -52,17 +52,22 @@ export function HeroSection({
           zIndex: shouldFixBackground ? -1 : undefined,
         }}
       >
-        <ParallaxImage
+        <StaticImage
           src={backgroundImage}
           alt="Evolution Stables"
           fill
           priority
           sizes="100vw"
           className="absolute inset-0"
-          intensity={shouldFixBackground ? 0 : 30}
         />
         {overlay && (
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/80 to-background/95" />
+          <div className="fixed inset-0 bg-gradient-to-b from-transparent via-transparent to-background/95" 
+               style={{ 
+                 height: '100vh',
+                 background: 'linear-gradient(to bottom, rgba(var(--background)/0.7) 0%, rgba(var(--background)/0.7) 20%, rgba(var(--background)/0.3) 40%, transparent 50%)',
+                 pointerEvents: 'none'
+               }} 
+          />
         )}
       </motion.div>
 

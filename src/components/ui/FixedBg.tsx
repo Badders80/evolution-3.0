@@ -17,7 +17,7 @@ type FixedBgProps = {
 export function FixedBg({ 
   src, 
   height = 'h-[60vh]', 
-  overlay = 'from-transparent via-background/30 to-background/95', 
+  overlay = '', // Removed default overlay
   className = '' 
 }: FixedBgProps) {
   return (
@@ -27,7 +27,9 @@ export function FixedBg({
         style={{ backgroundImage: `url(${src})` }}
         aria-hidden
       >
-        <div className={`absolute inset-0 pointer-events-none bg-gradient-to-b ${overlay} m-0 p-0 border-none`} aria-hidden="true" />
+        {overlay && (
+          <div className={`absolute inset-0 pointer-events-none bg-gradient-to-b ${overlay} m-0 p-0 border-none`} aria-hidden="true" />
+        )}
       </div>
     </div>
   );

@@ -43,6 +43,22 @@ const config: Config = {
         lg: "14px",
         xl: "20px",
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0) translateX(0) rotate(0deg)' },
+          '33%': { transform: 'translateY(-20px) translateX(10px) rotate(2deg)' },
+          '66%': { transform: 'translateY(10px) translateX(-10px) rotate(-2deg)' },
+        },
+        'tilt': {
+          '0%, 100%': { transform: 'rotate(-2deg)' },
+          '50%': { transform: 'rotate(2deg)' },
+        },
+      },
+      animation: {
+        'float': 'float 15s ease-in-out infinite',
+        'float-slow': 'float 20s ease-in-out infinite',
+        'tilt': 'tilt 10s ease-in-out infinite',
+      },
       colors: {
         brand: {
           gold: "#d4a964",

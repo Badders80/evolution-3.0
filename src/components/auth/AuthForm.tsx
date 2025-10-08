@@ -110,7 +110,7 @@ export default function AuthForm() {
                     messageText: 'rgba(245, 245, 245, 0.9)',
                   },
                   radii: {
-                    borderRadiusButton: '9999px',
+                    borderRadiusButton: '0.375rem',
                     inputBorderRadius: '0.75rem',
                   },
                   fonts: {
@@ -122,7 +122,7 @@ export default function AuthForm() {
                 container: 'text-neutral-100 space-y-4',
                 anchor: 'text-neutral-400 hover:text-neutral-200 underline underline-offset-4 text-sm transition-colors',
                 button:
-                  'h-12 rounded-full text-[0.85rem] font-medium tracking-wide transition-all hover:shadow-lg hover:shadow-black/20',
+                  'h-12 rounded-md text-[0.85rem] font-medium tracking-wide transition-all hover:shadow-lg hover:shadow-black/20',
                 input:
                   'h-12 rounded-xl bg-neutral-900/60 border border-neutral-800/80 text-neutral-100 placeholder:text-neutral-500 focus:border-neutral-600 focus:ring-1 focus:ring-neutral-600/30',
                 label: 'text-xs font-medium tracking-wide text-neutral-400',

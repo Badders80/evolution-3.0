@@ -58,13 +58,13 @@ export default function Modal({
             <div className="flex flex-col gap-3">
               <button
                 onClick={onConfirm}
-                className="h-12 w-full rounded-full bg-white/95 hover:bg-white/85 text-[#0a0a0a] text-[0.85rem] font-medium tracking-wide transition-all hover:shadow-lg hover:shadow-black/20"
+                className="h-12 w-full rounded-md bg-white/95 hover:bg-white/85 text-[#0a0a0a] text-[0.85rem] font-medium tracking-wide transition-all hover:shadow-lg hover:shadow-black/20"
               >
                 {confirmLabel}
               </button>
               <button
                 onClick={onCancel}
-                className="h-12 w-full rounded-full bg-white/8 hover:bg-white/12 border border-neutral-800/80 text-neutral-100 text-[0.85rem] font-medium tracking-wide transition-all"
+                className="h-12 w-full rounded-md bg-white/8 hover:bg-white/12 border border-neutral-800/80 text-neutral-100 text-[0.85rem] font-medium tracking-wide transition-all"
               >
                 {cancelLabel}
               </button>

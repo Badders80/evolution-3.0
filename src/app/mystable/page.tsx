@@ -206,31 +206,31 @@ export default function MyStablePage() {
           </section>
 
           {/* Right: Stats Sidebar */}
-          <aside className="space-y-4">
+          <aside className="flex flex-col gap-4">
             
             {/* Total Value */}
-            <div className="rounded-xl border border-white/5 bg-[#111111] p-6">
+            <div className="flex-1 rounded-xl border border-white/5 bg-[#111111] p-6 flex flex-col justify-center">
               <p className="text-[10px] uppercase tracking-wider text-white/40 mb-2">Total Value</p>
               <p className="text-3xl font-medium tracking-tight">${(mockPortfolio.totalValue / 1000).toFixed(1)}k</p>
               <p className="mt-1 text-sm text-emerald-400">+{mockPortfolio.monthlyChange}% this month</p>
             </div>
 
             {/* Total Returns */}
-            <div className="rounded-xl border border-white/5 bg-[#111111] p-6">
+            <div className="flex-1 rounded-xl border border-white/5 bg-[#111111] p-6 flex flex-col justify-center">
               <p className="text-[10px] uppercase tracking-wider text-white/40 mb-2">Total Returns</p>
               <p className="text-3xl font-medium tracking-tight">${(mockPortfolio.totalReturns / 1000).toFixed(1)}k</p>
               <p className="mt-1 text-sm text-white/50">+{mockPortfolio.returnsPercentage}% ROI</p>
             </div>
 
             {/* Active Stakes */}
-            <div className="rounded-xl border border-white/5 bg-[#111111] p-6">
+            <div className="flex-1 rounded-xl border border-white/5 bg-[#111111] p-6 flex flex-col justify-center">
               <p className="text-[10px] uppercase tracking-wider text-white/40 mb-2">Active Stakes</p>
               <p className="text-3xl font-medium tracking-tight">{mockPortfolio.activeStakes}</p>
               <p className="mt-1 text-sm text-white/50">across portfolio</p>
             </div>
 
             {/* Quick Links */}
-            <div className="rounded-xl border border-white/5 bg-[#111111] p-6">
+            <div className="flex-1 rounded-xl border border-white/5 bg-[#111111] p-6 flex flex-col justify-center">
               <p className="text-xs font-medium tracking-tight mb-3">Quick Actions</p>
               <div className="space-y-2 text-sm">
                 <a href="#" className="block text-white/60 hover:text-white transition-colors">

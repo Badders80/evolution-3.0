@@ -3,7 +3,16 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import type { Database } from '@/lib/database.types';
 
-const publicPaths = ['/', '/login', '/auth/callback', '/api/auth/callback'];
+const publicPaths = [
+  '/',
+  '/auth',
+  '/auth/callback',
+  '/api/auth/callback',
+  '/marketplace',
+  '/privacy',
+  '/terms',
+  '/mystable',
+];
 
 const isPublicPath = (pathname: string) =>
   publicPaths.some(path => {
@@ -30,7 +39,7 @@ export async function middleware(req: NextRequest) {
     } = await supabase.auth.getSession();
 
     if (!session) {
-      const loginUrl = new URL('/login', req.url);
+      const loginUrl = new URL('/auth', req.url);
       loginUrl.searchParams.set('redirectedFrom', pathname);
       return NextResponse.redirect(loginUrl);
     }
@@ -38,7 +47,7 @@ export async function middleware(req: NextRequest) {
     return res;
   } catch (error) {
     console.error('Auth middleware error:', error);
-    const loginUrl = new URL('/login', req.url);
+    const loginUrl = new URL('/auth', req.url);
     loginUrl.searchParams.set('redirectedFrom', pathname);
     return NextResponse.redirect(loginUrl);
   }

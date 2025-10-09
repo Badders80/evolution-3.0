@@ -111,57 +111,57 @@ const Home = () => {
 
             {/* Steps List */}
             <div className="space-y-4">
-              {/* Step 1 */}
-              <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                <div className="flex flex-col sm:flex-row gap-8">
-                  <div className="sm:w-32 flex-shrink-0 flex items-center justify-center">
-                    <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase group-hover:scale-110 group-hover:text-primary transition-all duration-300">
-                      Step 1
+              {/* Step One */}
+              <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <div className="flex flex-col gap-8 sm:flex-row sm:items-baseline">
+                  <div className="flex flex-shrink-0 items-baseline sm:w-56 sm:justify-end">
+                    <span className="text-xl font-medium uppercase tracking-[0.4em] text-muted-foreground group-hover:scale-110 group-hover:text-primary transition-all duration-300 text-left sm:text-right">
+                      STEP ONE
                     </span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold mb-3">For Investors & Fans</h3>
-                    <p className="text-muted-foreground leading-relaxed max-w-md">
-                      Step into ownership without long-term commitments. Transparent costs, 
+                    <h3 className="mb-3 text-2xl font-semibold uppercase">For Investors & Fans</h3>
+                    <p className="max-w-md leading-relaxed text-muted-foreground">
+                      Step into ownership without long-term commitments. Transparent costs,
                       fractional stakes, and the genuine thrill of racing.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Step 2 */}
-            <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <div className="flex flex-col sm:flex-row gap-8">
-                <div className="sm:w-32 flex-shrink-0 flex items-center justify-center">
-                  <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase group-hover:scale-110 group-hover:text-primary transition-all duration-300">
-                    Step 2
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold mb-3">For Breeders & Syndicators</h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-md">
-                    Unlock new income streams on your terms while retaining control. Access a 
-                    fresh market of passionate investors.
-                  </p>
+              {/* Step Two */}
+              <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <div className="flex flex-col gap-8 sm:flex-row sm:items-baseline">
+                  <div className="flex flex-shrink-0 items-baseline sm:w-56 sm:justify-end">
+                    <span className="text-xl font-medium uppercase tracking-[0.4em] text-muted-foreground group-hover:scale-110 group-hover:text-primary transition-all duration-300 text-left sm:text-right">
+                      STEP TWO
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-3 text-2xl font-semibold uppercase">For Breeders & Syndicators</h3>
+                    <p className="max-w-md leading-relaxed text-muted-foreground">
+                      Unlock new income streams on your terms while retaining control. Access a fresh market of
+                      passionate investors.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Step 3 */}
-            <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <div className="flex flex-col sm:flex-row gap-8">
-                <div className="sm:w-32 flex-shrink-0 flex items-center justify-center">
-                  <span className="inline-block text-sm font-medium tracking-widest text-muted-foreground uppercase group-hover:scale-110 group-hover:text-primary transition-all duration-300">
-                    Step 3
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold mb-3">For Clubs & Organizations</h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-md">
-                    Future-proof racing by welcoming broader audiences, fostering 
-                    participation, and unlocking sustainable revenue pathways.
-                  </p>
+              {/* Step Three */}
+              <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <div className="flex flex-col gap-8 sm:flex-row sm:items-baseline">
+                  <div className="flex flex-shrink-0 items-baseline sm:w-56 sm:justify-end">
+                    <span className="text-xl font-medium uppercase tracking-[0.4em] text-muted-foreground group-hover:scale-110 group-hover:text-primary transition-all duration-300 text-left sm:text-right">
+                      STEP THREE
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-3 text-2xl font-semibold uppercase">For Clubs & Organizations</h3>
+                    <p className="max-w-md leading-relaxed text-muted-foreground">
+                      Future-proof racing by welcoming broader audiences, fostering participation, and unlocking
+                      sustainable revenue pathways.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

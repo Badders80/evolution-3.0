@@ -60,6 +60,12 @@ export function HeroSection({
           sizes="100vw"
           className="absolute inset-0"
         />
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0.35 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="pointer-events-none absolute inset-0 bg-black"
+        />
         {overlay && (
           <div className="fixed inset-0 bg-gradient-to-b from-transparent via-transparent to-background/95" 
                style={{ 
@@ -76,7 +82,7 @@ export function HeroSection({
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.85 }}
           className="w-full max-w-[720px]"
         >
           <Image
@@ -93,7 +99,7 @@ export function HeroSection({
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 1.05 }}
           className="eyebrow mt-8 max-w-[720px] font-medium"
         >
           Ownership re-imagined for a new generation<br />

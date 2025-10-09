@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   const error = requestUrl.searchParams.get('error');
   const redirectedFrom = requestUrl.searchParams.get('redirectedFrom');
   const safeRedirectPath =
-    redirectedFrom && redirectedFrom.startsWith('/') ? redirectedFrom : '/dashboard';
+    redirectedFrom && redirectedFrom.startsWith('/') ? redirectedFrom : '/mystable';
 
   // If there's an error, redirect to home with error message
   if (error) {

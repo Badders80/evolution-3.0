@@ -1,18 +1,19 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LOGOS } from '@/lib/assets';
 import { useSupabase, useSession } from '@/providers/supabase-provider';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Our Mission', href: '#mission' },
-  { label: 'Our Model', href: '#digital-syndication' },
+  { label: 'About', href: '/#about' },
+  { label: 'Our Mission', href: '/#mission' },
+  { label: 'Our Model', href: '/#digital-syndication' },
   { label: 'Marketplace', href: '/marketplace' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'MyStable', href: '/mystable' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 export function NavBar() {
@@ -22,9 +23,15 @@ export function NavBar() {
   const { supabase } = useSupabase();
   const session: any = useSession(); // Using any as a temporary workaround
   const router = useRouter();
+  const pathname = usePathname();
+  const hideNav = pathname?.startsWith('/auth');
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   const handleGetStarted = () => {
-    router.push('/login');
+    router.push('/auth');
   };
 
   const handleSignOut = async () => {
@@ -33,7 +40,10 @@ export function NavBar() {
   };
 
   useEffect(() => {
-    // Scroll handling
+    if (hideNav) {
+      return;
+    }
+
     const hero = document.getElementById('hero');
     if (hero && 'IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
@@ -56,12 +66,16 @@ export function NavBar() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [hideNav]);
 
   useEffect(() => {
+    if (hideNav) {
+      return;
+    }
+
     const timeout = window.setTimeout(() => setVisible(true), 320);
     return () => window.clearTimeout(timeout);
-  }, []);
+  }, [hideNav]);
 
   const isSolid = scrolled || isMenuOpen;
   const logoSrc = LOGOS.simple.grey;
@@ -69,6 +83,34 @@ export function NavBar() {
   const primaryCtaBase = 'inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background sm:px-5 sm:text-sm sm:tracking-[0.3em]';
   const menuButtonBase =
     'flex h-10 w-10 items-center justify-center text-foreground transition-colors duration-200 hover:text-primary focus:outline-none md:h-11 md:w-11';
+
+  const displayName = useMemo(() => {
+    if (!session) return undefined;
+
+    const metadata = session.user?.user_metadata ?? {};
+    const rawName =
+      metadata.preferred_name ||
+      metadata.full_name ||
+      metadata.fullName ||
+      metadata.first_name ||
+      metadata.firstName ||
+      metadata.name;
+
+    if (typeof rawName === 'string' && rawName.trim().length > 0) {
+      return rawName.trim().split(' ')[0];
+    }
+
+    const email = session.user?.email ?? '';
+    if (email) {
+      return email.split('@')[0];
+    }
+
+    return undefined;
+  }, [session]);
+
+  if (hideNav) {
+    return null;
+  }
 
   return (
     <nav
@@ -80,7 +122,7 @@ export function NavBar() {
         <div className="flex flex-1 items-center">
           <Link
             href="/"
-            className="flex shrink-0 items-center transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+            className="flex shrink-0 items-center transition-colors duration-300 focus:outline-none"
           >
             <div className="relative h-7 w-auto">
               <Image
@@ -114,24 +156,22 @@ export function NavBar() {
           </div>
         </div>
 
-        <div className="ml-auto flex items-center md:ml-0 md:flex-1 md:justify-end">
-          <div className="relative">
-            {session ? (
-              <button
-                onClick={handleSignOut}
-                className={`${primaryCtaBase} mr-1 md:mr-2`}
-              >
-                Sign Out
-              </button>
-            ) : (
+        <div className="ml-auto flex items-center gap-2 md:ml-0 md:flex-1 md:justify-end md:gap-3">
+          {session && (
+            <span className="hidden whitespace-nowrap rounded-full border border-foreground/15 bg-foreground/[0.05] px-4 py-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-foreground/80 md:inline-flex">
+              Hi,&nbsp;{displayName ?? 'friend'}
+            </span>
+          )}
+          {!session && (
+            <div className="relative">
               <button
                 onClick={handleGetStarted}
                 className={`${primaryCtaBase} mr-1 md:mr-2`}
               >
                 Get Started
               </button>
-            )}
-          </div>
+            </div>
+          )}
           <button
             type="button"
             className={menuButtonBase}
@@ -166,29 +206,54 @@ export function NavBar() {
               </Link>
             ))}
 
-            <div className="space-y-3 pt-2">
-              {session ? (
-                <button
-                  onClick={async () => {
-                    await handleSignOut();
-                    setIsMenuOpen(false);
-                  }}
-                  className="w-full block rounded-full bg-primary px-4 py-2.5 text-center text-sm font-medium text-primary-foreground transition-colors duration-200 hover:bg-primary/90 uppercase tracking-wider"
-                >
-                  Sign Out
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    handleGetStarted();
-                  }}
-                  className="w-full block rounded-full bg-primary px-4 py-2.5 text-center text-sm font-medium text-primary-foreground transition-colors duration-200 hover:bg-primary/90 uppercase tracking-wider"
-                >
-                  Get Started
-                </button>
+            <div className="space-y-3 pt-4">
+              {session && (
+                <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 text-center text-xs uppercase tracking-[0.24em] text-foreground/70">
+                  Hi,&nbsp;{displayName ?? 'friend'}
+                </div>
               )}
+              <button
+                onClick={async () => {
+                  if (session) {
+                    await handleSignOut();
+                  } else {
+                    handleGetStarted();
+                  }
+                  setIsMenuOpen(false);
+                }}
+                className="w-full block rounded-full bg-primary px-4 py-2.5 text-center text-sm font-medium text-primary-foreground transition-colors duration-200 hover:bg-primary/90 uppercase tracking-wider"
+              >
+                {session ? 'Sign Out' : 'Get Started'}
+              </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {isMenuOpen && (
+        <div className="relative hidden md:block">
+          <div className="absolute right-10 top-[84px] w-48 overflow-hidden rounded-2xl border border-foreground/10 bg-background/95 shadow-xl backdrop-blur-md">
+            {session ? (
+              <button
+                onClick={async () => {
+                  await handleSignOut();
+                  setIsMenuOpen(false);
+                }}
+                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
+              >
+                Sign Out
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  handleGetStarted();
+                  setIsMenuOpen(false);
+                }}
+                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
+              >
+                Get Started
+              </button>
+            )}
           </div>
         </div>
       )}

@@ -45,7 +45,7 @@ export function ProcessSection({
               key={index}
               className="group p-6 rounded-lg hover:bg-foreground/5 transition-colors duration-300"
             >
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex flex-col gap-4 mb-4">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-lg font-bold">
                   {step.number}
                 </div>

@@ -137,7 +137,7 @@ export function NavBar() {
           </Link>
         </div>
 
-        <div className="hidden md:flex md:flex-1 md:items-center md:justify-center">
+        <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center">
           <div className="flex items-center gap-1.5 lg:gap-2">
             {navLinks.map((link) => (
               <div
@@ -156,7 +156,7 @@ export function NavBar() {
           </div>
         </div>
 
-        <div className="ml-auto flex items-center gap-2 md:ml-0 md:flex-1 md:justify-end md:gap-3">
+        <div className="ml-auto flex items-center gap-2 lg:ml-0 lg:flex-1 lg:justify-end lg:gap-3">
           {session && (
             <span className="hidden whitespace-nowrap rounded-full border border-foreground/15 bg-foreground/[0.05] px-4 py-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-foreground/80 md:inline-flex">
               Hi,&nbsp;{displayName ?? 'friend'}
@@ -232,14 +232,14 @@ export function NavBar() {
 
       {isMenuOpen && (
         <div className="relative hidden md:block">
-          <div className="absolute right-10 top-[84px] w-48 overflow-hidden rounded-2xl border border-foreground/10 bg-background/95 shadow-xl backdrop-blur-md">
+          <div className="absolute right-8 top-[88px] w-48 rounded-full border border-foreground/15 bg-background/90 shadow-lg backdrop-blur">
             {session ? (
               <button
                 onClick={async () => {
                   await handleSignOut();
                   setIsMenuOpen(false);
                 }}
-                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
+                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.28em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
               >
                 Sign Out
               </button>
@@ -249,7 +249,7 @@ export function NavBar() {
                   handleGetStarted();
                   setIsMenuOpen(false);
                 }}
-                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
+                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.28em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
               >
                 Get Started
               </button>

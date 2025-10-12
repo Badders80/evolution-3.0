@@ -1,0 +1,192 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "ctaLabel",
+        "type": "string",
+        "title": "CTA label"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "ctaHref",
+        "type": "url",
+        "title": "CTA link"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Digital Syndication",
+              "value": "digitalSyndication"
+            },
+            {
+              "title": "Ownership Dashboard",
+              "value": "ownershipDashboard"
+            },
+            {
+              "title": "Integration & Compliance",
+              "value": "integrationCompliance"
+            },
+            {
+              "title": "Analytics & Insights",
+              "value": "analyticsInsights"
+            },
+            {
+              "title": "Community & Media",
+              "value": "communityMedia"
+            }
+          ],
+          "layout": "radio"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "digitalSyndication",
+                  "ownershipDashboard",
+                  "integrationCompliance",
+                  "analyticsInsights",
+                  "communityMedia"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "iconKey",
+        "type": "string",
+        "title": "Icon"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Middle Tall",
+              "value": "middle-tall"
+            },
+            {
+              "title": "Left Tall",
+              "value": "left-tall"
+            },
+            {
+              "title": "Left Bottom",
+              "value": "left-bottom"
+            },
+            {
+              "title": "Right Top",
+              "value": "right-top"
+            },
+            {
+              "title": "Right Bottom",
+              "value": "right-bottom"
+            }
+          ],
+          "layout": "radio"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "middle-tall",
+                  "left-tall",
+                  "left-bottom",
+                  "right-top",
+                  "right-bottom"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "layoutKey",
+        "type": "string",
+        "title": "Layout Position"
+      },
+      {
+        "name": "order",
+        "type": "number"
+      }
+    ],
+    "name": "module",
+    "type": "document",
+    "title": "Evolution Module"
+  }
+]

@@ -2,75 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font Definitions */
-@font-face {
-  font-family: 'Geist Sans';
-  src: url('/fonts/GeistSans-VF.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist Sans';
-  src: url('/fonts/GeistSans-VFItalic.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist Mono';
-  src: url('/fonts/GeistMono-VF.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* CSS Custom Properties */
 :root {
-  --font-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: var(--font-sans);
-  --font-body: var(--font-sans);
-  --font-display: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'Roboto Mono', monospace;
   color-scheme: dark;
 }
 
 body {
-  @apply bg-background text-foreground antialiased;
-  font-family: var(--font-body);
-  font-variation-settings: 'opsz' 16;
+  @apply bg-[#141019] text-gray-100 font-sans antialiased;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* prevent horizontal scroll from full-bleed elements */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-@layer base {
-  h1 { @apply font-heading text-[2.75rem] md:text-[3.5rem] font-bold leading-[0.95] tracking-[-0.015em]; }
-  h2 { @apply font-heading text-[2rem] md:text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.01em]; }
-  h3 { @apply font-heading text-xl md:text-[1.5rem] font-medium leading-[1.15] tracking-[-0.005em]; }
-  p  { @apply text-base leading-[1.6] tracking-[0em] text-foreground/90; }
-  a  { @apply text-primary hover:opacity-90 transition-opacity; }
-}
-
-@layer components {
-  .heading-hero { @apply font-heading text-[2.75rem] md:text-[3.5rem] font-bold leading-[0.95] tracking-[-0.015em] text-foreground; }
-  .heading-xl { @apply font-heading text-[2rem] md:text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.01em] text-foreground; }
-  .heading-lg { @apply font-heading text-xl md:text-[1.5rem] font-medium leading-[1.15] tracking-[-0.005em] text-foreground; }
-  .body-text { @apply text-base md:text-lg leading-[1.6] tracking-[0em] text-foreground/90; }
-  .caption-text { @apply text-sm leading-[1.4] text-foreground/70; }
-  .eyebrow { @apply text-xs md:text-sm uppercase tracking-[0.35em] text-muted; }
-  .font-display { font-family: var(--font-display); font-variation-settings: 'opsz' 48; }
-  .mono-accent { font-family: var(--font-mono); }
-}
-
-::selection {
-  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
 }

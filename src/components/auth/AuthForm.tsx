@@ -11,6 +11,7 @@ export default function AuthForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [redirectTo, setRedirectTo] = useState<string>()
+  const [isSignUp, setIsSignUp] = useState(false)
 
   const redirectTargetRaw = searchParams?.get('redirectedFrom') ?? '/mystable'
   const redirectTarget = redirectTargetRaw.startsWith('/') ? redirectTargetRaw : '/mystable'
@@ -56,6 +57,21 @@ export default function AuthForm() {
     }
   }, [redirectTarget, router, supabase])
 
+  useEffect(() => {
+    // Listen for changes in the Auth UI view
+    const observer = new MutationObserver(() => {
+      const signUpButton = document.querySelector('button[type="submit"]')?.textContent?.toLowerCase().includes('sign up')
+      const signUpLink = document.querySelector('a[href*="sign_up"]')
+      setIsSignUp(signUpButton === true || signUpLink !== null)
+    })
+
+    if (typeof window !== 'undefined') {
+      observer.observe(document.body, { childList: true, subtree: true })
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   console.log('Rendering Auth component with redirectTo:', redirectTo)
   
   if (!redirectTo) {
@@ -67,7 +83,7 @@ export default function AuthForm() {
     <div className="w-full max-w-md space-y-12 text-white lg:max-w-[17rem] xl:max-w-[18.5rem] 2xl:max-w-[20rem]">
       <div className="space-y-2 text-center lg:text-left">
         <p className="text-xs uppercase tracking-[0.4em] text-white/50">Evolution Stables</p>
-        <h1 className="text-3xl font-semibold tracking-[0.12em]">Welcome Back</h1>
+        <h1 className="text-3xl font-semibold tracking-[0.12em]">{isSignUp ? 'Welcome' : 'Welcome Back'}</h1>
         <p className="text-sm text-white/60">Sign in to manage your stable, positions, and updates.</p>
       </div>
 

@@ -17,6 +17,7 @@ A modern Next.js application built with TypeScript, Tailwind CSS, and Framer Mot
 1. Install dependencies:
    ```bash
    npm install
+   npm install --prefix studio
    ```
 
 2. Run the development server:
@@ -24,7 +25,7 @@ A modern Next.js application built with TypeScript, Tailwind CSS, and Framer Mot
    npm run dev
    ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Visit [http://localhost:3000](http://localhost:3000). (If you want the Studio later, start it separately with `npm run dev --prefix studio`.)
 
 ## Storybook Development
 
@@ -98,8 +99,8 @@ To add new images, place them in the `public/images/` directory and update the a
 
 2. Start the production server:
    ```bash
-   npm start
-   ```
+npm start
+```
 
 ## Environment Variables
 
@@ -108,7 +109,46 @@ Create a `.env.local` file in the root directory:
 ```env
 NEXT_PUBLIC_API_MODE=mock
 NEXT_PUBLIC_API_URL=https://your-api-url.com
+NEXT_PUBLIC_SANITY_PROJECT_ID=a4xfnv5b
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2023-10-04
+# Optional: required only for private datasets
+SANITY_READ_TOKEN=your-sanity-read-token
 ```
+
+If you create additional content models in Sanity, make sure they expose the following fields so the
+Marketplace modules can be managed from the CMS:
+
+- `title` (string)
+- `description` (text or string)
+- `ctaLabel` (string)
+- `ctaHref` (string URL)
+- `iconKey` (string matching one of `digitalSyndication`, `ownershipDashboard`, `integrationCompliance`, `analyticsInsights`, `communityMedia`)
+- `layoutKey` (string matching one of `middle-tall`, `left-tall`, `left-bottom`, `right-top`, `right-bottom`)
+
+The data is fetched at request time; if Sanity is unreachable or the query returns no documents, the UI falls back to the locally-defined defaults.
+
+## Sanity Studio
+
+A Sanity Studio has been scaffolded in the `/studio` directory.
+
+### Install & Run
+
+```bash
+cd studio
+npm install
+npm run dev
+```
+
+The Studio targets project `a4xfnv5b` and dataset `production` by default (controlled via the same `NEXT_PUBLIC_SANITY_*` env variables shown above).
+
+### Deploy
+
+- **Sanity hosting**: `npx sanity deploy`
+- **Self hosted (Vercel/Netlify)**: build and deploy this folder; the scripts `npm run build` and `npm run deploy` are provided for convenience.
+- **Schema-only deploy**: `npx sanity schema deploy` (requires `SANITY_AUTH_TOKEN` if run from CI)
+
+After deploying you will receive a Studio URL (for example `https://<project>.sanity.studio` or a Vercel URL). Add that URL to the Sanity project settings under *Add studio*.
 
 ## License
 

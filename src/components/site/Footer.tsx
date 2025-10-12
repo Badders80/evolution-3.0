@@ -90,13 +90,13 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="flex justify-center items-center">
-              <p className="text-muted text-sm leading-tight">
+            <div className="flex items-center justify-start md:justify-center">
+              <p className="text-sm leading-tight text-muted">
                 &copy; 2025 Evolution Stables.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-end gap-3 [&_a]:text-muted [&_a:hover]:text-muted/80 [&_a]:transition-colors">
+            <div className="flex flex-wrap items-center justify-start gap-3 md:justify-end [&_a]:text-muted [&_a:hover]:text-muted/80 [&_a]:transition-colors">
               <Link href="/privacy" className="leading-tight">
                 Privacy Policy
               </Link>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import type { Session } from '@supabase/supabase-js';
 import { useSupabase } from '@/providers/supabase-provider';
 import Modal from '@/components/ui/Modal';
@@ -159,12 +160,16 @@ export default function MyStablePage() {
         </header>
 
         {/* Main Grid: Left (Horses) + Right (Stats) */}
-        <div className="relative isolate mt-2 overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0b0b]/70 px-6 py-10 shadow-[0_28px_120px_rgba(0,0,0,0.55)]">
+        <div
+          className={`relative isolate mt-2 overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0b0b]/70 px-5 py-8 shadow-[0_28px_120px_rgba(0,0,0,0.55)] transition-[max-height] duration-700 ease-out sm:px-6 sm:py-10 ${
+            showComingSoon ? 'max-h-[520px] sm:max-h-none' : 'max-h-[2400px]'
+          }`}
+        >
           <div
-            className={`relative z-10 grid gap-8 lg:grid-cols-[1fr_320px] transform transition-all duration-700 ease-in-out ${
+            className={`relative z-10 grid gap-8 lg:grid-cols-[1fr_320px] transition-all duration-700 ease-in-out ${
               isTransitioning
-                ? 'pointer-events-none -translate-y-3 opacity-0 blur-sm'
-                : 'translate-y-0 opacity-100'
+                ? 'pointer-events-none blur-[4px]'
+                : 'blur-0'
             }`}
           >
           
@@ -273,20 +278,53 @@ export default function MyStablePage() {
             </aside>
           </div>
 
+          {/* Black overlay over blurred content */}
+          <div 
+            className={`pointer-events-none absolute inset-0 z-[15] bg-black transition-opacity duration-700 ${
+              isTransitioning ? 'opacity-65' : 'opacity-0'
+            }`}
+          />
+
+          {/* Coming Soon text on top of everything */}
           <div
-            className={`pointer-events-none absolute inset-0 z-20 flex items-center justify-center transition-opacity duration-700 ease-out ${
+            className={`pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center text-center transition-opacity duration-700 ease-out ${
               showComingSoon ? 'opacity-100' : 'opacity-0'
             }`}
             aria-hidden="true"
           >
-            <div className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-[#0b0b0b]/80 px-10 py-16 text-center backdrop-blur-md">
-              <p className="text-3xl font-medium tracking-tight text-white/80">Coming Soon</p>
-              <p className="mx-auto mt-3 max-w-xl text-sm text-white/50">
-                The full MyStable ownership dashboard for portfolio analytics, horse performance, and race insights will unlock shortly.
-              </p>
-            </div>
+            <p className="text-3xl font-medium tracking-tight text-white/80">Coming Soon</p>
+            <p className="mx-auto mt-3 max-w-xl text-sm text-white/50">
+              The full MyStable ownership dashboard for portfolio analytics, horse performance, and race insights will unlock shortly.
+            </p>
           </div>
         </div>
+
+        {/* Information Hub Section */}
+        <section className="mt-24">
+          <header className="mb-8">
+            <p className="text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
+            <h2 className="mt-2 text-3xl font-medium tracking-tight md:text-4xl">Information Hub</h2>
+            <p className="mt-4 text-base text-white/60 max-w-2xl">
+              Stay connected with the latest Evolution news, interviews, and race insights.
+            </p>
+          </header>
+
+          <div className="relative overflow-hidden rounded-3xl aspect-[21/9]">
+            <Image
+              src="/images/Gemini_Generated_Image_r4hnnzr4hnnzr4hn.jpg"
+              alt="Latest Insights"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+              <div>
+                <h3 className="text-2xl font-medium tracking-tight text-white mb-2">Latest Insights</h3>
+                <p className="text-base text-white/70">Curated coverage of races, partnerships, and trends.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );

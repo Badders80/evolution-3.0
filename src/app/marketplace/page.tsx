@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 export default function MarketplacePage() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
@@ -43,31 +41,6 @@ export default function MarketplacePage() {
 
             <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm">
               <span className="text-lg font-medium text-gray-300">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Section 2: Information Hub */}
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="mb-2 text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
-            <h2 className="mb-4 text-4xl font-medium tracking-tight text-white">Information Hub</h2>
-            <p className="text-base leading-relaxed text-white/60">
-              Stay connected with the latest Evolution news, interviews, and race insights.
-            </p>
-          </div>
-
-          <div className="relative overflow-hidden rounded-xl border border-white/5">
-            <Image
-              src="/images/Gemini_Generated_Image_r4hnnzr4hnnzr4hn.jpg"
-              alt="Information Hub"
-              width={800}
-              height={600}
-              className="h-[360px] w-full object-cover"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-6">
-              <h3 className="mb-1 text-lg font-medium tracking-tight text-white">Latest Insights</h3>
-              <p className="text-sm text-white/60">Curated coverage of races, partnerships, and trends.</p>
             </div>
           </div>
         </div>

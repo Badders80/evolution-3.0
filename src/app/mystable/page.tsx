@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import type { Session } from '@supabase/supabase-js';
 import { useSupabase } from '@/providers/supabase-provider';
 import Modal from '@/components/ui/Modal';
+import Image from 'next/image';
 
 // Mock data for demonstration
 const mockPortfolio = {
@@ -158,6 +159,8 @@ export default function MyStablePage() {
           </p>
         </header>
 
+        
+
         {/* Main Grid: Left (Horses) + Right (Stats) */}
         <div className="relative isolate mt-2 overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0b0b]/70 px-6 py-10 shadow-[0_28px_120px_rgba(0,0,0,0.55)]">
           <div
@@ -287,6 +290,30 @@ export default function MyStablePage() {
             </div>
           </div>
         </div>
+
+        {/* Information Hub */}
+        <section className="mt-12">
+          <p className="text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
+          <h2 className="mt-2 text-3xl font-medium tracking-tight md:text-4xl">Information Hub</h2>
+          <p className="mt-4 text-base text-white/60 max-w-2xl">
+            Stay connected with the latest Evolution news, interviews, and race insights.
+          </p>
+          <div className="mt-6">
+            <div className="relative overflow-hidden rounded-xl border border-white/5">
+              <Image
+                src="/images/Gemini_Generated_Image_r4hnnzr4hnnzr4hn.jpg"
+                alt="Information Hub"
+                width={800}
+                height={600}
+                className="h-[360px] w-full object-cover"
+              />
+              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-6">
+                <h3 className="mb-1 text-lg font-medium tracking-tight text-white">Latest Insights</h3>
+                <p className="text-sm text-white/60">Curated coverage of races, partnerships, and trends.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );

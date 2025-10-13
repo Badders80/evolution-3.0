@@ -164,29 +164,29 @@ const Home = () => {
 
         <section id="digital-syndication" className="py-48 bg-background text-foreground">
           <div className="max-w-5xl mx-auto px-6">
+            {/* Section Label */}
+            <p className="text-sm font-medium tracking-[0.3em] uppercase mb-12 text-gray-400">
+              OUR MODEL
+            </p>
+
             {/* Two Column Layout */}
-            <div className="grid gap-16 lg:grid-cols-[2fr_3fr] lg:gap-24">
+            <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
 
               {/* LEFT COLUMN */}
-              <div className="space-y-6">
-                {/* Section Label */}
-                <p className="eyebrow">
-                  OUR MODEL
-                </p>
-
+              <div className="space-y-8">
                 {/* Headline */}
-                <h2 className="heading-xl">
+                <h2 className="text-5xl md:text-6xl font-semibold tracking-tight">
                   Digital <span className="text-primary">Syndication</span>
                 </h2>
 
                 {/* Lead Paragraph */}
-                <p className="body-text">
-                  Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn&apos;t here to replace it - but to evolve it.
+                <p className="text-xl md:text-xl font-extralight leading-relaxed text-gray-300">
+                  Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn't here to replace it - but to evolve it.
                 </p>
               </div>
 
               {/* RIGHT COLUMN */}
-              <div className="space-y-8 pt-16">
+              <div className="space-y-8">
                 {/* Features List */}
                 <div className="space-y-4">
                   {/* Increased Access Section */}
@@ -209,8 +209,7 @@ const Home = () => {
                           INCREASED ACCESS
                         </h4>
                         <p className="text-muted leading-relaxed max-w-[42ch] group-hover:text-foreground transition-colors duration-300">
-                          <span className="block">A digital platform that lowers barriers and</span>
-                          <span className="block">opens ownership to everyone.</span>
+                          A digital platform that lowers barriers and opens ownership to everyone.
                         </p>
                       </div>
                     </div>
@@ -221,7 +220,7 @@ const Home = () => {
                     <div className="flex items-center gap-6">
                       <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <Image 
-                          src="/images/Untitled design (37).svg" 
+                          src="/images/greater-than-equal-icon-original.svg" 
                           alt="GREATER TRANSPARENCY"
                           width={48}
                           height={48}
@@ -236,8 +235,7 @@ const Home = () => {
                           GREATER TRANSPARENCY
                         </h4>
                         <p className="text-muted leading-relaxed max-w-[42ch] group-hover:text-foreground transition-colors duration-300">
-                          <span className="block">Real-time performance, clear costs, and</span>
-                          <span className="block">open communication.</span>
+                          Real-time performance, clear costs, and open communication.
                         </p>
                       </div>
                     </div>
@@ -263,8 +261,7 @@ const Home = () => {
                           BORDERLESS FLEXIBILITY
                         </h4>
                         <p className="text-muted leading-relaxed max-w-[42ch] group-hover:text-foreground transition-colors duration-300">
-                          <span className="block">Fractional shares and short-term</span>
-                          <span className="block">commitments for modern investors.</span>
+                          Fractional shares and short-term commitments for modern investors.
                         </p>
                       </div>
                     </div>

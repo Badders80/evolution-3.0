@@ -1,6 +1,9 @@
-'use client';
-
-<<<<<<< HEAD
+type LayoutKey =
+  | 'middle-tall'
+  | 'left-tall'
+  | 'left-bottom'
+  | 'right-top'
+  | 'right-bottom';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
@@ -15,12 +18,7 @@ import {
 
 import { BentoGrid, BentoCard } from '@/components/layout/Bento';
 
-type LayoutKey =
-  | 'middle-tall'
-  | 'left-tall'
-  | 'left-bottom'
-  | 'right-top'
-  | 'right-bottom';
+
 
 const layoutClassMap: Record<LayoutKey, string> = {
   'left-tall': 'lg:col-start-1 lg:row-start-1 lg:row-span-1', // Ownership Dashboard - same height as Community & Media
@@ -106,8 +104,6 @@ const fallbackModules: ModuleCardConfig[] = [
   },
 ];
 
-=======
->>>>>>> 85807f12be0e29e95be3bdbefc59d235b393d4bb
 export default function MarketplacePage() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
@@ -179,7 +175,6 @@ export default function MarketplacePage() {
             </div>
           </div>
         </div>
-<<<<<<< HEAD
 
         {/* Section 2: Evolution Modules */}
         <section id="modules" className="space-y-12">
@@ -213,8 +208,6 @@ export default function MarketplacePage() {
             )}
           </BentoGrid>
         </section>
-=======
->>>>>>> 85807f12be0e29e95be3bdbefc59d235b393d4bb
       </div>
     </main>
   );

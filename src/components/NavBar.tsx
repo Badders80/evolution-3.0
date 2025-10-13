@@ -146,7 +146,7 @@ export function NavBar() {
               >
                 <Link
                   href={link.href}
-                  className={`inline-flex items-center whitespace-nowrap px-2 py-4 text-xs font-medium transition-colors duration-300 ${linkTone} hover:text-foreground focus:outline-none md:px-3 md:py-5 md:text-sm`}
+                  className={`inline-flex items-center whitespace-nowrap px-2 py-4 text-xs font-normal transition-colors duration-300 ${linkTone} hover:text-foreground focus:outline-none md:px-3 md:py-5 md:text-sm`}
                 >
                   {link.label}
                 </Link>
@@ -199,7 +199,7 @@ export function NavBar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block rounded-md px-2 py-3 text-base font-medium text-foreground/90 transition-colors duration-200 hover:bg-foreground/10 hover:text-foreground"
+                className="block rounded-md px-2 py-3 text-base font-normal text-foreground/90 transition-colors duration-200 hover:bg-foreground/10 hover:text-foreground"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}

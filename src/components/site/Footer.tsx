@@ -91,12 +91,12 @@ export function Footer() {
             </div>
 
             <div className="flex items-center justify-start md:justify-center">
-              <p className="text-sm leading-tight text-gray-300">
+              <p className="text-sm leading-tight text-gray-300 font-extralight">
                 &copy; 2025 Evolution Stables.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-start gap-3 md:justify-end [&_a]:text-gray-300 [&_a:hover]:text-gray-400 [&_a]:transition-colors">
+            <div className="flex flex-wrap items-center justify-start gap-3 md:justify-end [&_a]:text-gray-300 [&_a:hover]:text-gray-400 [&_a]:transition-colors [&_a]:font-extralight">
               <Link href="/privacy" className="leading-tight">
                 Privacy Policy
               </Link>

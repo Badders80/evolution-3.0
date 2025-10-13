@@ -29,15 +29,15 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({
   const containerClass = maxWidth === 'wide' ? 'max-w-6xl' : 'max-w-5xl';
 
   return (
-    <section id={id} className={`py-48 bg-background text-foreground ${className}`}>
-      <div className={`${containerClass} mx-auto px-6`}>
+    <section id={id} className={`py-48 bg-background text-foreground overflow-hidden ${className}`}>
+      <div className={`${containerClass} mx-auto px-6 w-full`}>
         {/* Section Label */}
         <p className="text-sm font-medium tracking-[0.3em] uppercase mb-8 text-gray-400">
           {label}
         </p>
 
         {/* Headline */}
-        <h2 className="text-5xl md:text-6xl font-semibold mb-8 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 tracking-tight break-words">
           {heading}
         </h2>
 

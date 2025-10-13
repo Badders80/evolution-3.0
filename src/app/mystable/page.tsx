@@ -175,6 +175,7 @@ export default function MyStablePage() {
 
         {/* Main Grid: Left (Horses) + Right (Stats) */}
         <div
+<<<<<<< HEAD
           className={`relative isolate mt-2 overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0b0b]/70 px-6 py-10 shadow-[0_28px_120px_rgba(0,0,0,0.55)] transition-all duration-1500 ease-out ${
             hasReducedHeight ? 'min-h-[420px]' : 'min-h-[520px]'
           }`}
@@ -185,6 +186,18 @@ export default function MyStablePage() {
                 ? 'pointer-events-none -translate-y-6 opacity-0 blur-[6px]'
                 : 'translate-y-0 opacity-100'
             } ${hasReducedHeight ? 'max-h-0 overflow-hidden' : 'max-h-[1200px]'}`}
+=======
+          className={`relative isolate mt-2 overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0b0b]/70 px-5 py-8 shadow-[0_28px_120px_rgba(0,0,0,0.55)] transition-[max-height] duration-700 ease-out sm:px-6 sm:py-10 ${
+            showComingSoon ? 'max-h-[520px] sm:max-h-none' : 'max-h-[2400px]'
+          }`}
+        >
+          <div
+            className={`relative z-10 grid gap-8 lg:grid-cols-[1fr_320px] transition-all duration-700 ease-in-out ${
+              isTransitioning
+                ? 'pointer-events-none blur-[4px]'
+                : 'blur-0'
+            }`}
+>>>>>>> 5370b1856133c1ac0fcc6308c384cdb2249c1f3c
           >
           
             {/* Left: My Horses */}
@@ -302,12 +315,12 @@ export default function MyStablePage() {
           {/* Coming Soon text on top of everything */}
           <div
 <<<<<<< HEAD
-            className={`pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center text-center transition-opacity duration-700 ease-out ${
-              showComingSoon ? 'opacity-100' : 'opacity-0'
-=======
             className={`pointer-events-none absolute inset-0 z-20 flex items-center justify-center transition-all duration-[1800ms] ease-[cubic-bezier(0.4,0.0,0.2,1)] ${
               showComingSoon ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
->>>>>>> 28eacd974 (feat: update FAQ section with hover animations and MyStable page transitions)
+=======
+            className={`pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center text-center transition-opacity duration-700 ease-out ${
+              showComingSoon ? 'opacity-100' : 'opacity-0'
+>>>>>>> 5370b1856133c1ac0fcc6308c384cdb2249c1f3c
             }`}
             aria-hidden="true"
           >
@@ -318,6 +331,30 @@ export default function MyStablePage() {
           </div>
         </div>
 
+<<<<<<< HEAD
+        {/* Information Hub Section */}
+        <section className="mt-24">
+          <header className="mb-8">
+            <p className="text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
+            <h2 className="mt-2 text-3xl font-medium tracking-tight md:text-4xl">Information Hub</h2>
+            <p className="mt-4 text-base text-white/60 max-w-2xl">
+              Stay connected with the latest Evolution news, interviews, and race insights.
+            </p>
+          </header>
+
+          <div className="relative overflow-hidden rounded-3xl aspect-[21/9]">
+            <Image
+              src="/images/Gemini_Generated_Image_r4hnnzr4hnnzr4hn.jpg"
+              alt="Latest Insights"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+              <div>
+                <h3 className="text-2xl font-medium tracking-tight text-white mb-2">Latest Insights</h3>
+                <p className="text-base text-white/70">Curated coverage of races, partnerships, and trends.</p>
+=======
         {/* Information Hub */}
         <section className="mt-12">
           <p className="text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
@@ -337,6 +374,7 @@ export default function MyStablePage() {
               <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-6">
                 <h3 className="mb-1 text-lg font-medium tracking-tight text-white">Latest Insights</h3>
                 <p className="text-sm text-white/60">Curated coverage of races, partnerships, and trends.</p>
+>>>>>>> 85807f12be0e29e95be3bdbefc59d235b393d4bb
               </div>
             </div>
           </div>

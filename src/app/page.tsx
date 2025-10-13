@@ -8,6 +8,7 @@ import { Footer } from '@/components/site/Footer';
 import { SplitFaq } from '@/components/ui/SplitFaq';
 import { Button } from '@/components/ui/Button';
 import { HeroSection } from '@/components/site/HeroSection';
+import { SectionTemplate } from '@/components/sections/SectionTemplate';
 
 const faqItems = [
   {
@@ -58,28 +59,29 @@ const Home = () => {
         <section id="about" className="py-48 bg-background text-foreground">
           <div className="max-w-5xl mx-auto px-6">
             {/* Section Label */}
-            <p className="eyebrow mb-4">
+            <p className="text-sm font-medium tracking-[0.3em] uppercase mb-8 text-gray-400">
               ABOUT
             </p>
 
             {/* Headline */}
-            <h2 className="heading-xl mb-6">
+            <h2 className="text-5xl md:text-6xl font-semibold mb-8 tracking-tight">
               OWN THE EXPERIENCE
             </h2>
 
             {/* Lead Paragraph */}
-            <p className="body-text max-w-3xl">
+            <p className="text-xl md:text-xl font-extralight leading-relaxed max-w-4xl mb-12 text-gray-300">
               Racehorse ownership has always been limited and complex. Evolution Stables is here to change that. Removing barriers - delivering access to first-time fans and seasoned owners alike to not just participate, but own the thrill of thoroughbred horse racing.
             </p>
 
             {/* CTA Button */}
-            <div className="mt-8">
+            <div>
               <Button
                 variant="outline"
-                className="gap-3 uppercase tracking-[0.2em]"
+                size="lg"
+                className="gap-3 uppercase tracking-[0.2em] border-[#d4a964] text-[#d4a964] hover:bg-[#d4a964] hover:text-black"
                 onClick={() => scrollToId('get-started')}
               >
-                Join the revolution
+                JOIN THE REVOLUTION
                 <span aria-hidden className="text-base">
                   &rsaquo;
                 </span>
@@ -92,25 +94,14 @@ const Home = () => {
           <FixedBg src="/images/Background-hooves-back-and-white.jpg" height="h-[50vh]" />
         </section>
 
-        <section id="mission" className="py-48 bg-background text-foreground">
-          <div className="max-w-4xl mx-auto px-6">
-            {/* Section Label */}
-            <p className="eyebrow mb-4">
-              OUR MISSION
-            </p>
-
-            {/* Headline and Lead Paragraph Side by Side */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
-              <h2 className="heading-xl">
-                HOW IT WORKS
-              </h2>
-              <p className="body-text text-foreground max-w-xs ml-24">
-                Empowering every role in racing with transparent, flexible paths forward.
-              </p>
-            </div>
-
-            {/* Steps List */}
-            <div className="space-y-4">
+        <SectionTemplate
+          id="mission"
+          label="OUR MISSION"
+          heading="HOW IT WORKS"
+          description="Empowering every role in racing with transparent, flexible paths forward."
+        >
+          {/* Steps List */}
+          <div className="space-y-4">
               {/* Step One */}
               <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-8 sm:flex-row sm:items-baseline">
@@ -165,8 +156,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+        </SectionTemplate>
 
         <section className="px-0 md:px-0 m-0 p-0 border-none">
           <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" />
@@ -289,26 +279,14 @@ const Home = () => {
           <FixedBg src="/images/Horse-and-foal.jpg" height="h-[50vh]" />
         </section>
 
-        <section id="innovation" className="py-48 bg-background text-foreground">
-          <div className="max-w-5xl mx-auto px-6">
-            {/* Section Label */}
-            <p className="eyebrow mb-4">
-              REGULATED MARKETPLACE
-            </p>
-
-            {/* Headline */}
-            <h2 className="heading-xl mb-6">
-              Transformation Powered by <span className="text-primary">Tokinvest</span>
-            </h2>
-
-            {/* Lead Paragraph */}
-            <p className="body-text max-w-3xl">
-              The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest&apos;s secure, compliant, and globally scalable infrastructure.
-            </p>
-          </div>
-
+        <SectionTemplate
+          id="innovation"
+          label="REGULATED MARKETPLACE"
+          heading={<>Transformation Powered by <span className="text-primary">Tokinvest</span></>}
+          description="The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest's secure, compliant, and globally scalable infrastructure."
+        >
           {/* Features */}
-          <div className="max-w-5xl mx-auto px-6 mt-20">
+          <div className="mt-8">
             <div className="grid gap-12 md:grid-cols-3">
               <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-colors duration-300">
                 <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-border/80 group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"></div>
@@ -357,36 +335,24 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section>
+        </SectionTemplate>
 
         <section id="get-started" className="bg-background">
           <GrassBg src="/images/Hooves-on-grass.png" />
         </section>
 
 
-        <section id="faq" className="py-48 bg-background text-foreground">
-          <div className="max-w-5xl mx-auto px-6">
-            {/* Section Label */}
-            <p className="eyebrow mb-4">
-              FAQ
-            </p>
-
-            {/* Headline */}
-            <h2 className="heading-xl mb-6">
-              Frequently Asked Questions
-            </h2>
-
-            {/* Lead Paragraph */}
-            <p className="body-text max-w-3xl mx-auto">
-              Got questions about digital racehorse ownership? We&apos;ve got answers. Our comprehensive FAQ covers everything from getting started to managing your stable.
-            </p>
-          </div>
-
+        <SectionTemplate
+          id="faq"
+          label="FAQ"
+          heading="Frequently Asked Questions"
+          description="Got questions about digital racehorse ownership? We've got answers. Our comprehensive FAQ covers everything from getting started to managing your stable."
+        >
           {/* FAQ Component */}
-          <div className="max-w-5xl mx-auto px-6 mt-12">
+          <div className="mt-24">
             <SplitFaq items={faqItems} className="mx-auto max-w-4xl" />
           </div>
-        </section>
+        </SectionTemplate>
         
         <Footer />
       </main>

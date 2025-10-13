@@ -5,25 +5,25 @@ import { WaveText } from '@/components/ui/WaveText';
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/70 bg-background shadow-inner">
+    <footer className="bg-background shadow-inner">
       <div className="mx-auto flex max-w-6xl flex-col gap-24 px-8 py-32 md:px-16">
         {/* Hero Tagline - Centerpiece */}
         <div className="flex flex-col items-center justify-center text-center min-h-[40vh]">
           <div className="max-w-4xl space-y-8">
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight">
-              <div className="text-transparent bg-clip-text bg-gradient-to-b from-muted/70 via-muted/90 to-foreground/80">
-                Powered by <span className="font-medium">innovation</span>, driven by <span className="font-medium">passion</span>,
+              <div className="text-gray-300">
+                Powered by <span className="font-medium text-white">innovation</span>, driven by <span className="font-medium text-white">passion</span>,
               </div>
-              <div className="text-transparent bg-clip-text bg-gradient-to-b from-muted/70 via-muted/90 to-foreground/80">
+              <div className="text-gray-300">
                 <span className="mr-2">
                   <WaveText 
                     text="digital-syndication" 
                     highlightWords={['digital-syndication']}
                     className="inline"
-                    highlightColor="text-transparent bg-clip-text bg-gradient-to-b from-muted/70 via-muted/90 to-foreground/80"
+                    highlightColor="text-white"
                   />
                 </span>
-                Own the experience.
+                <span className="text-white">Own the experience.</span>
               </div>
             </h2>
           </div>

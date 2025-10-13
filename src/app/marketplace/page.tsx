@@ -1,9 +1,5 @@
-type LayoutKey =
-  | 'middle-tall'
-  | 'left-tall'
-  | 'left-bottom'
-  | 'right-top'
-  | 'right-bottom';
+'use client';
+
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
@@ -17,6 +13,13 @@ import {
 } from 'react-icons/lu';
 
 import { BentoGrid, BentoCard } from '@/components/layout/Bento';
+
+type LayoutKey =
+  | 'middle-tall'
+  | 'left-tall'
+  | 'left-bottom'
+  | 'right-top'
+  | 'right-bottom';
 
 
 

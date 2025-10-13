@@ -8,6 +8,8 @@ import { HeroSection } from '@/components/site/HeroSection';
 import { Footer } from '@/components/site/Footer';
 import { SplitFaq } from '@/components/ui/SplitFaq';
 import { Button } from '@/components/ui/Button';
+import { FixedBg } from '@/components/ui/FixedBg';
+import { GrassBg } from '@/components/ui/GrassBg';
 
 const innovationPanels = [
   {
@@ -325,7 +327,6 @@ export default function Home() {
                 Frequently Asked Questions
               </h2>
             </div>
-<<<<<<< HEAD
 
             {/* Steps List */}
             <div className="space-y-4">
@@ -602,8 +603,6 @@ export default function Home() {
 
           {/* FAQ Component */}
           <div className="max-w-5xl mx-auto px-6 mt-48">
-=======
->>>>>>> 5370b1856133c1ac0fcc6308c384cdb2249c1f3c
             <SplitFaq items={faqItems} className="mx-auto max-w-4xl" />
           </div>
         </section>

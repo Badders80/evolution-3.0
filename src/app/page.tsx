@@ -181,7 +181,7 @@ const Home = () => {
 
                 {/* Lead Paragraph */}
                 <p className="text-xl md:text-xl font-extralight leading-relaxed text-gray-300">
-                  Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn't here to replace it - but to evolve it.
+                  Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn&apos;t here to replace it - but to evolve it.
                 </p>
               </div>
 

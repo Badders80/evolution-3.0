@@ -305,10 +305,12 @@ export default function MyStablePage() {
             }`}
             aria-hidden="true"
           >
-            <p className="text-3xl font-medium tracking-tight text-white/80">Coming Soon</p>
-            <p className="mx-auto mt-3 max-w-xl text-sm text-white/50">
-              The full MyStable ownership dashboard for portfolio analytics, horse performance, and race insights will unlock shortly.
-            </p>
+            <div className="text-center px-6">
+              <p className="text-3xl font-medium tracking-tight text-white/80">Coming Soon</p>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-white/50">
+                The full MyStable ownership dashboard for portfolio analytics, horse performance, and race insights will unlock shortly.
+              </p>
+            </div>
           </div>
         </div>
 

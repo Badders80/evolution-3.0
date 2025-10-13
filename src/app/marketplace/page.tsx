@@ -1,5 +1,6 @@
 'use client';
 
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
@@ -105,6 +106,8 @@ const fallbackModules: ModuleCardConfig[] = [
   },
 ];
 
+=======
+>>>>>>> 85807f12be0e29e95be3bdbefc59d235b393d4bb
 export default function MarketplacePage() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
@@ -176,6 +179,7 @@ export default function MarketplacePage() {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
 
         {/* Section 2: Evolution Modules */}
         <section id="modules" className="space-y-12">
@@ -209,6 +213,8 @@ export default function MarketplacePage() {
             )}
           </BentoGrid>
         </section>
+=======
+>>>>>>> 85807f12be0e29e95be3bdbefc59d235b393d4bb
       </div>
     </main>
   );

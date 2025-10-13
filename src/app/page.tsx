@@ -106,13 +106,13 @@ const Home = () => {
               <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-8 sm:flex-row sm:items-baseline">
                   <div className="flex flex-shrink-0 items-baseline sm:w-56 sm:justify-end">
-                    <span className="text-xl font-medium uppercase tracking-[0.4em] text-muted-foreground group-hover:scale-110 group-hover:text-primary transition-all duration-300 text-left sm:text-right">
+                    <span className="text-xl font-extralight uppercase tracking-[0.4em] text-gray-300 group-hover:scale-105 group-hover:text-[#d4a964] transition-all duration-300 text-left sm:text-right">
                       STEP ONE
                     </span>
                   </div>
                   <div className="flex-1">
                     <h3 className="mb-3 text-2xl font-semibold uppercase">For Investors & Fans</h3>
-                    <p className="max-w-md leading-relaxed text-muted-foreground">
+                    <p className="max-w-md leading-relaxed text-base font-extralight text-gray-300">
                       Step into ownership without long-term commitments. Transparent costs,
                       fractional stakes, and the genuine thrill of racing.
                     </p>
@@ -124,13 +124,13 @@ const Home = () => {
               <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-8 sm:flex-row sm:items-baseline">
                   <div className="flex flex-shrink-0 items-baseline sm:w-56 sm:justify-end">
-                    <span className="text-xl font-medium uppercase tracking-[0.4em] text-muted-foreground group-hover:scale-110 group-hover:text-primary transition-all duration-300 text-left sm:text-right">
+                    <span className="text-xl font-extralight uppercase tracking-[0.4em] text-gray-300 group-hover:scale-105 group-hover:text-[#d4a964] transition-all duration-300 text-left sm:text-right">
                       STEP TWO
                     </span>
                   </div>
                   <div className="flex-1">
                     <h3 className="mb-3 text-2xl font-semibold uppercase">For Breeders & Syndicators</h3>
-                    <p className="max-w-md leading-relaxed text-muted-foreground">
+                    <p className="max-w-md leading-relaxed text-base font-extralight text-gray-300">
                       Unlock new income streams on your terms while retaining control. Access a fresh market of
                       passionate investors.
                     </p>
@@ -142,13 +142,13 @@ const Home = () => {
               <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-8 sm:flex-row sm:items-baseline">
                   <div className="flex flex-shrink-0 items-baseline sm:w-56 sm:justify-end">
-                    <span className="text-xl font-medium uppercase tracking-[0.4em] text-muted-foreground group-hover:scale-110 group-hover:text-primary transition-all duration-300 text-left sm:text-right">
+                    <span className="text-xl font-extralight uppercase tracking-[0.4em] text-gray-300 group-hover:scale-105 group-hover:text-[#d4a964] transition-all duration-300 text-left sm:text-right">
                       STEP THREE
                     </span>
                   </div>
                   <div className="flex-1">
                     <h3 className="mb-3 text-2xl font-semibold uppercase">For Clubs & Organizations</h3>
-                    <p className="max-w-md leading-relaxed text-muted-foreground">
+                    <p className="max-w-md leading-relaxed text-base font-extralight text-gray-300">
                       Future-proof racing by welcoming broader audiences, fostering participation, and unlocking
                       sustainable revenue pathways.
                     </p>
@@ -194,7 +194,7 @@ const Home = () => {
                     <div className="flex items-center gap-6">
                       <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <Image 
-                          src="/images/Untitled design (35).svg" 
+                          src="/images/Increased Access.svg" 
                           alt="INCREASED ACCESS"
                           width={48}
                           height={48}
@@ -208,7 +208,7 @@ const Home = () => {
                         <h4 className="text-subheading font-medium text-foreground mb-2 uppercase tracking-[0.2em] group-hover:text-primary transition-colors duration-300">
                           INCREASED ACCESS
                         </h4>
-                        <p className="text-muted leading-relaxed max-w-[42ch] group-hover:text-foreground transition-colors duration-300">
+                        <p className="text-gray-300 leading-relaxed max-w-[42ch]">
                           A digital platform that lowers barriers and opens ownership to everyone.
                         </p>
                       </div>
@@ -234,7 +234,7 @@ const Home = () => {
                         <h4 className="text-subheading font-medium text-foreground mb-2 uppercase tracking-[0.2em] group-hover:text-primary transition-colors duration-300">
                           GREATER TRANSPARENCY
                         </h4>
-                        <p className="text-muted leading-relaxed max-w-[42ch] group-hover:text-foreground transition-colors duration-300">
+                        <p className="text-gray-300 leading-relaxed max-w-[42ch]">
                           Real-time performance, clear costs, and open communication.
                         </p>
                       </div>
@@ -260,7 +260,7 @@ const Home = () => {
                         <h4 className="text-subheading font-medium text-foreground mb-2 uppercase tracking-[0.2em] group-hover:text-primary transition-colors duration-300">
                           BORDERLESS FLEXIBILITY
                         </h4>
-                        <p className="text-muted leading-relaxed max-w-[42ch] group-hover:text-foreground transition-colors duration-300">
+                        <p className="text-gray-300 leading-relaxed max-w-[42ch]">
                           Fractional shares and short-term commitments for modern investors.
                         </p>
                       </div>
@@ -279,57 +279,80 @@ const Home = () => {
         <SectionTemplate
           id="innovation"
           label="REGULATED MARKETPLACE"
-          heading={<>Transformation Powered by <span className="text-primary">Tokinvest</span></>}
+          heading={<>TRANSFORMATION POWERED BY <a href="https://tokinvest.capital/" target="_blank" rel="noopener noreferrer" className="text-[#d4a964] hover:text-[#d4a964]/80 transition-colors">TOKINVEST</a></>}
           description="The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest's secure, compliant, and globally scalable infrastructure."
         >
           {/* Features */}
-          <div className="mt-8">
+          <div className="mt-16">
             <div className="grid gap-12 md:grid-cols-3">
-              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-colors duration-300">
-                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-border/80 group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"></div>
+              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-all duration-300 hover:scale-105">
+                {/* Vertical line that expands from center */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-[calc(100%+2rem)] transition-all duration-300 origin-center"></div>
+                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-border/80"></div>
                 <div className="pl-6">
                   <div className="mb-4">
-                    <svg className="h-6 w-6 text-muted group-hover:text-primary transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
                   </div>
-                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-primary transition-colors duration-300">Discover Opportunities</h4>
-                  <p className="text-muted leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-[#d4a964] transition-colors duration-300">Discover Opportunities</h4>
+                  <p className="text-base font-extralight leading-relaxed text-gray-300">
                     Browse available syndications and short-term leases, all clearly structured and fully transparent.
                   </p>
                 </div>
               </div>
 
-              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-colors duration-300">
-                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-border/80 group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"></div>
+              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-all duration-300 hover:scale-105">
+                {/* Vertical line that expands from center */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-[calc(100%+2rem)] transition-all duration-300 origin-center"></div>
+                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-border/80"></div>
                 <div className="pl-6">
                   <div className="mb-4">
-                    <svg className="h-6 w-6 text-muted group-hover:text-primary transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>
                   </div>
-                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-primary transition-colors duration-300">Trade with Confidence</h4>
-                  <p className="text-muted leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-[#d4a964] transition-colors duration-300">Trade with Confidence</h4>
+                  <p className="text-base font-extralight leading-relaxed text-gray-300">
                     Tokinvest&apos;s regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
                   </p>
                 </div>
               </div>
 
-              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-colors duration-300">
-                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-border/80 group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"></div>
+              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-all duration-300 hover:scale-105">
+                {/* Vertical line that expands from center */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-[calc(100%+2rem)] transition-all duration-300 origin-center"></div>
+                <div className="absolute left-0 -top-4 -bottom-4 w-[0.5px] bg-border/80"></div>
                 <div className="pl-6">
                   <div className="mb-4">
-                    <svg className="h-6 w-6 text-muted group-hover:text-primary transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-primary transition-colors duration-300">Stay Connected</h4>
-                  <p className="text-muted leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-[#d4a964] transition-colors duration-300">Stay Connected</h4>
+                  <p className="text-base font-extralight leading-relaxed text-gray-300">
                     Follow your horses, track performance, and manage your positions in real time.
                   </p>
                 </div>
               </div>
+            </div>
+            
+            {/* CTA Button */}
+            <div className="mt-16">
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-3 uppercase tracking-[0.2em] border-[#d4a964] text-[#d4a964] hover:bg-[#d4a964] hover:text-black"
+                asChild
+              >
+                <a href="https://tokinvest.capital/report" target="_blank" rel="noopener noreferrer">
+                  LEARN MORE ABOUT TOKINVEST
+                  <span aria-hidden className="text-base">
+                    &rsaquo;
+                  </span>
+                </a>
+              </Button>
             </div>
           </div>
         </SectionTemplate>
@@ -342,7 +365,7 @@ const Home = () => {
         <SectionTemplate
           id="faq"
           label="FAQ"
-          heading="Frequently Asked Questions"
+          heading="FREQUENTLY ASKED QUESTIONS"
           description="Got questions about digital racehorse ownership? We've got answers. Our comprehensive FAQ covers everything from getting started to managing your stable."
         >
           {/* FAQ Component */}

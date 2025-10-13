@@ -10,6 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Evolution Stables - Where Excellence Meets Tradition",
   description: "Experience the finest in equestrian training, breeding, and care. Our commitment to excellence spans generations.",
+  icons: {
+    icon: '/images/favicon.svg',
+    shortcut: '/images/favicon.svg',
+    apple: '/images/favicon.svg',
+  },
 };
 
 export const viewport = {

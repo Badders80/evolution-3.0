@@ -150,7 +150,7 @@ export function NavBar() {
                 >
                   {link.label}
                 </Link>
-                <span className="absolute bottom-2 left-0 h-[1px] w-0 bg-gradient-to-r from-primary/80 via-primary to-primary/80 shadow-[0_0_4px_1px_rgba(245,158,11,0.3)] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-2 left-0 h-[1px] w-0 bg-gradient-to-r from-[#d4a964]/80 via-[#d4a964] to-[#d4a964]/80 shadow-[0_0_8px_2px_rgba(212,169,100,0.4)] transition-all duration-300 group-hover:w-full" />
               </div>
             ))}
           </div>

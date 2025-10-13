@@ -324,7 +324,7 @@ export default function MyStablePage() {
             </p>
           </header>
 
-          <div className="relative overflow-hidden rounded-3xl aspect-[21/9]">
+          <div className="relative overflow-hidden rounded-3xl h-[400px]">
             <Image
               src="/images/Gemini_Generated_Image_r4hnnzr4hnnzr4hn.jpg"
               alt="Latest Insights"

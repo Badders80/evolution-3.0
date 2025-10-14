@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   title: "Evolution Stables - Where Excellence Meets Tradition",
   description: "Experience the finest in equestrian training, breeding, and care. Our commitment to excellence spans generations.",
   icons: {
-    icon: '/images/favicon.svg',
-    shortcut: '/images/favicon.svg',
-    apple: '/images/favicon.svg',
+    icon: '/images/Logo-Gold-Favicon.png',
+    shortcut: '/images/Logo-Gold-Favicon.png',
+    apple: '/images/Logo-Gold-Favicon.png',
   },
 };
 

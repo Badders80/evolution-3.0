@@ -70,7 +70,7 @@ const Home = () => {
 
             {/* Lead Paragraph */}
             <p className="text-xl md:text-xl font-extralight leading-relaxed max-w-4xl mb-12 text-gray-300">
-              Racehorse ownership has always been limited and complex. Evolution Stables is here to change that. Removing barriers - delivering access to first-time fans and seasoned owners alike to not just participate, but own the thrill of thoroughbred horse racing.
+              Racehorse ownership can be complex and inaccessible. Evolution Stables is here to change that. Removing barriers - delivering opportunities to first-time fans and seasoned owners alike to not just participate, but own the thrill of thoroughbred horse racing.
             </p>
 
             {/* CTA Button */}

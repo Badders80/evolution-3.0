@@ -56,7 +56,7 @@ const Home = () => {
           <HeroSection />
         </div>
         
-        <section id="about" className="py-48 bg-background text-foreground">
+        <section id="about" className="py-56 bg-background text-foreground">
           <div className="max-w-5xl mx-auto px-6">
             {/* Section Label */}
             <p className="text-sm font-medium tracking-[0.3em] uppercase mb-8 text-gray-400">
@@ -64,7 +64,7 @@ const Home = () => {
             </p>
 
             {/* Headline */}
-            <h2 className="text-5xl md:text-6xl font-semibold mb-8 tracking-tight">
+            <h2 className="text-5xl md:text-6xl font-light mb-8 tracking-tight">
               OWN THE EXPERIENCE
             </h2>
 
@@ -162,7 +162,7 @@ const Home = () => {
           <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" />
         </section>
 
-        <section id="digital-syndication" className="py-48 bg-background text-foreground">
+        <section id="digital-syndication" className="py-56 bg-background text-foreground">
           <div className="max-w-5xl mx-auto px-6">
             {/* Section Label */}
             <p className="text-sm font-medium tracking-[0.3em] uppercase mb-12 text-gray-400">
@@ -175,7 +175,7 @@ const Home = () => {
               {/* LEFT COLUMN */}
               <div className="space-y-8">
                 {/* Headline */}
-                <h2 className="text-5xl md:text-6xl font-semibold tracking-tight">
+                <h2 className="text-5xl md:text-6xl font-light tracking-tight">
                   Digital <span className="text-primary">Syndication</span>
                 </h2>
 

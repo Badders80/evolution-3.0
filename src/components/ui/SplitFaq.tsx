@@ -24,7 +24,7 @@ export function SplitFaq({ items, className = "" }: SplitFaqProps) {
   };
 
   return (
-    <div className={className} onMouseLeave={handleMouseLeave}>
+    <div className={`max-w-4xl mx-auto ${className}`} onMouseLeave={handleMouseLeave}>
       {items.map((item, index) => {
         const contentId = `faq-panel-${index}`;
         const isOpen = openIndex === index;
@@ -39,22 +39,24 @@ export function SplitFaq({ items, className = "" }: SplitFaqProps) {
               className="w-full py-8 border-t border-foreground/10 transition-all duration-500 ease-out text-left cursor-pointer hover:border-foreground/20"
             >
               <div className="flex items-center justify-between">
-                <h3 className={`text-lg md:text-xl lg:text-2xl font-normal transition-colors duration-300 ease-out text-left ${
+                <h3 className={`text-base md:text-lg lg:text-xl font-normal transition-colors duration-300 ease-out text-left ${
                   isOpen ? 'text-foreground' : 'text-foreground/80'
                 }`}>
                   {item.question}
                 </h3>
                 <svg
-                  className={`h-5 w-5 shrink-0 text-foreground/60 transition-transform duration-300 ease-out ${
-                    isOpen ? 'rotate-180' : ''
-                  }`}
+                  className="h-5 w-5 shrink-0 text-foreground/60 transition-all duration-300 ease-out"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.8"
                   aria-hidden
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                  {isOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14" />
+                  )}
                 </svg>
               </div>
             </button>

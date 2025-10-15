@@ -32,3 +32,13 @@ body {
     background-position: 100% center;
   }
 }
+
+/* Subtle background gradient shift */
+@keyframes bgShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}

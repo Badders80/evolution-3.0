@@ -290,8 +290,8 @@ const Home = () => {
             <div className="grid gap-16 md:gap-20 grid-cols-1 md:grid-cols-3">
               <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
                 {/* Vertical line that expands from center */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-full transition-all duration-300 origin-center"></div>
-                <div className="absolute left-0 top-0 bottom-0 w-[0.5px] bg-border/80"></div>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-[calc(100%-3rem)] transition-all duration-300 origin-center"></div>
+                <div className="absolute left-0 top-6 bottom-6 w-[0.5px] bg-border/30"></div>
                 <div className="pl-6">
                   <div className="mb-4">
                     <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -307,8 +307,8 @@ const Home = () => {
 
               <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
                 {/* Vertical line that expands from center */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-full transition-all duration-300 origin-center"></div>
-                <div className="absolute left-0 top-0 bottom-0 w-[0.5px] bg-border/80"></div>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-[calc(100%-3rem)] transition-all duration-300 origin-center"></div>
+                <div className="absolute left-0 top-6 bottom-6 w-[0.5px] bg-border/30"></div>
                 <div className="pl-6">
                   <div className="mb-6">
                     <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -324,8 +324,8 @@ const Home = () => {
 
               <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
                 {/* Vertical line that expands from center */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-full transition-all duration-300 origin-center"></div>
-                <div className="absolute left-0 top-0 bottom-0 w-[0.5px] bg-border/80"></div>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-[calc(100%-3rem)] transition-all duration-300 origin-center"></div>
+                <div className="absolute left-0 top-6 bottom-6 w-[0.5px] bg-border/30"></div>
                 <div className="pl-6">
                   <div className="mb-6">
                     <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -345,14 +345,14 @@ const Home = () => {
             <div className="mt-32">
               <Button
                 size="lg"
-                className="gap-3 uppercase tracking-[0.2em] bg-[#2d2d2d] hover:bg-[#3d3d3d] whitespace-nowrap text-xs sm:text-sm md:text-base rounded-full border border-white/20 overflow-hidden relative"
+                className="gap-3 uppercase tracking-[0.2em] whitespace-nowrap text-xs sm:text-sm md:text-base rounded-full border border-white/20 overflow-hidden relative bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] bg-[length:200%_100%] animate-[bgShift_6s_ease-in-out_infinite] text-white hover:from-[#252525] hover:via-[#3d3d3d] hover:to-[#252525]"
                 asChild
               >
                 <a href="https://tokinvest.capital/report" target="_blank" rel="noopener noreferrer">
-                  <span className="relative z-10 inline-block bg-gradient-to-r from-gray-600 from-0% via-white via-50% to-gray-600 to-100% bg-clip-text text-transparent animate-[shimmer_4s_linear_infinite] bg-[length:300%_100%]">
+                  <span className="relative z-10">
                     LEARN MORE ABOUT TOKINVEST
                   </span>
-                  <span aria-hidden className="text-base text-white relative z-10">
+                  <span aria-hidden className="text-base relative z-10">
                     &rsaquo;
                   </span>
                 </a>
@@ -374,7 +374,7 @@ const Home = () => {
         >
           {/* FAQ Component */}
           <div className="mt-24">
-            <SplitFaq items={faqItems} className="mx-auto max-w-4xl" />
+            <SplitFaq items={faqItems} className="mx-auto max-w-3xl" />
           </div>
         </SectionTemplate>
         

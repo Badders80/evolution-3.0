@@ -24,14 +24,15 @@ export function SplitFaq({ items, className = "" }: SplitFaqProps) {
   };
 
   return (
-    <div className={`max-w-4xl mx-auto ${className}`} onMouseLeave={handleMouseLeave}>
+    <div className={`max-w-3xl mx-auto ${className}`} onMouseLeave={handleMouseLeave}>
       {items.map((item, index) => {
         const contentId = `faq-panel-${index}`;
         const isOpen = openIndex === index;
+        const isLast = index === items.length - 1;
         return (
           <div
             key={item.question}
-            className="animate-[slideUp_0.8s_ease-out_forwards]"
+            className={`animate-[slideUp_0.8s_ease-out_forwards] ${isLast ? 'border-b border-foreground/10' : ''}`}
             style={{ animationDelay: `${index * 0.12}s` }}
           >
             <button 

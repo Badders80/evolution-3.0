@@ -198,9 +198,10 @@ const Home = () => {
                           alt="INCREASED ACCESS"
                           width={48}
                           height={48}
-                          className="w-10 h-10 opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                          className="w-10 h-10 opacity-90 group-hover:opacity-100 transition-all duration-300 icon-gold-hover"
                           style={{
-                            filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%)'
+                            filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%)',
+                            transition: 'filter 0.3s ease'
                           }}
                         />
                       </div>
@@ -224,9 +225,10 @@ const Home = () => {
                           alt="GREATER TRANSPARENCY"
                           width={48}
                           height={48}
-                          className="w-10 h-10 opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                          className="w-10 h-10 opacity-90 group-hover:opacity-100 transition-all duration-300 icon-gold-hover"
                           style={{
-                            filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%)'
+                            filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%)',
+                            transition: 'filter 0.3s ease'
                           }}
                         />
                       </div>
@@ -250,9 +252,10 @@ const Home = () => {
                           alt="BORDERLESS FLEXIBILITY"
                           width={48}
                           height={48}
-                          className="w-10 h-10 opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                          className="w-10 h-10 opacity-90 group-hover:opacity-100 transition-all duration-300 icon-gold-hover"
                           style={{
-                            filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%)'
+                            filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%)',
+                            transition: 'filter 0.3s ease'
                           }}
                         />
                       </div>
@@ -279,13 +282,13 @@ const Home = () => {
         <SectionTemplate
           id="innovation"
           label="REGULATED MARKETPLACE"
-          heading={<>TRANSFORMATION POWERED BY <a href="https://tokinvest.capital/" target="_blank" rel="noopener noreferrer" className="text-[#d4a964] hover:text-[#d4a964]/80 transition-colors">TOKINVEST</a></>}
+          heading={<>TRANSFORMATION POWERED<br />BY <a href="https://tokinvest.capital/" target="_blank" rel="noopener noreferrer" className="text-[#d4a964] hover:text-[#d4a964]/80 transition-colors">TOKINVEST</a></>}
           description="The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest's secure, compliant, and globally scalable infrastructure."
         >
           {/* Features */}
-          <div className="mt-16 w-full">
-            <div className="grid gap-12 md:gap-16 grid-cols-1 md:grid-cols-3">
-              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-all duration-300 hover:scale-105">
+          <div className="mt-32 w-full">
+            <div className="grid gap-16 md:gap-20 grid-cols-1 md:grid-cols-3">
+              <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
                 {/* Vertical line that expands from center */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-full transition-all duration-300 origin-center"></div>
                 <div className="absolute left-0 top-0 bottom-0 w-[0.5px] bg-border/80"></div>
@@ -302,12 +305,12 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-all duration-300 hover:scale-105">
+              <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
                 {/* Vertical line that expands from center */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-full transition-all duration-300 origin-center"></div>
                 <div className="absolute left-0 top-0 bottom-0 w-[0.5px] bg-border/80"></div>
                 <div className="pl-6">
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>
@@ -319,12 +322,12 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="group flex flex-col gap-4 relative p-6 rounded-lg transition-all duration-300 hover:scale-105">
+              <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
                 {/* Vertical line that expands from center */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-full transition-all duration-300 origin-center"></div>
                 <div className="absolute left-0 top-0 bottom-0 w-[0.5px] bg-border/80"></div>
                 <div className="pl-6">
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -339,16 +342,17 @@ const Home = () => {
             </div>
             
             {/* CTA Button */}
-            <div className="mt-16">
+            <div className="mt-32">
               <Button
-                variant="outline"
                 size="lg"
-                className="gap-3 uppercase tracking-[0.2em] border-[#d4a964] text-[#d4a964] hover:bg-[#d4a964] hover:text-black whitespace-nowrap text-xs sm:text-sm md:text-base"
+                className="gap-3 uppercase tracking-[0.2em] bg-[#2d2d2d] hover:bg-[#3d3d3d] whitespace-nowrap text-xs sm:text-sm md:text-base rounded-full border border-white/20 overflow-hidden relative"
                 asChild
               >
                 <a href="https://tokinvest.capital/report" target="_blank" rel="noopener noreferrer">
-                  LEARN MORE ABOUT TOKINVEST
-                  <span aria-hidden className="text-base">
+                  <span className="relative z-10 inline-block bg-gradient-to-r from-gray-600 from-0% via-white via-50% to-gray-600 to-100% bg-clip-text text-transparent animate-[shimmer_4s_linear_infinite] bg-[length:300%_100%]">
+                    LEARN MORE ABOUT TOKINVEST
+                  </span>
+                  <span aria-hidden className="text-base text-white relative z-10">
                     &rsaquo;
                   </span>
                 </a>

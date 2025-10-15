@@ -17,3 +17,18 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Gold hover effect for icons */
+.group:hover .icon-gold-hover {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(31%) saturate(706%) hue-rotate(356deg) brightness(91%) contrast(87%) !important;
+}
+
+/* Shimmer wave animation - left to right */
+@keyframes shimmer {
+  0% {
+    background-position: -100% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
+}

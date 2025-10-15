@@ -315,7 +315,7 @@ const Home = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>
                   </div>
-                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-[#d4a964] transition-colors duration-300">Trade with Confidence</h4>
+                  <h4 className="text-subheading font-medium text-foreground uppercase tracking-[0.2em] group-hover:text-[#d4a964] transition-colors duration-300">Trade with<br />Confidence</h4>
                   <p className="text-base font-extralight leading-relaxed text-gray-300">
                     Tokinvest&apos;s regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
                   </p>

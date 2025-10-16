@@ -108,16 +108,9 @@ export default function MyStablePage() {
       return;
     }
 
-    const FADE_DELAY = 1800;
-    const HEIGHT_DELAY = 2200;
-    const HEIGHT_TRANSITION_DURATION = 1500;
-
-    const fadeTimer = setTimeout(() => setIsTransitioning(true), FADE_DELAY);
-    const heightTimer = setTimeout(() => setHasReducedHeight(true), HEIGHT_DELAY);
-    const comingSoonTimer = setTimeout(
-      () => setShowComingSoon(true),
-      HEIGHT_DELAY + HEIGHT_TRANSITION_DURATION
-    );
+    const fadeTimer = setTimeout(() => setIsTransitioning(true), 1800);
+    const heightTimer = setTimeout(() => setHasReducedHeight(true), 2200);
+    const comingSoonTimer = setTimeout(() => setShowComingSoon(true), 3200);
 
     return () => {
       clearTimeout(fadeTimer);
@@ -174,16 +167,15 @@ export default function MyStablePage() {
 
         {/* Main Grid: Left (Horses) + Right (Stats) */}
         <div
-          className={`relative isolate mt-2 overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0b0b]/70 px-6 py-10 shadow-[0_28px_120px_rgba(0,0,0,0.55)] transition-all duration-1500 ease-out ${
-            hasReducedHeight ? 'min-h-[420px]' : 'min-h-[520px]'
+          className={`relative isolate mt-2 overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0b0b]/70 px-6 py-10 shadow-[0_28px_120px_rgba(0,0,0,0.55)] transition-all duration-1000 ease-out ${
+            hasReducedHeight ? 'min-h-[400px]' : 'min-h-[520px]'
           }`}
         >
+          {/* Dashboard content that stays visible but blurs */}
           <div
-            className={`relative z-10 grid gap-8 lg:grid-cols-[1fr_320px] transform transition-all duration-[1800ms] ease-[cubic-bezier(0.4,0.0,0.2,1)] ${
-              isTransitioning
-                ? 'pointer-events-none -translate-y-6 opacity-0 blur-[6px]'
-                : 'translate-y-0 opacity-100'
-            } ${hasReducedHeight ? 'max-h-0 overflow-hidden' : 'max-h-[1200px]'}`}
+            className={`relative z-10 grid gap-8 lg:grid-cols-[1fr_320px] transition-all duration-700 ease-in-out ${
+              isTransitioning ? 'blur-[1.5px]' : 'blur-0'
+            }`}
           >
           
             {/* Left: My Horses */}
@@ -291,17 +283,20 @@ export default function MyStablePage() {
             </aside>
           </div>
 
-          {/* Black overlay over blurred content */}
+          {/* Dark overlay that transitions in */}
           <div 
-            className={`pointer-events-none absolute inset-0 z-[15] bg-black transition-opacity duration-700 ${
-              isTransitioning ? 'opacity-65' : 'opacity-0'
+            className={`absolute inset-0 z-[15] transition-colors duration-700 ${
+              isTransitioning ? 'bg-black/75' : 'bg-black/20'
             }`}
           />
 
-          {/* Coming Soon text on top of everything */}
+          {/* Faint outline that remains visible */}
+          <div className="absolute inset-0 z-[15] pointer-events-none border border-white/5 rounded-[32px]" />
+
+          {/* Coming Soon text that fades in */}
           <div
-            className={`pointer-events-none absolute inset-0 z-20 flex items-center justify-center transition-all duration-[1800ms] ease-[cubic-bezier(0.4,0.0,0.2,1)] ${
-              showComingSoon ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`pointer-events-none absolute inset-0 z-20 flex items-center justify-center transition-opacity duration-700 ease-out ${
+              showComingSoon ? 'opacity-100' : 'opacity-0'
             }`}
             aria-hidden="true"
           >

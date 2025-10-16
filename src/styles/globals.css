@@ -2,14 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font Definitions */
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/GeistSans-VF.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/GeistSans-VFItalic.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-VF.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* AudiType Font Definitions */
+@font-face {
+  font-family: 'AudiType Extended';
+  src: url('/fonts/AudiType-ExtendedBold_4.03.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AudiType Extended';
+  src: url('/fonts/AudiType-ExtendedNormal_4.03.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AudiType';
+  src: url('/fonts/AudiType-Bold_4.03.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AudiType';
+  src: url('/fonts/AudiType-Normal_4.03.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AudiType Wide';
+  src: url('/fonts/AudiType-WideLight_4.03.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AudiType Wide';
+  src: url('/fonts/AudiType-WideNormal_4.03.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Custom Properties */
 :root {
+  --font-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'AudiType Extended', 'Geist Sans', sans-serif;
+  --font-body: 'AudiType', 'Geist Sans', sans-serif;
+  --font-display: 'AudiType Extended', 'Geist Sans', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'Roboto Mono', monospace;
   color-scheme: dark;
 }
 
 body {
-  @apply bg-[#141019] text-gray-100 font-sans antialiased;
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-body);
+  font-variation-settings: 'opsz' 16;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll from full-bleed elements */
 }
 
 @layer utilities {
@@ -18,27 +101,30 @@ body {
   }
 }
 
-/* Gold hover effect for icons */
-.group:hover .icon-gold-hover {
-  filter: brightness(0) saturate(100%) invert(76%) sepia(31%) saturate(706%) hue-rotate(356deg) brightness(91%) contrast(87%) !important;
+@layer base {
+  h1 { @apply font-heading text-[2.75rem] md:text-[3.5rem] font-bold leading-[0.95] tracking-[-0.015em]; }
+  h2 { @apply font-heading text-[2rem] md:text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.01em]; }
+  h3 { @apply font-heading text-xl md:text-[1.5rem] font-medium leading-[1.15] tracking-[-0.005em]; }
+  p  { @apply text-base leading-[1.6] tracking-[0em] text-foreground/90; }
+  a  { @apply text-primary hover:opacity-90 transition-opacity; }
 }
 
-/* Shimmer wave animation - left to right */
-@keyframes shimmer {
-  0% {
-    background-position: -100% center;
-  }
-  100% {
-    background-position: 100% center;
+@layer components {
+  .heading-hero { @apply font-heading text-h1-mobile md:text-h1 text-primary; }
+  .heading-xl { @apply font-heading text-h2-mobile md:text-h2 text-primary; }
+  .heading-lg { @apply font-heading text-h3 text-primary; }
+  .body-text { @apply text-body-lg text-secondary; }
+  .caption-text { @apply text-body-sm text-secondary; }
+  .eyebrow { @apply text-label uppercase text-muted; }
+  .font-display { font-family: var(--font-display); }
+  .mono-accent { font-family: var(--font-mono); }
+  
+  /* Icon hover effect - turns gold */
+  .group:hover .icon-gold-hover {
+    filter: brightness(0) saturate(100%) invert(76%) sepia(31%) saturate(706%) hue-rotate(356deg) brightness(91%) contrast(87%) !important;
   }
 }
 
-/* Subtle background gradient shift */
-@keyframes bgShift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
 }

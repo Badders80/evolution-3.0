@@ -79,10 +79,10 @@ export function NavBar() {
 
   const isSolid = scrolled || isMenuOpen;
   const logoSrc = LOGOS.simple.grey;
-  const linkTone = isSolid ? 'text-foreground' : 'text-muted';
-  const primaryCtaBase = 'inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background sm:px-5 sm:text-sm sm:tracking-[0.3em]';
+  const linkTone = isSolid ? 'text-primary' : 'text-muted';
+  const primaryCtaBase = 'inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-label uppercase text-primary transition-colors duration-200 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background sm:px-5';
   const menuButtonBase =
-    'flex h-10 w-10 items-center justify-center text-foreground transition-colors duration-200 hover:text-primary focus:outline-none md:h-11 md:w-11';
+    'flex h-10 w-10 items-center justify-center text-primary transition-colors duration-200 hover:text-primary focus:outline-none md:h-11 md:w-11';
 
   const displayName = useMemo(() => {
     if (!session) return undefined;
@@ -138,7 +138,7 @@ export function NavBar() {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center">
-          <div className="flex items-center gap-1.5 lg:gap-2">
+          <div className="flex items-center gap-0.5 lg:gap-1">
             {navLinks.map((link) => (
               <div
                 key={link.href}
@@ -146,19 +146,19 @@ export function NavBar() {
               >
                 <Link
                   href={link.href}
-                  className={`inline-flex items-center whitespace-nowrap px-2 py-4 text-xs font-normal transition-colors duration-300 ${linkTone} hover:text-foreground focus:outline-none md:px-3 md:py-5 md:text-sm`}
+                  className="inline-flex items-center whitespace-nowrap px-2 py-4 text-body-sm transition-colors duration-300 text-secondary hover:text-white focus:outline-none md:px-3 md:py-5"
                 >
                   {link.label}
                 </Link>
-                <span className="absolute bottom-2 left-0 h-[1px] w-0 bg-gradient-to-r from-[#d4a964]/80 via-[#d4a964] to-[#d4a964]/80 shadow-[0_0_8px_2px_rgba(212,169,100,0.4)] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-2 left-2 h-[1.5px] w-0 bg-[#d4a964] shadow-[0_0_6px_1px_rgba(212,169,100,0.4)] transition-all duration-300 ease-out md:left-3 group-hover:w-[calc(100%-1rem)] md:group-hover:w-[calc(100%-1.5rem)]" />
               </div>
             ))}
           </div>
         </div>
 
-        <div className="ml-auto flex items-center gap-2 lg:ml-0 lg:flex-1 lg:justify-end lg:gap-3">
+        <div className="ml-auto flex items-center gap-0 lg:ml-0 lg:flex-1 lg:justify-end lg:gap-3">
           {session && (
-            <span className="hidden whitespace-nowrap rounded-full border border-foreground/15 bg-foreground/[0.05] px-4 py-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-foreground/80 md:inline-flex">
+            <span className="hidden whitespace-nowrap rounded-full border border-foreground/15 bg-foreground/[0.05] px-4 py-2 text-label uppercase text-muted md:inline-flex">
               Hi,&nbsp;{displayName ?? 'friend'}
             </span>
           )}
@@ -166,7 +166,7 @@ export function NavBar() {
             <div className="relative">
               <button
                 onClick={handleGetStarted}
-                className={`${primaryCtaBase} mr-1 md:mr-2`}
+                className={primaryCtaBase}
               >
                 Get Started
               </button>
@@ -199,7 +199,7 @@ export function NavBar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block rounded-md px-2 py-3 text-base font-normal text-foreground/90 transition-colors duration-200 hover:bg-foreground/10 hover:text-foreground"
+                className="block rounded-md px-2 py-3 text-body text-secondary transition-colors duration-200 hover:bg-foreground/10 hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
@@ -208,7 +208,7 @@ export function NavBar() {
 
             <div className="space-y-3 pt-4">
               {session && (
-                <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 text-center text-xs uppercase tracking-[0.24em] text-foreground/70">
+                <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 text-center text-label uppercase text-muted">
                   Hi,&nbsp;{displayName ?? 'friend'}
                 </div>
               )}
@@ -221,7 +221,7 @@ export function NavBar() {
                   }
                   setIsMenuOpen(false);
                 }}
-                className="w-full block rounded-full bg-primary px-4 py-2.5 text-center text-sm font-medium text-primary-foreground transition-colors duration-200 hover:bg-primary/90 uppercase tracking-wider"
+                className="w-full block rounded-full bg-primary px-4 py-2.5 text-center text-label uppercase text-black transition-colors duration-200 hover:bg-primary/90"
               >
                 {session ? 'Sign Out' : 'Get Started'}
               </button>
@@ -239,7 +239,7 @@ export function NavBar() {
                   await handleSignOut();
                   setIsMenuOpen(false);
                 }}
-                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.28em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
+                className="w-full px-4 py-3 text-label uppercase text-primary transition-colors duration-200 hover:bg-foreground/10"
               >
                 Sign Out
               </button>
@@ -249,7 +249,7 @@ export function NavBar() {
                   handleGetStarted();
                   setIsMenuOpen(false);
                 }}
-                className="w-full px-4 py-3 text-sm font-medium uppercase tracking-[0.28em] text-foreground transition-colors duration-200 hover:bg-foreground/10"
+                className="w-full px-4 py-3 text-label uppercase text-primary transition-colors duration-200 hover:bg-foreground/10"
               >
                 Get Started
               </button>

@@ -32,17 +32,17 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({
     <section id={id} className={`py-56 bg-background text-foreground overflow-hidden ${className}`}>
       <div className={`${containerClass} mx-auto px-6 w-full`}>
         {/* Section Label */}
-        <p className="text-sm font-medium tracking-[0.3em] uppercase mb-8 text-gray-400">
+        <p className="text-label uppercase mb-8 text-muted">
           {label}
         </p>
 
         {/* Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-tight break-words">
+        <h2 className="text-h1-mobile md:text-h1 mb-8 text-white">
           {heading}
         </h2>
 
         {/* Lead Paragraph */}
-        <p className="text-xl md:text-xl font-extralight leading-relaxed max-w-4xl mb-12 text-gray-300">
+        <p className="text-body-lg max-w-4xl mb-12 text-secondary">
           {description}
         </p>
 

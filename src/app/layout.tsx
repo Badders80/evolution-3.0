@@ -40,7 +40,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${inter.className} min-h-screen bg-background antialiased`}>
+      <body className={`${inter.className} min-h-screen bg-background antialiased`} suppressHydrationWarning>
         <SupabaseProvider>
           <NavBar />
           <main className="flex-1">{children}</main>

@@ -5,7 +5,7 @@ interface SectionTemplateProps {
   id?: string;
   label: string;
   heading: React.ReactNode;
-  description: string;
+  description: React.ReactNode;
   className?: string;
   children?: React.ReactNode;
   showButton?: boolean;
@@ -32,19 +32,22 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({
     <section id={id} className={`py-56 bg-background text-foreground overflow-hidden ${className}`}>
       <div className={`${containerClass} mx-auto px-6 w-full`}>
         {/* Section Label */}
-        <p className="text-label uppercase mb-8 text-muted">
+        <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-12 text-white/30">
           {label}
         </p>
 
-        {/* Headline */}
-        <h2 className="text-h1-mobile md:text-h1 mb-8 text-white">
-          {heading}
-        </h2>
+        {/* Two Column Layout - Heading Left, Description Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr,1.5fr] gap-12 lg:gap-32 mb-12 items-start">
+          {/* Headline */}
+          <h2 className="text-h1-mobile md:text-h1 text-white font-light tracking-tight whitespace-nowrap">
+            {heading}
+          </h2>
 
-        {/* Lead Paragraph */}
-        <p className="text-body-lg max-w-4xl mb-12 text-secondary">
-          {description}
-        </p>
+          {/* Lead Paragraph - Pushed to the Right */}
+          <p className="text-[16px] leading-[1.7] font-light text-white/65 lg:pt-2 lg:ml-auto lg:max-w-md">
+            {description}
+          </p>
+        </div>
 
         {/* CTA Button (optional) */}
         {showButton && (

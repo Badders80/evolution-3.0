@@ -56,37 +56,37 @@ const Home = () => {
           <HeroSection />
         </div>
         
-        <section id="about" className="py-56 bg-background text-foreground">
-          <div className="max-w-5xl mx-auto px-6">
+        <section id="about" className="py-64 bg-background text-foreground">
+          <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20">
             {/* Section Label */}
-            <p className="text-label uppercase mb-8 text-muted">
+            <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-16 text-white/30">
               ABOUT
             </p>
 
             {/* Headline */}
-            <h2 className="text-h1-mobile md:text-h1 mb-8 text-white">
-              OWN THE EXPERIENCE
+            <h2 className="text-h1-mobile md:text-h1 mb-14 text-white font-light tracking-tight">
+              Own the Experience
             </h2>
 
             {/* Lead Paragraph */}
-            <p className="text-body-lg max-w-4xl mb-12 text-secondary">
+            <p className="text-[18px] leading-[1.85] font-light max-w-3xl mb-20 text-white/65">
               Racehorse ownership can be complex and inaccessible. Evolution Stables is here to change that. Removing barriers - delivering opportunities to first-time fans and seasoned owners alike to not just participate, but own the thrill of thoroughbred horse racing.
             </p>
 
             {/* CTA Button */}
-            <div>
-              <Button
-                variant="ghost"
-                size="lg"
-                className="gap-3 text-label border border-white/10 overflow-hidden relative bg-transparent text-secondary hover:text-primary transition-colors duration-300 group"
+            <div className="relative group inline-block">
+              {/* Subtle breathing glow on hover */}
+              <div className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-white/5 via-white/10 to-white/5 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+              {/* Gold accent on hover - bottom highlight */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 blur-[2px] group-hover:w-full group-hover:opacity-100 transition-all duration-500 ease-out" />
+              <button
                 onClick={() => scrollToId('get-started')}
+                className="relative inline-flex items-center justify-center whitespace-nowrap rounded-full px-8 py-3.5 text-[11px] font-light tracking-wider uppercase text-white/70 transition-all duration-300 hover:text-white hover:scale-105 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary/50 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/[0.12] overflow-hidden"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out"></span>
-                <span className="relative z-10">JOIN THE REVOLUTION</span>
-                <span aria-hidden className="text-base relative z-10">
-                  &rsaquo;
-                </span>
-              </Button>
+                {/* Gentle shimmer animation - avoids center for text clarity */}
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent animate-shimmer opacity-50" />
+                <span className="relative z-10 inline-block transition-all duration-300 group-hover:scale-110">JOIN THE REVOLUTION</span>
+              </button>
             </div>
           </div>
         </section>
@@ -98,26 +98,22 @@ const Home = () => {
         <SectionTemplate
           id="mission"
           label="OUR MISSION"
-          heading="HOW IT WORKS"
-          description="Empowering every role in racing with transparent, flexible paths forward."
+          heading="How It Works"
+          description={<>Empowering every role in racing with<br />transparent, flexible paths forward.</>}
         >
           {/* Steps List */}
-          <div className="space-y-4">
+          <div className="mt-16 space-y-6">
               {/* Step One */}
-              <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-                  <div className="flex flex-shrink-0 items-start sm:w-56 sm:justify-end">
-                    <span className="text-7xl font-heading font-light text-muted group-hover:text-primary transition-colors duration-300" 
-                          style={{
-                            WebkitTextStroke: '1.5px currentColor',
-                            WebkitTextFillColor: 'transparent'
-                          }}>
+              <div className="group rounded-2xl p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/[0.08]">
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.05] group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
+                    <span className="text-[16px] font-light text-white/40 group-hover:text-primary transition-all duration-500">
                       1
                     </span>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">FOR INVESTORS & FANS</h4>
-                    <p className="text-body text-secondary max-w-md">
+                  <div className="flex-1 space-y-3 pt-1">
+                    <h4 className="text-[14px] font-[300] tracking-[0.15em] uppercase text-white/50 group-hover:text-white/90 transition-colors duration-500">For Investors & Fans</h4>
+                    <p className="text-[16px] leading-[1.7] font-light text-white/40 group-hover:text-white/65 transition-colors duration-500 max-w-xl">
                       Step into ownership without long-term commitments. Transparent costs,
                       fractional stakes, and the genuine thrill of racing.
                     </p>
@@ -126,20 +122,16 @@ const Home = () => {
               </div>
 
               {/* Step Two */}
-              <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-                  <div className="flex flex-shrink-0 items-start sm:w-56 sm:justify-end">
-                    <span className="text-7xl font-heading font-light text-muted group-hover:text-primary transition-colors duration-300" 
-                          style={{
-                            WebkitTextStroke: '1.5px currentColor',
-                            WebkitTextFillColor: 'transparent'
-                          }}>
+              <div className="group rounded-2xl p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/[0.08]">
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.05] group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
+                    <span className="text-[16px] font-light text-white/40 group-hover:text-primary transition-all duration-500">
                       2
                     </span>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">FOR BREEDERS & SYNDICATORS</h4>
-                    <p className="text-body text-secondary max-w-md">
+                  <div className="flex-1 space-y-3 pt-1">
+                    <h4 className="text-[14px] font-[300] tracking-[0.15em] uppercase text-white/50 group-hover:text-white/90 transition-colors duration-500">For Breeders & Syndicators</h4>
+                    <p className="text-[16px] leading-[1.7] font-light text-white/40 group-hover:text-white/65 transition-colors duration-500 max-w-xl">
                       Unlock new income streams on your terms while retaining control. Access a fresh market of
                       passionate investors.
                     </p>
@@ -148,20 +140,16 @@ const Home = () => {
               </div>
 
               {/* Step Three */}
-              <div className="group rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-                  <div className="flex flex-shrink-0 items-start sm:w-56 sm:justify-end">
-                    <span className="text-7xl font-heading font-light text-muted group-hover:text-primary transition-colors duration-300" 
-                          style={{
-                            WebkitTextStroke: '1.5px currentColor',
-                            WebkitTextFillColor: 'transparent'
-                          }}>
+              <div className="group rounded-2xl p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/[0.08]">
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.05] group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
+                    <span className="text-[16px] font-light text-white/40 group-hover:text-primary transition-all duration-500">
                       3
                     </span>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">FOR CLUBS & ORGANIZATIONS</h4>
-                    <p className="text-body text-secondary max-w-md">
+                  <div className="flex-1 space-y-3 pt-1">
+                    <h4 className="text-[14px] font-[300] tracking-[0.15em] uppercase text-white/50 group-hover:text-white/90 transition-colors duration-500">For Clubs & Organizations</h4>
+                    <p className="text-[16px] leading-[1.7] font-light text-white/40 group-hover:text-white/65 transition-colors duration-500 max-w-xl">
                       Future-proof racing by welcoming broader audiences, fostering participation, and unlocking
                       sustainable revenue pathways.
                     </p>
@@ -189,7 +177,7 @@ const Home = () => {
               <div className="space-y-8">
                 {/* Headline */}
                 <h2 className="text-h1-mobile md:text-h1 text-white">
-                  DIGITAL SYNDICATION
+                  Digital Syndication
                 </h2>
 
                 {/* Lead Paragraph */}
@@ -292,83 +280,89 @@ const Home = () => {
         <SectionTemplate
           id="innovation"
           label="REGULATED MARKETPLACE"
-          heading={<>TRANSFORMATION POWERED<br />BY <a href="https://tokinvest.capital/" target="_blank" rel="noopener noreferrer" className="text-[#d4a964] hover:text-[#d4a964]/80 transition-colors">TOKINVEST</a></>}
+          heading={<>Transformation Powered<br />by <a href="https://tokinvest.capital/" target="_blank" rel="noopener noreferrer" className="text-[#d4a964] hover:text-[#d4a964]/80 transition-colors">Tokinvest</a></>}
           description="The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest's secure, compliant, and globally scalable infrastructure."
         >
           {/* Features */}
           <div className="mt-32 w-full">
-            <div className="grid gap-16 md:gap-20 grid-cols-1 md:grid-cols-3">
-              <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
-                {/* Vertical line that expands from center */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-2/3 transition-all duration-300 origin-center"></div>
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-2/3 w-[0.5px] bg-border/30"></div>
-                <div className="pl-6">
-                  <div className="mb-4">
-                    <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {/* Card 1 */}
+              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 border-l border-white/[0.08] first:border-l-0 transition-all duration-500">
+                {/* Vertical line */}
+                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
+                <div className="space-y-12">
+                  <div>
+                    <svg className="h-8 w-8 text-white/60 transition-colors duration-500 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
                   </div>
-                  <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">DISCOVER OPPORTUNITIES</h4>
-                  <p className="text-body text-secondary">
-                    Browse available syndications and short-term leases, all clearly structured and fully transparent.
-                  </p>
+                  <div className="space-y-4">
+                    <h4 className="text-[18px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white">Discover Opportunities</h4>
+                    <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
+                      Browse available syndications and short-term leases, all clearly structured and fully transparent.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
-                {/* Vertical line that expands from center */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-2/3 transition-all duration-300 origin-center"></div>
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-2/3 w-[0.5px] bg-border/30"></div>
-                <div className="pl-6">
-                  <div className="mb-6">
-                    <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              {/* Card 2 */}
+              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 border-l border-white/[0.08] transition-all duration-500">
+                {/* Vertical line */}
+                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
+                <div className="space-y-12">
+                  <div>
+                    <svg className="h-8 w-8 text-white/60 transition-colors duration-500 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>
                   </div>
-                  <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">TRADE WITH CONFIDENCE</h4>
-                  <p className="text-body text-secondary">
-                    Tokinvest&apos;s regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
-                  </p>
+                  <div className="space-y-4">
+                    <h4 className="text-[18px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white">Trade with Confidence</h4>
+                    <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
+                      Tokinvest&apos;s regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="group flex flex-col gap-6 relative p-8 rounded-lg transition-all duration-300 hover:scale-105">
-                {/* Vertical line that expands from center */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[0.5px] h-0 bg-[#d4a964] shadow-[0_0_30px_rgba(212,169,100,0.8),0_0_60px_rgba(212,169,100,0.4)] group-hover:h-2/3 transition-all duration-300 origin-center"></div>
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-2/3 w-[0.5px] bg-border/30"></div>
-                <div className="pl-6">
-                  <div className="mb-6">
-                    <svg className="h-6 w-6 text-muted group-hover:text-[#d4a964] group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              {/* Card 3 */}
+              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 border-l border-white/[0.08] transition-all duration-500">
+                {/* Vertical line */}
+                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
+                <div className="space-y-12">
+                  <div>
+                    <svg className="h-8 w-8 text-white/60 transition-colors duration-500 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">STAY CONNECTED</h4>
-                  <p className="text-body text-secondary">
-                    Follow your horses, track performance, and manage your positions in real time.
-                  </p>
+                  <div className="space-y-4">
+                    <h4 className="text-[18px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white">Stay Connected</h4>
+                    <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
+                      Follow your horses, track performance, and manage your positions in real time.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
             
             {/* CTA Button */}
             <div className="mt-32">
-              <Button
-                variant="ghost"
-                size="lg"
-                className="gap-3 text-label uppercase whitespace-nowrap rounded-full border border-white/10 overflow-hidden relative bg-[#0a0a0a] hover:bg-[#0a0a0a] text-secondary hover:text-primary transition-colors duration-300 group"
-                asChild
-              >
-                <a href="https://tokinvest.capital/report" target="_blank" rel="noopener noreferrer">
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out"></span>
-                  <span className="relative z-10">
-                    LEARN MORE ABOUT TOKINVEST
-                  </span>
-                  <span aria-hidden className="text-base relative z-10">
-                    &rsaquo;
-                  </span>
+              <div className="relative group inline-block">
+                {/* Subtle breathing glow on hover */}
+                <div className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-white/5 via-white/10 to-white/5 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                {/* Gold accent on hover - bottom highlight */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 blur-[2px] group-hover:w-full group-hover:opacity-100 transition-all duration-500 ease-out" />
+                <a
+                  href="https://tokinvest.capital/report"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative inline-flex items-center justify-center whitespace-nowrap rounded-full px-8 py-3.5 text-[11px] font-light tracking-wider uppercase text-white/70 transition-all duration-300 hover:text-white hover:scale-105 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary/50 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/[0.12] overflow-hidden"
+                >
+                  {/* Gentle shimmer animation - avoids center for text clarity */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent animate-shimmer opacity-50" />
+                  <span className="relative z-10 inline-block transition-all duration-300 group-hover:scale-110">Learn More About Tokinvest</span>
                 </a>
-              </Button>
+              </div>
             </div>
           </div>
         </SectionTemplate>
@@ -381,7 +375,7 @@ const Home = () => {
         <SectionTemplate
           id="faq"
           label="FAQ"
-          heading="FREQUENTLY ASKED QUESTIONS"
+          heading="Frequently Asked Questions"
           description="Got questions about digital racehorse ownership? We've got answers. Our comprehensive FAQ covers everything from getting started to managing your stable."
         >
           {/* FAQ Component */}

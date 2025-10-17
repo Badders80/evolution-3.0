@@ -74,11 +74,16 @@ const config: Config = {
           '0%, 100%': { transform: 'rotate(-2deg)' },
           '50%': { transform: 'rotate(2deg)' },
         },
+        'shimmer': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(200%)' },
+        },
       },
       animation: {
         'float': 'float 15s ease-in-out infinite',
         'float-slow': 'float 20s ease-in-out infinite',
         'tilt': 'tilt 10s ease-in-out infinite',
+        'shimmer': 'shimmer 8s ease-in-out infinite',
       },
       colors: {
         // Typography color system (Audi-inspired)

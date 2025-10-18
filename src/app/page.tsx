@@ -64,7 +64,7 @@ const Home = () => {
             </p>
 
             {/* Headline */}
-            <h2 className="text-h1-mobile md:text-h1 mb-14 text-white font-light tracking-tight">
+            <h2 className="text-[36px] md:text-[48px] leading-[1.1] mb-14 text-white font-light tracking-tight">
               Own the Experience
             </h2>
 
@@ -95,69 +95,118 @@ const Home = () => {
           <FixedBg src="/images/Background-hooves-back-and-white.jpg" height="h-[50vh]" />
         </section>
 
-        <SectionTemplate
-          id="mission"
-          label="OUR MISSION"
-          heading="How It Works"
-          description={<>Empowering every role in racing with<br />transparent, flexible paths forward.</>}
-        >
-          {/* Steps List */}
-          <div className="mt-16 space-y-6">
-              {/* Step One */}
-              <div className="group rounded-2xl p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/[0.08]">
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.05] group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
-                    <span className="text-[16px] font-light text-white/40 group-hover:text-primary transition-all duration-500">
-                      1
-                    </span>
-                  </div>
-                  <div className="flex-1 space-y-3 pt-1">
-                    <h4 className="text-[14px] font-[300] tracking-[0.15em] uppercase text-white/50 group-hover:text-white/90 transition-colors duration-500">For Investors & Fans</h4>
-                    <p className="text-[16px] leading-[1.7] font-light text-white/40 group-hover:text-white/65 transition-colors duration-500 max-w-xl">
-                      Step into ownership without long-term commitments. Transparent costs,
-                      fractional stakes, and the genuine thrill of racing.
-                    </p>
-                  </div>
-                </div>
+        <section id="mission" className="py-56 bg-background text-foreground overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            {/* Two Column Layout - Left: Heading/Description, Right: Stacked Cards */}
+            <div className="flex flex-col md:flex-row gap-16 md:gap-20 lg:gap-24">
+              
+              {/* LEFT SIDE - Scrolls in then becomes sticky */}
+              <div className="space-y-12 md:flex-none md:max-w-[360px] md:pr-8 lg:sticky lg:top-24 lg:self-start lg:max-w-[420px] lg:pr-12">
+                {/* Section Label */}
+                <p className="text-[11px] font-light tracking-[0.2em] uppercase text-white/30">
+                  OUR MISSION
+                </p>
+
+                {/* Headline */}
+                <h2 className="text-[36px] md:text-[56px] leading-[1.1] text-white font-light tracking-tight">
+                  How It Works
+                </h2>
+
+                {/* Description */}
+                <p className="text-[16px] leading-[1.7] font-light text-white/65">
+                  Empowering every role in racing with<br />transparent, flexible paths forward.
+                </p>
               </div>
 
-              {/* Step Two */}
-              <div className="group rounded-2xl p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/[0.08]">
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.05] group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
-                    <span className="text-[16px] font-light text-white/40 group-hover:text-primary transition-all duration-500">
-                      2
-                    </span>
-                  </div>
-                  <div className="flex-1 space-y-3 pt-1">
-                    <h4 className="text-[14px] font-[300] tracking-[0.15em] uppercase text-white/50 group-hover:text-white/90 transition-colors duration-500">For Breeders & Syndicators</h4>
-                    <p className="text-[16px] leading-[1.7] font-light text-white/40 group-hover:text-white/65 transition-colors duration-500 max-w-xl">
-                      Unlock new income streams on your terms while retaining control. Access a fresh market of
-                      passionate investors.
-                    </p>
+              {/* RIGHT SIDE - Stacked Cards with Individual Sticky */}
+              <div className="md:flex-1 relative">
+                {/* Spacer: Creates the "spotlight void" pause after left becomes sticky */}
+                <div className="h-[30vh] lg:h-[40vh]" aria-hidden="true"></div>
+                
+                {/* Card 1 - Scrolls up and becomes sticky */}
+                <div 
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 cursor-pointer lg:sticky lg:top-24"
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative space-y-8">
+                    {/* Number Badge with enhanced hover */}
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.08] group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-500">
+                      <span className="text-[18px] font-light text-white/40 group-hover:text-primary transition-all duration-500">1</span>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h4 className="text-[20px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white/95">
+                        Investors & Fans
+                      </h4>
+                      <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/70">
+                        Step into ownership without long-term commitments. Transparent costs, fractional stakes, and the genuine thrill of racing.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Step Three */}
-              <div className="group rounded-2xl p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/[0.08]">
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.05] group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
-                    <span className="text-[16px] font-light text-white/40 group-hover:text-primary transition-all duration-500">
-                      3
-                    </span>
-                  </div>
-                  <div className="flex-1 space-y-3 pt-1">
-                    <h4 className="text-[14px] font-[300] tracking-[0.15em] uppercase text-white/50 group-hover:text-white/90 transition-colors duration-500">For Clubs & Organizations</h4>
-                    <p className="text-[16px] leading-[1.7] font-light text-white/40 group-hover:text-white/65 transition-colors duration-500 max-w-xl">
-                      Future-proof racing by welcoming broader audiences, fostering participation, and unlocking
-                      sustainable revenue pathways.
-                    </p>
+                {/* Spacer: Pause between Card 1 and Card 2 */}
+                <div className="h-[20vh] lg:h-[25vh]" aria-hidden="true"></div>
+
+                {/* Card 2 - Scrolls up and becomes sticky */}
+                <div 
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 cursor-pointer lg:sticky lg:top-24"
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative space-y-8">
+                    {/* Number Badge with enhanced hover */}
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.08] group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-500">
+                      <span className="text-[18px] font-light text-white/40 group-hover:text-primary transition-all duration-500">2</span>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h4 className="text-[20px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white/95">
+                        Breeders & Syndicators
+                      </h4>
+                      <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/70">
+                        Unlock new income streams on your terms while retaining control. Access a fresh market of passionate investors.
+                      </p>
+                    </div>
                   </div>
                 </div>
+
+                {/* Spacer: Pause between Card 2 and Card 3 */}
+                <div className="h-[20vh] lg:h-[25vh]" aria-hidden="true"></div>
+
+                {/* Card 3 - Scrolls up and becomes sticky */}
+                <div 
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 cursor-pointer lg:sticky lg:top-24"
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative space-y-8">
+                    {/* Number Badge with enhanced hover */}
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.08] group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-500">
+                      <span className="text-[18px] font-light text-white/40 group-hover:text-primary transition-all duration-500">3</span>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h4 className="text-[20px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white/95">
+                        Clubs & Organizations
+                      </h4>
+                      <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/70">
+                        Future-proof racing by welcoming broader audiences, fostering participation, and unlocking sustainable revenue pathways.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Final Spacer: Breathing room before unified release */}
+                <div className="h-[15vh] lg:h-[20vh]" aria-hidden="true"></div>
               </div>
             </div>
-        </SectionTemplate>
+          </div>
+        </section>
 
         <section className="px-0 md:px-0 m-0 p-0 border-none">
           <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" />
@@ -166,22 +215,22 @@ const Home = () => {
         <section id="digital-syndication" className="py-56 bg-background text-foreground">
           <div className="max-w-5xl mx-auto px-6">
             {/* Section Label */}
-            <p className="text-label uppercase mb-12 text-muted">
+            <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-12 text-white/30">
               OUR MODEL
             </p>
 
             {/* Two Column Layout */}
-            <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+            <div className="grid gap-16 lg:grid-cols-[1fr,1fr] lg:gap-48 xl:gap-56">
 
               {/* LEFT COLUMN */}
               <div className="space-y-8">
                 {/* Headline */}
-                <h2 className="text-h1-mobile md:text-h1 text-white">
+                <h2 className="text-[36px] md:text-[48px] leading-[1.1] text-white font-light tracking-tight">
                   Digital Syndication
                 </h2>
 
                 {/* Lead Paragraph */}
-                <p className="text-body-lg text-secondary">
+                <p className="text-[16px] leading-[1.7] font-light text-white/65">
                   Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn&apos;t here to replace it - but to evolve it.
                 </p>
               </div>
@@ -189,80 +238,92 @@ const Home = () => {
               {/* RIGHT COLUMN */}
               <div className="space-y-8">
                 {/* Features List */}
-                <div className="space-y-4">
+                <div className="space-y-12">
                   {/* Increased Access Section */}
-                  <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="group py-2 transition-transform duration-500 hover:scale-[1.02]">
                     <div className="flex items-center gap-6">
-                      <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                      <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center transition-all duration-500">
                         <Image 
                           src="/images/Increased Access.svg" 
                           alt="INCREASED ACCESS"
                           width={48}
                           height={48}
-                          className="w-10 h-10 transition-all duration-300 icon-gold-hover"
+                          className="w-10 h-10 transition-all duration-500 group-hover:[filter:brightness(0)_saturate(100%)_invert(100%)]"
                           style={{
                             filter: 'brightness(0) saturate(100%) invert(80%)'
                           }}
                         />
                       </div>
                       <div>
-                        <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">
-                          INCREASED ACCESS
+                        <h4 className="text-[14px] font-[300] tracking-[0.05em] uppercase text-white mb-3 relative overflow-hidden">
+                          <span className="relative inline-block">
+                            Increased Access
+                            {/* Dark overlay sweep - left to right only, instant disappear on unhover */}
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-black/70 to-transparent -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 group-hover:ease-in-out transition-none" />
+                          </span>
                         </h4>
-                        <p className="text-body text-secondary">
-                          A digital platform that lowers barriers and opens ownership to everyone.
+                        <p className="text-[15px] leading-[1.6] font-light text-white/50 group-hover:text-white/70 transition-colors duration-500">
+                          A digital platform that lowers barriers<br />and opens ownership to everyone.
                         </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Greater Transparency Section */}
-                  <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="group py-2 transition-transform duration-500 hover:scale-[1.02]">
                     <div className="flex items-center gap-6">
-                      <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                      <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center transition-all duration-500">
                         <Image 
                           src="/images/greater-than-equal-icon-original.svg" 
                           alt="GREATER TRANSPARENCY"
                           width={48}
                           height={48}
-                          className="w-10 h-10 transition-all duration-300 group-hover:[filter:brightness(0)_saturate(100%)_invert(76%)_sepia(31%)_saturate(706%)_hue-rotate(356deg)_brightness(91%)_contrast(87%)]"
+                          className="w-10 h-10 transition-all duration-500 group-hover:[filter:brightness(0)_saturate(100%)_invert(100%)]"
                           style={{
                             filter: 'brightness(0) saturate(100%) invert(80%)'
                           }}
                         />
                       </div>
                       <div>
-                        <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">
-                          GREATER TRANSPARENCY
+                        <h4 className="text-[14px] font-[300] tracking-[0.05em] uppercase text-white mb-3 relative overflow-hidden">
+                          <span className="relative inline-block">
+                            Greater Transparency
+                            {/* Dark overlay sweep */}
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-black/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                          </span>
                         </h4>
-                        <p className="text-body text-secondary">
-                          Real-time performance, clear costs, and open communication.
+                        <p className="text-[15px] leading-[1.6] font-light text-white/50 group-hover:text-white/70 transition-colors duration-500">
+                          Real-time performance, clear costs,<br />and open communication.
                         </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Borderless Flexibility Section */}
-                  <div className="group p-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="group py-2 transition-transform duration-500 hover:scale-[1.02]">
                     <div className="flex items-center gap-6">
-                      <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                      <div className="flex-shrink-0 w-12 h-12 relative flex items-center justify-center transition-all duration-500">
                         <Image 
                           src="/images/Untitled design (36).svg" 
                           alt="BORDERLESS FLEXIBILITY"
                           width={48}
                           height={48}
-                          className="w-10 h-10 transition-all duration-300 group-hover:[filter:brightness(0)_saturate(100%)_invert(76%)_sepia(31%)_saturate(706%)_hue-rotate(356deg)_brightness(91%)_contrast(87%)]"
+                          className="w-10 h-10 transition-all duration-500 group-hover:[filter:brightness(0)_saturate(100%)_invert(100%)]"
                           style={{
                             filter: 'brightness(0) saturate(100%) invert(80%)'
                           }}
                         />
                       </div>
                       <div>
-                        <h4 className="text-h4 text-white mb-2 group-hover:text-primary transition-colors duration-300">
-                          BORDERLESS FLEXIBILITY
+                        <h4 className="text-[14px] font-[300] tracking-[0.05em] uppercase text-white mb-3 relative overflow-hidden">
+                          <span className="relative inline-block">
+                            Borderless Flexibility
+                            {/* Dark overlay sweep - left to right only, instant disappear on unhover */}
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-black/70 to-transparent -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 group-hover:ease-in-out transition-none" />
+                          </span>
                         </h4>
-                        <p className="text-body text-secondary">
-                          Fractional shares and short-term commitments for modern investors.
+                        <p className="text-[15px] leading-[1.6] font-light text-white/50 group-hover:text-white/70 transition-colors duration-500">
+                          Fractional shares and short-term<br />commitments for modern investors.
                         </p>
                       </div>
                     </div>
@@ -277,12 +338,22 @@ const Home = () => {
           <FixedBg src="/images/Horse-and-foal.jpg" height="h-[50vh]" />
         </section>
 
-        <SectionTemplate
-          id="innovation"
-          label="REGULATED MARKETPLACE"
-          heading={<>Transformation Powered<br />by <a href="https://tokinvest.capital/" target="_blank" rel="noopener noreferrer" className="text-[#d4a964] hover:text-[#d4a964]/80 transition-colors">Tokinvest</a></>}
-          description="The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest's secure, compliant, and globally scalable infrastructure."
-        >
+        <section id="innovation" className="py-56 bg-background text-foreground">
+          <div className="max-w-6xl mx-auto px-6">
+            {/* Section Label */}
+            <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-12 text-white/30">
+              REGULATED MARKETPLACE
+            </p>
+
+            {/* Headline */}
+            <h2 className="text-[36px] md:text-[48px] leading-[1.1] text-white font-light tracking-tight mb-6">
+              Transformation Powered<br />by <a href="https://tokinvest.capital/" target="_blank" rel="noopener noreferrer" className="text-[#d4a964] hover:text-[#d4a964]/80 transition-colors">Tokinvest</a>
+            </h2>
+
+            {/* Description */}
+            <p className="text-[16px] leading-[1.7] font-light text-white/65 mb-16 max-w-3xl">
+              The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest&apos;s secure, compliant, and globally scalable infrastructure.
+            </p>
           {/* Features */}
           <div className="mt-32 w-full">
             <div className="grid grid-cols-1 md:grid-cols-3">
@@ -297,7 +368,12 @@ const Home = () => {
                     </svg>
                   </div>
                   <div className="space-y-4">
-                    <h4 className="text-[18px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white">Discover Opportunities</h4>
+                    <h4 className="text-[18px] font-light text-white leading-tight relative overflow-hidden">
+                      <span className="relative inline-block">
+                        Discover Opportunities
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-black/70 to-transparent -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 group-hover:ease-in-out transition-none" />
+                      </span>
+                    </h4>
                     <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
                       Browse available syndications and short-term leases, all clearly structured and fully transparent.
                     </p>
@@ -316,7 +392,12 @@ const Home = () => {
                     </svg>
                   </div>
                   <div className="space-y-4">
-                    <h4 className="text-[18px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white">Trade with Confidence</h4>
+                    <h4 className="text-[18px] font-light text-white leading-tight relative overflow-hidden">
+                      <span className="relative inline-block">
+                        Trade with Confidence
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-black/70 to-transparent -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 group-hover:ease-in-out transition-none" />
+                      </span>
+                    </h4>
                     <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
                       Tokinvest&apos;s regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
                     </p>
@@ -336,7 +417,12 @@ const Home = () => {
                     </svg>
                   </div>
                   <div className="space-y-4">
-                    <h4 className="text-[18px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white">Stay Connected</h4>
+                    <h4 className="text-[18px] font-light text-white leading-tight relative overflow-hidden">
+                      <span className="relative inline-block">
+                        Stay Connected
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-black/70 to-transparent -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 group-hover:ease-in-out transition-none" />
+                      </span>
+                    </h4>
                     <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
                       Follow your horses, track performance, and manage your positions in real time.
                     </p>
@@ -365,24 +451,37 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </SectionTemplate>
+          </div>
+        </section>
 
         <section id="get-started" className="bg-background">
           <GrassBg src="/images/Hooves-on-grass.png" />
         </section>
 
 
-        <SectionTemplate
-          id="faq"
-          label="FAQ"
-          heading="Frequently Asked Questions"
-          description="Got questions about digital racehorse ownership? We've got answers. Our comprehensive FAQ covers everything from getting started to managing your stable."
-        >
-          {/* FAQ Component */}
-          <div className="mt-24">
-            <SplitFaq items={faqItems} className="mx-auto max-w-3xl" />
+        <section id="faq" className="py-56 bg-background text-foreground">
+          <div className="max-w-4xl mx-auto px-6">
+            {/* Section Label */}
+            <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-12 text-white/30 text-center">
+              FAQ
+            </p>
+
+            {/* Headline */}
+            <h2 className="text-[36px] md:text-[48px] leading-[1.1] text-white font-light tracking-tight text-center mb-6">
+              Frequently Asked Questions
+            </h2>
+
+            {/* Description */}
+            <p className="text-[16px] leading-[1.7] font-light text-white/65 text-center mb-16 max-w-2xl mx-auto">
+              Got questions about digital racehorse ownership? We&apos;ve got answers. Our comprehensive FAQ covers everything from getting started to managing your stable.
+            </p>
+
+            {/* FAQ Component */}
+            <div className="mt-16">
+              <SplitFaq items={faqItems} className="mx-auto max-w-3xl" />
+            </div>
           </div>
-        </SectionTemplate>
+        </section>
         
         <Footer />
       </main>
@@ -391,5 +490,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

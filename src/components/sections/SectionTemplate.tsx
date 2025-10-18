@@ -39,7 +39,7 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({
         {/* Two Column Layout - Heading Left, Description Right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr,1.5fr] gap-12 lg:gap-32 mb-12 items-start">
           {/* Headline */}
-          <h2 className="text-h1-mobile md:text-h1 text-white font-light tracking-tight whitespace-nowrap">
+          <h2 className="text-[36px] md:text-[48px] leading-[1.1] text-white font-light tracking-tight whitespace-nowrap">
             {heading}
           </h2>
 

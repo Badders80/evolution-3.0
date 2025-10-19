@@ -12,18 +12,19 @@ export function Footer() {
           <div className="max-w-4xl space-y-8">
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight">
               <div className="text-gray-300">
-                Powered by <span className="font-medium text-white">innovation</span>, driven by <span className="font-medium text-white">passion</span>,
+                Powered by <span className="font-medium text-white">innovation</span>
               </div>
               <div className="text-gray-300">
-                <span className="mr-2">
-                  <WaveText 
-                    text="digital-syndication" 
-                    highlightWords={['digital-syndication']}
-                    className="inline"
-                    highlightColor="text-white"
-                  />
-                </span>
-                <span className="text-white">Own the experience.</span>
+                Driven by <span className="font-medium text-white">passion</span>
+              </div>
+              <div className="text-gray-300">
+                <span className="text-white">Own the experience</span> with{' '}
+                <WaveText 
+                  text="digital-syndication" 
+                  highlightWords={['digital-syndication']}
+                  className="inline"
+                  highlightColor="text-white"
+                />
               </div>
             </h2>
           </div>

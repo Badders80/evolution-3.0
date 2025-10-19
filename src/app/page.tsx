@@ -97,113 +97,83 @@ const Home = () => {
 
         <section id="mission" className="py-56 bg-background text-foreground overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 w-full">
-            {/* Two Column Layout - Left: Heading/Description, Right: Stacked Cards */}
-            <div className="flex flex-col md:flex-row gap-16 md:gap-20 lg:gap-24">
-              
-              {/* LEFT SIDE - Scrolls in then becomes sticky */}
-              <div className="space-y-12 md:flex-none md:max-w-[360px] md:pr-8 lg:sticky lg:top-24 lg:self-start lg:max-w-[420px] lg:pr-12">
-                {/* Section Label */}
-                <p className="text-[11px] font-light tracking-[0.2em] uppercase text-white/30">
-                  OUR MISSION
-                </p>
+            {/* TOP - Heading & Description */}
+            <div className="space-y-12 mb-20">
+              <p className="text-[11px] font-light tracking-[0.2em] uppercase text-white/30">
+                OUR MISSION
+              </p>
+              <h2 className="text-[36px] md:text-[56px] leading-[1.1] text-white font-light tracking-tight">
+                How It Works
+              </h2>
+              <p className="text-[16px] leading-[1.7] font-light text-white/65">
+                Empowering every role in racing with<br />transparent, flexible paths forward.
+              </p>
+            </div>
 
-                {/* Headline */}
-                <h2 className="text-[36px] md:text-[56px] leading-[1.1] text-white font-light tracking-tight">
-                  How It Works
-                </h2>
-
-                {/* Description */}
-                <p className="text-[16px] leading-[1.7] font-light text-white/65">
-                  Empowering every role in racing with<br />transparent, flexible paths forward.
-                </p>
-              </div>
-
-              {/* RIGHT SIDE - Stacked Cards with Individual Sticky */}
-              <div className="md:flex-1 relative">
-                {/* Spacer: Creates the "spotlight void" pause after left becomes sticky */}
-                <div className="h-[30vh] lg:h-[40vh]" aria-hidden="true"></div>
-                
-                {/* Card 1 - Scrolls up and becomes sticky */}
-                <div 
-                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 cursor-pointer lg:sticky lg:top-24"
-                >
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="relative space-y-8">
-                    {/* Number Badge with enhanced hover */}
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.08] group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-500">
-                      <span className="text-[18px] font-light text-white/40 group-hover:text-primary transition-all duration-500">1</span>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <h4 className="text-[20px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white/95">
-                        Investors & Fans
-                      </h4>
-                      <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/70">
-                        Step into ownership without long-term commitments. Transparent costs, fractional stakes, and the genuine thrill of racing.
-                      </p>
-                    </div>
+            {/* BOTTOM - 3 Horizontal Panels */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Card 1 */}
+                <div className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer">
+                  <div 
+                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
+                    style={{
+                      background: 'linear-gradient(140deg, rgba(255,255,255,0.06), rgba(67,129,255,0.08) 40%, transparent 70%)'
+                    }}
+                  />
+                  <div className="relative space-y-4">
+                    <p className="text-sm font-light uppercase tracking-[0.32em] text-white/40">
+                      Investors & Fans
+                    </p>
+                    <h4 className="text-[21px] font-light text-white leading-tight">
+                      Step into ownership without long-term commitments.
+                    </h4>
+                    <p className="text-[15px] leading-[1.9] font-light text-white/60">
+                      Transparent costs, fractional stakes, and the genuine thrill of racing so supporters feel the pulse of every stride.
+                    </p>
                   </div>
                 </div>
 
-                {/* Spacer: Pause between Card 1 and Card 2 */}
-                <div className="h-[20vh] lg:h-[25vh]" aria-hidden="true"></div>
-
-                {/* Card 2 - Scrolls up and becomes sticky */}
-                <div 
-                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 cursor-pointer lg:sticky lg:top-24"
-                >
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="relative space-y-8">
-                    {/* Number Badge with enhanced hover */}
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.08] group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-500">
-                      <span className="text-[18px] font-light text-white/40 group-hover:text-primary transition-all duration-500">2</span>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <h4 className="text-[20px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white/95">
-                        Breeders & Syndicators
-                      </h4>
-                      <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/70">
-                        Unlock new income streams on your terms while retaining control. Access a fresh market of passionate investors.
-                      </p>
-                    </div>
+                {/* Card 2 */}
+                <div className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer">
+                  <div 
+                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
+                    style={{
+                      background: 'linear-gradient(140deg, rgba(255,255,255,0.06), rgba(67,129,255,0.08) 40%, transparent 70%)'
+                    }}
+                  />
+                  <div className="relative space-y-4">
+                    <p className="text-sm font-light uppercase tracking-[0.32em] text-white/40">
+                      Breeders & Syndicators
+                    </p>
+                    <h4 className="text-[21px] font-light text-white leading-tight">
+                      Unlock new income streams on your terms.
+                    </h4>
+                    <p className="text-[15px] leading-[1.9] font-light text-white/60">
+                      Keep full control while expanding your reach, structuring offers with the clarity investors expect from premium platforms.
+                    </p>
                   </div>
                 </div>
 
-                {/* Spacer: Pause between Card 2 and Card 3 */}
-                <div className="h-[20vh] lg:h-[25vh]" aria-hidden="true"></div>
-
-                {/* Card 3 - Scrolls up and becomes sticky */}
-                <div 
-                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 cursor-pointer lg:sticky lg:top-24"
-                >
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="relative space-y-8">
-                    {/* Number Badge with enhanced hover */}
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.08] group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-500">
-                      <span className="text-[18px] font-light text-white/40 group-hover:text-primary transition-all duration-500">3</span>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <h4 className="text-[20px] font-light text-white leading-tight transition-colors duration-500 group-hover:text-white/95">
-                        Clubs & Organizations
-                      </h4>
-                      <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/70">
-                        Future-proof racing by welcoming broader audiences, fostering participation, and unlocking sustainable revenue pathways.
-                      </p>
-                    </div>
+                {/* Card 3 */}
+                <div className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer">
+                  <div 
+                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
+                    style={{
+                      background: 'linear-gradient(140deg, rgba(255,255,255,0.06), rgba(67,129,255,0.08) 40%, transparent 70%)'
+                    }}
+                  />
+                  <div className="relative space-y-4">
+                    <p className="text-sm font-light uppercase tracking-[0.32em] text-white/40">
+                      Clubs & Organizations
+                    </p>
+                    <h4 className="text-[21px] font-light text-white leading-tight">
+                      Future-proof racing with broader participation.
+                    </h4>
+                    <p className="text-[15px] leading-[1.9] font-light text-white/60">
+                      Bring new audiences trackside, strengthen engagement, and open sustainable revenue pathways for every level of the sport.
+                    </p>
                   </div>
                 </div>
-
-                {/* Final Spacer: Breathing room before unified release */}
-                <div className="h-[15vh] lg:h-[20vh]" aria-hidden="true"></div>
-              </div>
             </div>
           </div>
         </section>

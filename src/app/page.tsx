@@ -42,6 +42,51 @@ const faqItems = [
 ];
 
 const Home = () => {
+  const [activeStep, setActiveStep] = React.useState<number>(0);
+  const missionSectionRef = React.useRef<HTMLDivElement>(null);
+  const lastScrollYRef = React.useRef<number>(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const section = missionSectionRef.current;
+      if (!section) return;
+
+      const currentScrollY = window.scrollY;
+      const scrollDirection = currentScrollY > lastScrollYRef.current ? 'down' : 'up';
+      lastScrollYRef.current = currentScrollY;
+
+      const sectionTop = section.offsetTop;
+      const scrollY = window.scrollY - sectionTop;
+      const viewportHeight = window.innerHeight;
+
+      // Define scroll windows for each step (each gets ~100vh of scroll)
+      const step1Start = viewportHeight * 0.3;  // Card 1 appears
+      const step2Start = viewportHeight * 1.3;  // Card 2 appears
+      const step3Start = viewportHeight * 2.3;  // Card 3 appears
+
+      // 🔐 Only activate steps when scrolling down (one-way activation)
+      if (scrollDirection === 'down') {
+        if (scrollY >= step3Start) {
+          setActiveStep(prev => Math.max(prev, 3));
+        } else if (scrollY >= step2Start) {
+          setActiveStep(prev => Math.max(prev, 2));
+        } else if (scrollY >= step1Start) {
+          setActiveStep(prev => Math.max(prev, 1));
+        }
+      }
+
+      // Optional: Reset only if scrolled all the way back to top
+      if (scrollY < 50) {
+        setActiveStep(0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -95,25 +140,32 @@ const Home = () => {
           <FixedBg src="/images/Background-hooves-back-and-white.jpg" height="h-[50vh]" />
         </section>
 
-        <section id="mission" className="py-56 bg-background text-foreground overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 w-full">
-            {/* TOP - Heading & Description */}
-            <div className="space-y-12 mb-20">
-              <p className="text-[11px] font-light tracking-[0.2em] uppercase text-white/30">
-                OUR MISSION
-              </p>
-              <h2 className="text-[36px] md:text-[56px] leading-[1.1] text-white font-light tracking-tight">
-                How It Works
-              </h2>
-              <p className="text-[16px] leading-[1.7] font-light text-white/65">
-                Empowering every role in racing with<br />transparent, flexible paths forward.
-              </p>
-            </div>
+        {/* Tall wrapper creates scroll "budget" - each card gets ~100vh */}
+        <div ref={missionSectionRef} className="relative bg-background" style={{ minHeight: '400vh' }}>
+          <section id="mission" className="sticky top-0 min-h-screen py-24 text-foreground overflow-hidden flex items-center">
+            <div className="max-w-7xl mx-auto px-12 md:px-16 lg:px-20 w-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+                {/* LEFT - Heading & Description (always visible, sticky to left) */}
+                <div className="space-y-12">
+                  <p className="text-[11px] font-light tracking-[0.2em] uppercase text-white/30">
+                    OUR MISSION
+                  </p>
+                  <h2 className="text-[36px] md:text-[56px] leading-[1.1] text-white font-light tracking-tight">
+                    How It<br />Works
+                  </h2>
+                  <p className="text-[16px] leading-[1.7] font-light text-white/65">
+                    Empowering every role in racing with<br />transparent, flexible paths forward.
+                  </p>
+                </div>
 
-            {/* BOTTOM - 3 Horizontal Panels */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* RIGHT - 3 Cards stacked vertically (one at a time) */}
+                <div className="space-y-8 lg:pt-[120px]">
                 {/* Card 1 */}
-                <div className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer">
+                <div 
+                  className={`group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer ${
+                    activeStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                  }`}
+                >
                   <div 
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
                     style={{
@@ -134,7 +186,11 @@ const Home = () => {
                 </div>
 
                 {/* Card 2 */}
-                <div className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer">
+                <div 
+                  className={`group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer ${
+                    activeStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                  }`}
+                >
                   <div 
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
                     style={{
@@ -155,7 +211,11 @@ const Home = () => {
                 </div>
 
                 {/* Card 3 */}
-                <div className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer">
+                <div 
+                  className={`group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer ${
+                    activeStep >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                  }`}
+                >
                   <div 
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
                     style={{
@@ -174,9 +234,11 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
         </section>
+        </div>
 
         <section className="px-0 md:px-0 m-0 p-0 border-none">
           <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" />

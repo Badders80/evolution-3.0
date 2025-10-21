@@ -12,8 +12,7 @@ export function Footer() {
           <div className="max-w-4xl space-y-8">
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight text-gray-300">
               The future of ownership — powered<br />
-              by{' '}
-              <WaveText 
+              by <WaveText 
                 text="digital-syndication." 
                 highlightWords={['digital-syndication']}
                 className="inline"

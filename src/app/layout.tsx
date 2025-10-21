@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import '@once-ui-system/core/css/tokens.css';
+import '@once-ui-system/core/css/styles.css';
 import "../styles/globals.css";
 import "../styles/brand.css";
 import { NavBar } from "@/components/NavBar";
 import SupabaseProvider from "@/providers/supabase-provider";
+import { OnceUIProvider } from "@/providers/once-ui-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,10 +44,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} min-h-screen bg-background antialiased`} suppressHydrationWarning>
-        <SupabaseProvider>
-          <NavBar />
-          <main className="flex-1">{children}</main>
-        </SupabaseProvider>
+        <OnceUIProvider>
+          <SupabaseProvider>
+            <NavBar />
+            <main className="flex-1">{children}</main>
+          </SupabaseProvider>
+        </OnceUIProvider>
       </body>
     </html>
   );

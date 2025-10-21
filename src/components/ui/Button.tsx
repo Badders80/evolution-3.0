@@ -1,43 +1,48 @@
-import React from 'react';
-import { clsx } from 'clsx';
-import { Slot } from '@radix-ui/react-slot';
+'use client';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-  asChild?: boolean;
-  children: React.ReactNode;
-}
+import { forwardRef, type ComponentProps } from 'react';
+import { Button as OnceButton } from '@once-ui-system/core/components';
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', asChild = false, children, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button';
-    
+type OnceVariant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'ghost';
+type OnceSize = 's' | 'm' | 'l';
+
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+type ButtonSize = 'sm' | 'md' | 'lg';
+
+const variantMap: Record<ButtonVariant, OnceVariant> = {
+  primary: 'primary',
+  secondary: 'secondary',
+  outline: 'tertiary',
+  ghost: 'ghost',
+  danger: 'danger',
+};
+
+const sizeMap: Record<ButtonSize, OnceSize> = {
+  sm: 's',
+  md: 'm',
+  lg: 'l',
+};
+
+export type ButtonProps = Omit<ComponentProps<typeof OnceButton>, 'variant' | 'size'> & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+};
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = 'primary', size = 'md', className, ...props }, ref) => {
+    const mappedVariant = variantMap[variant] ?? 'primary';
+    const mappedSize = sizeMap[size] ?? 'm';
+
     return (
-      <Comp
-        className={clsx(
-          'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50',
-          {
-            'bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary': variant === 'primary',
-            'bg-surface text-foreground hover:bg-foreground/10 border border-border focus-visible:ring-primary/40': variant === 'secondary',
-            'border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/60': variant === 'outline',
-            'text-foreground hover:bg-foreground/5 focus-visible:ring-primary/30': variant === 'ghost',
-          },
-          {
-            'h-8 px-3 text-sm': size === 'sm',
-            'h-10 px-4 py-2': size === 'md',
-            'h-12 px-6 text-lg': size === 'lg',
-          },
-          className
-        )}
-        ref={ref}
+      <OnceButton
+        ref={ref as never}
+        variant={mappedVariant as OnceVariant}
+        size={mappedSize}
+        className={className}
         {...props}
-      >
-        {children}
-      </Comp>
+      />
     );
   }
 );
 
 Button.displayName = 'Button';
-

@@ -50,11 +50,14 @@ const config: Config = {
       typography: {
         DEFAULT: {
           css: {
-            color: "#e5e7eb",
+            color: 'var(--color-foreground)',
             h1: { fontFamily: "var(--font-heading)", fontWeight: "600" },
             h2: { fontFamily: "var(--font-heading)", fontWeight: "600" },
             h3: { fontFamily: "var(--font-heading)", fontWeight: "500" },
-            p: { fontFamily: "var(--font-body)" },
+            p: {
+              fontFamily: "var(--font-body)",
+              color: 'var(--color-muted)',
+            },
           },
         },
       },
@@ -86,35 +89,35 @@ const config: Config = {
         'shimmer': 'shimmer 8s ease-in-out infinite',
       },
       colors: {
-        // Typography color system (Audi-inspired)
-        'text-primary': '#ffffff',      // Pure white for H1 and primary text
-        'text-secondary': '#cccccc',    // Light gray for body text
-        'text-muted': '#999999',        // Mid gray for labels and secondary UI
-        
+        // Typography color system aligned with Once UI tokens
+        'text-primary': 'var(--color-foreground)',
+        'text-secondary': 'var(--color-muted)',
+        'text-muted': 'var(--color-muted-foreground)',
+
         brand: {
-          gold: "#d4a964",
-          gray: "#747474",
-          white: "#ffffff",
-          black: "#000000",
+          gold: 'var(--brand-solid-medium)',
+          gray: 'var(--brand-gray)',
+          white: 'var(--brand-white)',
+          black: 'var(--brand-black)',
         },
         primary: {
-          DEFAULT: "#d4a964",
-          foreground: "#111113",
+          DEFAULT: 'var(--color-primary)',
+          foreground: 'var(--color-primary-foreground)',
         },
         accent: {
-          DEFAULT: "#f3d59f",
-          foreground: "#111113",
+          DEFAULT: 'var(--color-accent)',
+          foreground: 'var(--color-accent-foreground)',
         },
-        background: "#000000",
-        surface: "#111113",
-        surfaceAlt: "#16161a",
+        background: 'var(--color-background)',
+        surface: 'var(--color-surface)',
+        surfaceAlt: 'var(--color-surface-alt)',
         muted: {
-          DEFAULT: "#999999",
-          foreground: "#6b7280",
+          DEFAULT: 'var(--color-muted)',
+          foreground: 'var(--color-muted-foreground)',
         },
-        secondary: "#cccccc",
-        border: "#27272a",
-        foreground: "#e5e7eb",
+        secondary: 'var(--color-muted)',
+        border: 'var(--color-border)',
+        foreground: 'var(--color-foreground)',
       },
     },
   },

@@ -185,11 +185,14 @@ export function NavBar() {
               >
                 <Link
                   href={link.href}
-                  className="relative inline-flex items-center whitespace-nowrap px-2.5 py-4 text-[12px] font-[300] tracking-[0.15em] uppercase transition-all duration-300 text-white/50 hover:text-white/90 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary/50 rounded-sm"
+                  className="relative inline-flex items-center whitespace-nowrap px-2.5 py-4 text-[12px] font-[300] tracking-[0.15em] uppercase transition-all duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary/50 rounded-sm"
+                  style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 1)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}
                 >
                   <span className="relative z-10">{link.label}</span>
                 </Link>
-                <span className="absolute bottom-2 left-2.5 right-2.5 h-[0.5px] origin-left scale-x-0 bg-primary transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-x-100" />
+                <span className="absolute bottom-2 left-2.5 right-2.5 h-[0.5px] origin-left scale-x-0 bg-[#d4a964] transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-x-100" />
               </div>
             ))}
           </div>

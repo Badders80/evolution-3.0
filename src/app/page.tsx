@@ -12,32 +12,32 @@ import { SectionTemplate } from '@/components/sections/SectionTemplate';
 
 const faqItems = [
   {
-    question: 'What do investors or racing fans get out of it?',
-    answer: 'The thrill of ownership without long-term commitments. Transparent costs, flexible stakes, and real participation.'
+    question: 'Who is Evolution Stables?',
+    answer: "At its core, Evolution Stables is a marketplace built to make buying and selling racehorse ownership stakes simple, transparent, and secure. We use modern tools to make participation easier for anyone — whether you're new to racing or already involved."
   },
   {
-    question: "What's in it for owners, syndicators, or breeders?",
+    question: 'What is Evolution Stables here to do?',
     answer:
-      'Access to new investors while keeping full control. You set the terms - length, price, and structure.',
-  },
-  {
-    question: 'How does this benefit clubs, organisations, and governing bodies?',
-    answer:
-      'New revenue streams and engagement. Digital-syndication attracts fresh participants and helps futureproof racing.',
-  },
-  {
-    question: 'Is this regulated?',
-    answer:
-      'Yes. Evolution Stables operates under NZTR rules and global digital-asset frameworks, with Tokinvest providing the compliant infrastructure.',
-  },
-  {
-    question: 'Why is the model different?',
-    answer: 'No heavy commitments. Ownership is flexible, transparent, and open to all.',
+      "We're here to make racehorse ownership work better for everyone. That means creating an easier way to get involved, helping owners unlock value from their horses, and building a system where ownership can move more freely between people.",
   },
   {
     question: 'How is Evolution Stables different?',
     answer:
-      "We're the home of digital-syndication - combining industry knowledge with a financial-grade platform to lower barriers and grow racing for the next generation.",
+      "We focus on making ownership practical. No long-term lock-ins, no complicated paperwork — just clear terms, flexible options, and the ability to buy or sell stakes when it suits you. Everything is designed around how people want to participate today.",
+  },
+  {
+    question: 'What does digital-syndication mean?',
+    answer:
+      "Digital-syndication is a modern take on a familiar idea. Instead of traditional syndicates managed on paper, ownership stakes are offered and managed online — making them easier to access, track, and trade.",
+  },
+  {
+    question: 'Can I trade or sell my stake?',
+    answer: "Yes. Our marketplace is designed to make ownership more flexible, so you can sell your stake to someone else if you choose. This creates liquidity — something the racing industry has traditionally lacked.",
+  },
+  {
+    question: 'What are the risks?',
+    answer:
+      "Like any regulated investment, racehorse ownership carries some risk. Horses can get injured, performance can vary, and returns are not guaranteed. What matters is that everything on our platform operates under clear rules — with transparent terms, regulated processes, and compliance built in — so you always know what you're investing in and how it's managed.",
   },
 ];
 
@@ -443,20 +443,20 @@ const Home = () => {
 
 
         <section id="faq" className="py-56 bg-background text-foreground">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20">
             {/* Section Label */}
-            <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-12 text-white/30 text-center">
+            <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-12 text-white/30">
               FAQ
             </p>
 
             {/* Headline */}
-            <h2 className="text-[36px] md:text-[48px] leading-[1.1] text-white font-light tracking-tight text-center mb-6">
-              Frequently Asked Questions
+            <h2 className="text-[36px] md:text-[48px] leading-[1.1] text-white font-light tracking-tight mb-6">
+              Everything You Need to Know
             </h2>
 
             {/* Description */}
-            <p className="text-[16px] leading-[1.7] font-light text-white/65 text-center mb-16 max-w-2xl mx-auto">
-              Got questions about digital racehorse ownership? We&apos;ve got answers. Our comprehensive FAQ covers everything from getting started to managing your stable.
+            <p className="text-[18px] leading-[1.7] font-light text-white/50 mb-24 max-w-xl">
+              Clear answers to the most common questions about digital racehorse ownership, syndication, and the Evolution Stables platform.
             </p>
 
             {/* FAQ Component */}

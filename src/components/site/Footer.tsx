@@ -10,22 +10,14 @@ export function Footer() {
         {/* Hero Tagline - Centerpiece */}
         <div className="flex flex-col items-center justify-center text-center min-h-[40vh]">
           <div className="max-w-4xl space-y-8">
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight">
-              <div className="text-gray-300">
-                Powered by <span className="font-medium text-white">innovation</span>
-              </div>
-              <div className="text-gray-300">
-                Driven by <span className="font-medium text-white">passion</span>
-              </div>
-              <div className="text-gray-300">
-                <span className="text-white">Own the experience</span> with{' '}
-                <WaveText 
-                  text="digital-syndication" 
-                  highlightWords={['digital-syndication']}
-                  className="inline"
-                  highlightColor="text-white"
-                />
-              </div>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight text-gray-300">
+              The future of ownership — powered by{' '}
+              <WaveText 
+                text="digital-syndication" 
+                highlightWords={['digital-syndication']}
+                className="inline"
+                highlightColor="text-white"
+              />.
             </h2>
           </div>
         </div>
@@ -46,12 +38,15 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-8 text-sm text-muted md:grid md:grid-cols-3 md:items-center md:gap-8">
-            <div className="flex items-center justify-start gap-6 text-muted">
+            <div className="flex items-center justify-start gap-6">
               <a
                 href="https://x.com/evostables"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted transition hover:text-muted/80 flex items-center"
+                className="transition flex items-center"
+                style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 1)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}
                 aria-label="Follow us on X"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -62,7 +57,10 @@ export function Footer() {
                 href="https://instagram.com/evostables"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted transition hover:text-muted/80 flex items-center"
+                className="transition flex items-center"
+                style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 1)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}
                 aria-label="Follow us on Instagram"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -73,7 +71,10 @@ export function Footer() {
                 href="https://www.linkedin.com/in/alex-baddeley/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted transition hover:text-muted/80 flex items-center"
+                className="transition flex items-center"
+                style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 1)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}
                 aria-label="Connect on LinkedIn"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -82,7 +83,10 @@ export function Footer() {
               </a>
               <a
                 href="mailto:alex@evolutionstables.nz"
-                className="text-muted transition hover:text-muted/80 flex items-center"
+                className="transition flex items-center"
+                style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 1)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}
                 aria-label="Send us an email"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -92,16 +96,16 @@ export function Footer() {
             </div>
 
             <div className="flex items-center justify-start md:justify-center">
-              <p className="text-sm leading-tight text-gray-300 font-extralight">
+              <p className="text-sm leading-tight font-extralight" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
                 &copy; 2025 Evolution Stables.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-start gap-3 md:justify-end [&_a]:text-gray-300 [&_a:hover]:text-gray-400 [&_a]:transition-colors [&_a]:font-extralight">
-              <Link href="/privacy" className="leading-tight">
+            <div className="flex flex-wrap items-center justify-start gap-3 md:justify-end [&_a]:transition-colors [&_a]:font-extralight">
+              <Link href="/privacy" className="leading-tight" style={{ color: 'rgba(255, 255, 255, 0.6)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 1)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="leading-tight">
+              <Link href="/terms" className="leading-tight" style={{ color: 'rgba(255, 255, 255, 0.6)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 1)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>
                 Terms of Service
               </Link>
             </div>

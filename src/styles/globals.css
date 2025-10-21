@@ -105,7 +105,7 @@ body {
   h1 { @apply font-heading text-[2.75rem] md:text-[3.5rem] font-bold leading-[0.95] tracking-[-0.015em]; }
   h2 { @apply font-heading text-[2rem] md:text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.01em]; }
   h3 { @apply font-heading text-xl md:text-[1.5rem] font-medium leading-[1.15] tracking-[-0.005em]; }
-  p  { @apply text-base leading-[1.6] tracking-[0em] text-foreground/90; }
+  p  { @apply text-base leading-[1.6] tracking-[0em] text-foreground; }
   a  { @apply text-primary hover:opacity-90 transition-opacity; }
 }
 

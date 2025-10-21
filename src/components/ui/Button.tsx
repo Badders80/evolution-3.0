@@ -3,7 +3,7 @@
 import { forwardRef, type ComponentProps } from 'react';
 import { Button as OnceButton } from '@once-ui-system/core/components';
 
-type OnceVariant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'ghost';
+type OnceVariant = 'primary' | 'secondary' | 'tertiary' | 'danger';
 type OnceSize = 's' | 'm' | 'l';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
@@ -13,7 +13,7 @@ const variantMap: Record<ButtonVariant, OnceVariant> = {
   primary: 'primary',
   secondary: 'secondary',
   outline: 'tertiary',
-  ghost: 'ghost',
+  ghost: 'tertiary',
   danger: 'danger',
 };
 
@@ -35,11 +35,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <OnceButton
-        ref={ref as never}
-        variant={mappedVariant as OnceVariant}
+        ref={ref as any}
+        variant={mappedVariant}
         size={mappedSize}
         className={className}
-        {...props}
+        {...(props as any)}
       />
     );
   }

@@ -13,11 +13,11 @@ export function Footer() {
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight text-gray-300">
               The future of ownership — powered by{' '}
               <WaveText 
-                text="digital-syndication" 
+                text="digital-syndication." 
                 highlightWords={['digital-syndication']}
                 className="inline"
                 highlightColor="text-white"
-              />.
+              />
             </h2>
           </div>
         </div>

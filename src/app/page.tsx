@@ -177,7 +177,7 @@ const Home = () => {
                       From spectators to invested stakeholders.
                     </h4>
                     <p className="text-[15px] leading-[1.9] font-light text-white/60">
-                      Ownership is the gateway to deeper engagement — turning one-time spectators into lifelong members, building revenue, and strengthening the sport's future, all in one place.
+                      Ownership is the gateway to deeper engagement — turning one-time spectators into lifelong members, building revenue, and strengthening the sport&apos;s future, all in one place.
                     </p>
                   </div>
                 </div>

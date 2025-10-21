@@ -11,7 +11,8 @@ export function Footer() {
         <div className="flex flex-col items-center justify-center text-center min-h-[40vh]">
           <div className="max-w-4xl space-y-8">
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-tight text-gray-300">
-              The future of ownership — powered by{' '}
+              The future of ownership — powered<br />
+              by{' '}
               <WaveText 
                 text="digital-syndication." 
                 highlightWords={['digital-syndication']}

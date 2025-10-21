@@ -26,9 +26,11 @@ const NotFoundPage = () => {
           </div>
         </div>
 
-        <Button asChild size="lg" className="rounded-full bg-white/[0.08] px-8 text-sm font-medium tracking-[0.25em] uppercase text-white/80 transition-all duration-500 hover:bg-white/[0.12] hover:text-white">
-          <Link href="/">Return Home</Link>
-        </Button>
+        <Link href="/">
+          <Button size="lg" className="rounded-full bg-white/[0.08] px-8 text-sm font-medium tracking-[0.25em] uppercase text-white/80 transition-all duration-500 hover:bg-white/[0.12] hover:text-white">
+            Return Home
+          </Button>
+        </Link>
       </div>
 
       {/* Accent image */}

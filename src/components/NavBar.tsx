@@ -189,7 +189,7 @@ export function NavBar() {
                 >
                   <span className="relative z-10">{link.label}</span>
                 </Link>
-                <span className="absolute bottom-2 left-2.5 right-2.5 h-[1px] origin-left scale-x-0 bg-white/70 transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-x-100" />
+                <span className="absolute bottom-2 left-2.5 right-2.5 h-[0.5px] origin-left scale-x-0 bg-primary transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-x-100" />
               </div>
             ))}
           </div>

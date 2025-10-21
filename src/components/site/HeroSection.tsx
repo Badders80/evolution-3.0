@@ -100,10 +100,10 @@ export function HeroSection({
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 1.05 }}
-          className="eyebrow mt-8 max-w-[720px] font-medium"
+          className="eyebrow mt-8 max-w-[720px] font-medium leading-relaxed"
         >
-          Ownership re-imagined for a new generation<br />
-          of race-goers.
+          Grounded in tradition. Evolved through innovation. <br />
+          Ownership transformed.
         </motion.p>
       </div>
     </section>

@@ -42,50 +42,6 @@ const faqItems = [
 ];
 
 const Home = () => {
-  const [activeStep, setActiveStep] = React.useState<number>(0);
-  const missionSectionRef = React.useRef<HTMLDivElement>(null);
-  const lastScrollYRef = React.useRef<number>(0);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const section = missionSectionRef.current;
-      if (!section) return;
-
-      const currentScrollY = window.scrollY;
-      const scrollDirection = currentScrollY > lastScrollYRef.current ? 'down' : 'up';
-      lastScrollYRef.current = currentScrollY;
-
-      const sectionTop = section.offsetTop;
-      const scrollY = window.scrollY - sectionTop;
-      const viewportHeight = window.innerHeight;
-
-      // Define scroll windows for each step (each gets ~100vh of scroll)
-      const step1Start = viewportHeight * 0.3;  // Card 1 appears
-      const step2Start = viewportHeight * 1.3;  // Card 2 appears
-      const step3Start = viewportHeight * 2.3;  // Card 3 appears
-
-      // 🔐 Only activate steps when scrolling down (one-way activation)
-      if (scrollDirection === 'down') {
-        if (scrollY >= step3Start) {
-          setActiveStep(prev => Math.max(prev, 3));
-        } else if (scrollY >= step2Start) {
-          setActiveStep(prev => Math.max(prev, 2));
-        } else if (scrollY >= step1Start) {
-          setActiveStep(prev => Math.max(prev, 1));
-        }
-      }
-
-      // Optional: Reset only if scrolled all the way back to top
-      if (scrollY < 50) {
-        setActiveStep(0);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
@@ -115,7 +71,7 @@ const Home = () => {
 
             {/* Lead Paragraph */}
             <p className="text-[18px] leading-[1.85] font-light max-w-3xl mb-20 text-white/65">
-              Racehorse ownership can be complex and inaccessible. Evolution Stables is here to change that. Removing barriers - delivering opportunities to first-time fans and seasoned owners alike to not just participate, but own the thrill of thoroughbred horse racing.
+              Racehorse ownership has changed. Evolution Stables removes the barriers that once made it complex and inaccessible — opening the door for first-timers and seasoned fans alike to not just watch, but own the thrill of racing.
             </p>
 
             {/* CTA Button */}
@@ -130,7 +86,7 @@ const Home = () => {
               >
                 {/* Gentle shimmer animation - avoids center for text clarity */}
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent animate-shimmer opacity-50" />
-                <span className="relative z-10 inline-block transition-all duration-300 group-hover:scale-110">JOIN THE REVOLUTION</span>
+                <span className="relative z-10 inline-block transition-all duration-300 group-hover:scale-110">JOIN THE EVOLUTION</span>
               </button>
             </div>
           </div>
@@ -140,31 +96,26 @@ const Home = () => {
           <FixedBg src="/images/Background-hooves-back-and-white.jpg" height="h-[50vh]" />
         </section>
 
-        {/* Tall wrapper creates scroll "budget" - each card gets ~100vh */}
-        <div ref={missionSectionRef} className="relative bg-background" style={{ minHeight: '400vh' }}>
-          <section id="mission" className="sticky top-0 min-h-screen py-24 text-foreground overflow-hidden flex items-center">
-            <div className="max-w-7xl mx-auto px-12 md:px-16 lg:px-20 w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-                {/* LEFT - Heading & Description (always visible, sticky to left) */}
-                <div className="space-y-12">
-                  <p className="text-[11px] font-light tracking-[0.2em] uppercase text-white/30">
-                    OUR MISSION
-                  </p>
-                  <h2 className="text-[36px] md:text-[56px] leading-[1.1] text-white font-light tracking-tight">
-                    How It<br />Works
-                  </h2>
-                  <p className="text-[16px] leading-[1.7] font-light text-white/65">
-                    Empowering every role in racing with<br />transparent, flexible paths forward.
-                  </p>
-                </div>
+        <section id="mission" className="py-24 bg-background text-foreground">
+            <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20 w-full">
+              {/* Heading & Description */}
+              <div className="space-y-12 mb-16">
+                <p className="text-[11px] font-light tracking-[0.2em] uppercase text-white/30">
+                  OUR MISSION
+                </p>
+                <h2 className="text-[36px] md:text-[56px] leading-[1.1] text-white font-light tracking-tight">
+                  How It<br />Works
+                </h2>
+                <p className="text-[16px] leading-[1.7] font-light text-white/65">
+                  At Evolution Stables, we understand that ownership is the lifeblood of racing — and strengthening it benefits every part of the industry.
+                </p>
+              </div>
 
-                {/* RIGHT - 3 Cards stacked vertically (one at a time) */}
-                <div className="space-y-8 lg:pt-[120px]">
+              {/* 3 Cards horizontally aligned */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Card 1 */}
                 <div 
-                  className={`group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer ${
-                    activeStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-                  }`}
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer"
                 >
                   <div 
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
@@ -174,22 +125,20 @@ const Home = () => {
                   />
                   <div className="relative space-y-4">
                     <p className="text-sm font-light uppercase tracking-[0.32em] text-white/40">
-                      Investors & Fans
+                      Investors & <br />Fans
                     </p>
                     <h4 className="text-[21px] font-light text-white leading-tight">
-                      Step into ownership without long-term commitments.
+                      Experience the thrill — without the hassle.
                     </h4>
                     <p className="text-[15px] leading-[1.9] font-light text-white/60">
-                      Transparent costs, fractional stakes, and the genuine thrill of racing so supporters feel the pulse of every stride.
+                      Ownership, on your terms. Simplified terms and conditions give you the full thrill of ownership in a transparent, regulated marketplace — where risk and return are clear before you buy.
                     </p>
                   </div>
                 </div>
 
                 {/* Card 2 */}
                 <div 
-                  className={`group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer ${
-                    activeStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-                  }`}
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer"
                 >
                   <div 
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
@@ -199,22 +148,20 @@ const Home = () => {
                   />
                   <div className="relative space-y-4">
                     <p className="text-sm font-light uppercase tracking-[0.32em] text-white/40">
-                      Breeders & Syndicators
+                      Breeders & <br />Syndicators
                     </p>
                     <h4 className="text-[21px] font-light text-white leading-tight">
-                      Unlock new income streams on your terms.
+                      Unlock new income — same control, zero extra effort.
                     </h4>
                     <p className="text-[15px] leading-[1.9] font-light text-white/60">
-                      Keep full control while expanding your reach, structuring offers with the clarity investors expect from premium platforms.
+                      Expand your reach and retain full control, with offers structured, managed, and delivered — all in one place.
                     </p>
                   </div>
                 </div>
 
                 {/* Card 3 */}
                 <div 
-                  className={`group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer ${
-                    activeStep >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-                  }`}
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-lg p-10 transition-all duration-700 ease-out hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] cursor-pointer"
                 >
                   <div 
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
@@ -224,21 +171,19 @@ const Home = () => {
                   />
                   <div className="relative space-y-4">
                     <p className="text-sm font-light uppercase tracking-[0.32em] text-white/40">
-                      Clubs & Organizations
+                      Clubs & <br />Organisations
                     </p>
                     <h4 className="text-[21px] font-light text-white leading-tight">
-                      Future-proof racing with broader participation.
+                      From spectators to invested stakeholders.
                     </h4>
                     <p className="text-[15px] leading-[1.9] font-light text-white/60">
-                      Bring new audiences trackside, strengthen engagement, and open sustainable revenue pathways for every level of the sport.
+                      Ownership is the gateway to deeper engagement — turning one-time spectators into lifelong members, building revenue, and strengthening the sport's future, all in one place.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </section>
-        </div>
 
         <section className="px-0 md:px-0 m-0 p-0 border-none">
           <FixedBg src="/images/Landscape-digitaloverlay.jpg" height="h-[50vh]" />
@@ -263,7 +208,10 @@ const Home = () => {
 
                 {/* Lead Paragraph */}
                 <p className="text-[16px] leading-[1.7] font-light text-white/65">
-                  Forged by tradition, transformed with innovation. Syndication has stood the test of time: shared ownership, shared risk, shared passion. Our digital-syndication model isn&apos;t here to replace it - but to evolve it.
+                  Syndication has always been the heartbeat of racehorse ownership — sharing risk, reward, and the thrill of the sport. But the way people participate has changed.
+                </p>
+                <p className="text-[16px] leading-[1.7] font-light text-white/65">
+                  Our digital-syndication model builds on that legacy — lowering barriers, increasing transparency, and unlocking new ways for owners, investors, and fans to participate — without replacing what works.
                 </p>
               </div>
 
@@ -371,7 +319,7 @@ const Home = () => {
         </section>
 
         <section id="innovation" className="py-56 bg-background text-foreground">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20">
             {/* Section Label */}
             <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-12 text-white/30">
               REGULATED MARKETPLACE
@@ -384,15 +332,16 @@ const Home = () => {
 
             {/* Description */}
             <p className="text-[16px] leading-[1.7] font-light text-white/65 mb-16 max-w-3xl">
-              The Evolution Stables Marketplace is where digital-syndication comes alive - a seamless platform powered by Tokinvest&apos;s secure, compliant, and globally scalable infrastructure.
+              Behind our integrated marketplace, Tokinvest delivers the raw horsepower that powers digital-syndication — built on regulated, financial-grade infrastructure, tailored from institutional finance and adapted to meet the demands of modern owners.
             </p>
           {/* Features */}
           <div className="mt-32 w-full">
             <div className="grid grid-cols-1 md:grid-cols-3">
               {/* Card 1 */}
-              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 border-l border-white/[0.08] first:border-l-0 transition-all duration-500">
+              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 transition-all duration-500">
                 {/* Vertical line */}
-                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1/2 w-[1px] bg-white/[0.08]" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1/2 w-[1px] bg-primary origin-center scale-y-0 transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-y-100" />
                 <div className="space-y-12">
                   <div>
                     <svg className="h-8 w-8 text-white/60 transition-colors duration-500 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -407,16 +356,17 @@ const Home = () => {
                       </span>
                     </h4>
                     <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
-                      Browse available syndications and short-term leases, all clearly structured and fully transparent.
+                      Explore available syndications and short-term leases — all clearly structured, fully transparent, and ready to invest in with confidence.
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Card 2 */}
-              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 border-l border-white/[0.08] transition-all duration-500">
+              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 transition-all duration-500">
                 {/* Vertical line */}
-                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1/2 w-[1px] bg-white/[0.08]" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1/2 w-[1px] bg-primary origin-center scale-y-0 transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-y-100" />
                 <div className="space-y-12">
                   <div>
                     <svg className="h-8 w-8 text-white/60 transition-colors duration-500 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -431,16 +381,17 @@ const Home = () => {
                       </span>
                     </h4>
                     <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
-                      Tokinvest&apos;s regulated platform ensures secure transactions, clear ownership records, and smooth settlements.
+                      Tokinvest&apos;s regulated platform ensures secure transactions, immutable ownership records, and integrated settlements — so every trade is safe, clear, and straightforward.
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Card 3 */}
-              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 border-l border-white/[0.08] transition-all duration-500">
+              <div className="group flex flex-col gap-6 relative px-8 py-12 md:px-10 md:py-16 transition-all duration-500">
                 {/* Vertical line */}
-                <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1/2 w-[1px] bg-white/[0.08]" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1/2 w-[1px] bg-primary origin-center scale-y-0 transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-y-100" />
                 <div className="space-y-12">
                   <div>
                     <svg className="h-8 w-8 text-white/60 transition-colors duration-500 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -451,12 +402,12 @@ const Home = () => {
                   <div className="space-y-4">
                     <h4 className="text-[18px] font-light text-white leading-tight relative overflow-hidden">
                       <span className="relative inline-block">
-                        Stay Connected
+                        Real-Time Insight
                         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-black/70 to-transparent -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 group-hover:ease-in-out transition-none" />
                       </span>
                     </h4>
                     <p className="text-[15px] leading-[1.7] font-light text-white/50 transition-colors duration-500 group-hover:text-white/80">
-                      Follow your horses, track performance, and manage your positions in real time.
+                      Follow your horses, track performance, and manage your positions in real time — with ownership data, updates, and key information always at your fingertips.
                     </p>
                   </div>
                 </div>

@@ -145,8 +145,8 @@ export function NavBar() {
     <nav
       className={`fixed inset-x-0 top-0 z-[9999] w-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
         isSolid 
-          ? 'bg-background/40 text-foreground' 
-          : 'bg-background/5 text-foreground'
+          ? 'bg-black/80 text-white' 
+          : 'bg-black/40 text-white'
       } ${visible ? 'opacity-100 translate-y-0' : '-translate-y-4 opacity-0'}`}
       style={{ 
         backdropFilter: 'blur(24px) saturate(120%)', 

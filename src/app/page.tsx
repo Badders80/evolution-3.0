@@ -451,12 +451,13 @@ const Home = () => {
 
             {/* Headline */}
             <h2 className="text-[36px] md:text-[48px] leading-[1.1] text-white font-light tracking-tight mb-6">
-              Everything You Need to Know
+              Understanding<br />
+              Digital-Syndication
             </h2>
 
             {/* Description */}
             <p className="text-[18px] leading-[1.7] font-light text-white/50 mb-24 max-w-xl">
-              Clear answers to the most common questions about digital racehorse ownership, syndication, and the Evolution Stables platform.
+              A considered guide to the essentials — how digital-syndication works, what it means for ownership, and where Evolution Stables fits in.
             </p>
 
             {/* FAQ Component */}

@@ -43,7 +43,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${inter.className} min-h-screen bg-background antialiased`} suppressHydrationWarning>
+      <body className={`${inter.className} min-h-screen bg-black antialiased`} suppressHydrationWarning>
         <OnceUIProvider>
           <SupabaseProvider>
             <NavBar />

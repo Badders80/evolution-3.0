@@ -88,6 +88,9 @@ const config: Config = {
         'tilt': 'tilt 10s ease-in-out infinite',
         'shimmer': 'shimmer 8s ease-in-out infinite',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
+      },
       colors: {
         // Typography color system aligned with Once UI tokens
         'text-primary': 'var(--color-foreground)',

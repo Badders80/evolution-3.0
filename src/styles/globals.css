@@ -27,61 +27,12 @@
   font-display: swap;
 }
 
-/* AudiType Font Definitions */
-@font-face {
-  font-family: 'AudiType Extended';
-  src: url('/fonts/AudiType-ExtendedBold_4.03.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'AudiType Extended';
-  src: url('/fonts/AudiType-ExtendedNormal_4.03.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'AudiType';
-  src: url('/fonts/AudiType-Bold_4.03.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'AudiType';
-  src: url('/fonts/AudiType-Normal_4.03.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'AudiType Wide';
-  src: url('/fonts/AudiType-WideLight_4.03.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'AudiType Wide';
-  src: url('/fonts/AudiType-WideNormal_4.03.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* CSS Custom Properties */
 :root {
   --font-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'AudiType Extended', 'Geist Sans', sans-serif;
-  --font-body: 'AudiType', 'Geist Sans', sans-serif;
-  --font-display: 'AudiType Extended', 'Geist Sans', sans-serif;
+  --font-heading: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'Roboto Mono', monospace;
   color-scheme: dark;
 }

@@ -71,7 +71,7 @@ const Home = () => {
 
             {/* Lead Paragraph */}
             <p className="text-[18px] leading-[1.85] font-light max-w-3xl mb-20 text-white/65">
-              Racehorse ownership has changed. Evolution Stables removes the barriers that once made it complex and inaccessible — opening the door for first-timers and seasoned fans alike to not just watch, but own the thrill of racing.
+              Racehorse ownership has changed. Evolution Stables removes the barriers that once made it complex and inaccessible — opening the door for first-timers and seasoned fans alike to not just watch, but own the experience
             </p>
 
             {/* CTA Button */}

@@ -7,11 +7,11 @@ import { TypeFx } from '@once-ui-system/core';
 export function Footer() {
   return (
     <footer className="relative bg-black overflow-hidden">
-      <div className="mx-auto flex max-w-6xl flex-col gap-24 px-8 pt-8 pb-32 md:px-16 md:pt-12">
+      <div className="mx-auto flex max-w-6xl flex-col px-8 pt-16 pb-12 md:px-16 md:pt-24 md:pb-16">
         {/* Hero Tagline - Centerpiece */}
-        <div className="flex flex-col items-center justify-center text-center min-h-[40vh]">
-          <div className="max-w-4xl space-y-10">
-            <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center justify-center text-center py-16 md:py-24 animate-fade-in">
+          <div className="max-w-4xl space-y-8">
+            <div className="flex flex-col items-center gap-2">
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-white tracking-tight">
                 The Future of Ownership
               </h2>
@@ -30,8 +30,11 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-12"></div>
+
         {/* Bottom Section - Footer Bar */}
-        <div className="flex flex-col gap-8 text-xs text-muted md:flex-row md:justify-between md:items-end">
+        <div className="flex flex-col gap-6 text-xs text-muted md:flex-row md:justify-between md:items-center">
           {/* Left: Legal Links & Copyright */}
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap items-center gap-3 [&_a]:transition-colors [&_a]:font-extralight">

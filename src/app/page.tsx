@@ -9,6 +9,8 @@ import { SplitFaq } from '@/components/ui/SplitFaq';
 import { Button } from '@/components/ui/Button';
 import { HeroSection } from '@/components/site/HeroSection';
 import { SectionTemplate } from '@/components/sections/SectionTemplate';
+import { PressMentions } from '@/components/site/PressMentions';
+import { pressArticles } from '@/lib/press-articles';
 
 const faqItems = [
   {
@@ -441,6 +443,8 @@ const Home = () => {
           <GrassBg src="/images/Hooves-on-grass.png" />
         </section>
 
+        {/* Press Mentions Section */}
+        <PressMentions articles={pressArticles} />
 
         <section id="faq" className="py-56 bg-background text-foreground">
           <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20">

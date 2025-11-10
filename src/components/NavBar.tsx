@@ -12,8 +12,8 @@ import { useRouter, usePathname } from 'next/navigation';
  */
 const navLinks = [
   { label: 'About', href: '/#about' },
-  { label: 'Our Mission', href: '/#mission' },
-  { label: 'Our Model', href: '/#digital-syndication' },
+  { label: 'Mission', href: '/#mission' },
+  { label: 'Model', href: '/#digital-syndication' },
   { label: 'Marketplace', href: '/marketplace' },
   { label: 'MyStable', href: '/mystable' },
   { label: 'FAQ', href: '/#faq' },

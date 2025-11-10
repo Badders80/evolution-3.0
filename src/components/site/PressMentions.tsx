@@ -32,7 +32,7 @@ export function PressMentions({ articles, initialCount = 3 }: PressMentionsProps
   const hasMore = articles.length > initialCount;
 
   return (
-    <section className="py-20 bg-black/40 border-y border-white/5">
+    <section className="py-20 bg-background border-y border-white/5">
       <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20">
         {/* Section Label */}
         <p className="text-[11px] font-light tracking-[0.2em] uppercase mb-8 text-white/30 text-center">
@@ -41,13 +41,15 @@ export function PressMentions({ articles, initialCount = 3 }: PressMentionsProps
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedArticles.map((article) => (
+          {displayedArticles.map((article, index) => (
             <a
               key={article.url}
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] hover:scale-[1.02]"
+              className={`group relative block overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] hover:scale-[1.02] ${
+                index === 2 ? 'md:hidden lg:block' : ''
+              }`}
             >
               {/* Subtle glow on hover */}
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />

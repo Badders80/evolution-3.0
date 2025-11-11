@@ -89,8 +89,7 @@ export default function AuthForm() {
 
       <Auth
         supabaseClient={supabase}
-        providers={[]}
-        magicLink
+        providers={['google']}
         redirectTo={redirectTo}
         appearance={{
           theme: ThemeSupa,

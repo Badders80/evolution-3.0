@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === 'development') {
 **Risk:** Silent failures, cryptic errors in production  
 
 **Affected Files:**
-- `src/components/EmailMagicLinkForm.tsx` - Uses `!` assertion
+- `src/components/GoogleSignInButton.tsx` - Uses `!` assertion
 - `src/lib/sanity.client.ts`
 - `src/lib/api/real.ts`
 

@@ -89,24 +89,25 @@ export default function AuthForm() {
 
       <Auth
         supabaseClient={supabase}
-        providers={['google']}
+        providers={[]}
+        magicLink
         redirectTo={redirectTo}
         appearance={{
           theme: ThemeSupa,
           variables: {
             default: {
               colors: {
-                brand: 'rgba(255,255,255,0.08)',
-                brandAccent: 'rgba(255,255,255,0.12)',
+                brand: '#525252',
+                brandAccent: '#737373',
                 brandButtonText: '#ffffff',
-                defaultButtonBackground: 'rgba(255,255,255,0.08)',
-                defaultButtonBackgroundHover: 'rgba(255,255,255,0.12)',
+                defaultButtonBackground: '#525252',
+                defaultButtonBackgroundHover: '#737373',
                 defaultButtonText: '#ffffff',
-                inputBackground: 'rgba(255,255,255,0.04)',
-                inputBorder: 'rgba(255,255,255,0.08)',
+                inputBackground: '#262626',
+                inputBorder: '#404040',
                 inputText: '#ffffff',
-                inputLabelText: 'rgba(255,255,255,0.6)',
-                inputPlaceholder: 'rgba(255,255,255,0.35)',
+                inputLabelText: '#a3a3a3',
+                inputPlaceholder: '#737373',
                 messageText: '#ffffff',
               },
               radii: {
@@ -122,16 +123,16 @@ export default function AuthForm() {
             container: 'space-y-6 text-white',
             anchor: 'text-white/70 hover:text-white underline underline-offset-4',
             button:
-              'h-12 rounded-full text-sm font-semibold tracking-[0.18em] uppercase transition-shadow hover:shadow-[0_10px_35px_rgba(0,0,0,0.35)]',
+              'h-12 rounded-full text-sm font-semibold tracking-[0.18em] uppercase transition-shadow hover:shadow-[0_10px_35px_rgba(0,0,0,0.35)] !bg-neutral-700 !text-white hover:!bg-neutral-600',
             input:
-              'h-12 rounded-2xl border border-white/10 bg-white/5 text-sm text-white placeholder:text-white/40 focus:border-[#D4AF37]/70 focus:ring-2 focus:ring-[#D4AF37]/40',
-            label: 'text-xs uppercase tracking-[0.3em] text-white/50',
-            divider: 'border-white/10 my-10',
+              'h-12 rounded-2xl border border-neutral-700 bg-neutral-800 text-sm text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:ring-2 focus:ring-neutral-600',
+            label: 'text-xs uppercase tracking-[0.3em] text-neutral-400',
+            divider: 'border-neutral-700 my-10',
             loader: 'text-white/60',
+            message: '!bg-neutral-700 !text-white !border-neutral-600',
           },
         }}
       />
     </div>
   )
 }
-

@@ -47,3 +47,5 @@ Logs
 Misc
 *.pem
 .clerk/
+GOOGLE_OAUTH_CREDENTIALS.md
+OAUTH_SETUP.md

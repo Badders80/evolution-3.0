@@ -1,4 +1,4 @@
-import GoogleSignInButton from './GoogleSignInButton';
+import EmailMagicLinkForm from './EmailMagicLinkForm';
 
 type PanelProps = {
   icon: React.ReactNode;
@@ -23,8 +23,8 @@ export function ThreePanel({ panels }: { panels: PanelProps[] }) {
       
       <div className="pt-8 border-t border-gray-700">
         <div className="text-center">
-          <p className="text-white mb-4">Sign in to access exclusive content</p>
-          <GoogleSignInButton />
+          <p className="text-white mb-4">Enter your email to get a magic link</p>
+          <EmailMagicLinkForm />
         </div>
       </div>
     </div>

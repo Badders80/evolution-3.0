@@ -5,7 +5,7 @@ import AuthForm from '@/components/auth/AuthForm'
 
 export default function AuthPage() {
   return (
-    <div className="flex min-h-screen w-full bg-black text-white">
+    <div className="flex min-h-screen w-full bg-neutral-900 text-white">
       <div className="relative hidden h-screen overflow-hidden lg:block lg:w-1/2">
         <video
           autoPlay

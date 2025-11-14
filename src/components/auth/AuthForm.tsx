@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import Image from 'next/image'
 export default function AuthForm() {
   console.log('AuthForm component rendering')
   const supabase = createClientComponentClient()
@@ -80,11 +81,10 @@ export default function AuthForm() {
   }
 
   return (
-    <div className="w-full max-w-md space-y-12 text-white lg:max-w-[17rem] xl:max-w-[18.5rem] 2xl:max-w-[20rem]">
-      <div className="space-y-2 text-center lg:text-left">
-        <p className="text-xs uppercase tracking-[0.4em] text-white/50">Evolution Stables</p>
-        <h1 className="text-3xl font-semibold tracking-[0.12em]">{isSignUp ? 'Welcome' : 'Welcome Back'}</h1>
-        <p className="text-sm text-white/60">Sign in to manage your stable, positions, and updates.</p>
+    <div className="w-full max-w-md space-y-8 text-white lg:max-w-[17rem] xl:max-w-[18.5rem] 2xl:max-w-[20rem]">
+      <div className="space-y-1.5 text-center lg:text-left">
+        <h1 className="text-3xl font-semibold tracking-[0.12em] text-white">{isSignUp ? 'Welcome' : 'Welcome Back'}</h1>
+        <p className="text-sm text-neutral-400">Sign in to manage your stable, positions, and updates.</p>
       </div>
 
       <Auth
@@ -96,17 +96,17 @@ export default function AuthForm() {
           variables: {
             default: {
               colors: {
-                brand: '#525252',
-                brandAccent: '#737373',
-                brandButtonText: '#ffffff',
-                defaultButtonBackground: '#525252',
-                defaultButtonBackgroundHover: '#737373',
-                defaultButtonText: '#ffffff',
-                inputBackground: '#262626',
-                inputBorder: '#404040',
+                brand: 'rgba(255,255,255,0.03)',
+                brandAccent: 'rgba(255,255,255,0.06)',
+                brandButtonText: 'rgba(255,255,255,0.7)',
+                defaultButtonBackground: 'rgba(255,255,255,0.03)',
+                defaultButtonBackgroundHover: 'rgba(255,255,255,0.06)',
+                defaultButtonText: 'rgba(255,255,255,0.7)',
+                inputBackground: '#0a0a0a',
+                inputBorder: 'rgba(255,255,255,0.06)',
                 inputText: '#ffffff',
-                inputLabelText: '#a3a3a3',
-                inputPlaceholder: '#737373',
+                inputLabelText: 'rgba(255,255,255,0.5)',
+                inputPlaceholder: 'rgba(255,255,255,0.35)',
                 messageText: '#ffffff',
               },
               radii: {
@@ -119,16 +119,16 @@ export default function AuthForm() {
             },
           },
           className: {
-            container: 'space-y-6 text-white',
-            anchor: 'text-white/70 hover:text-white underline underline-offset-4',
+            container: 'space-y-4 text-white',
+            anchor: '!text-white/50 hover:!text-[#d4a964] underline underline-offset-4 transition-colors duration-300',
             button:
-              'h-12 rounded-full text-sm font-semibold tracking-[0.18em] uppercase transition-shadow hover:shadow-[0_10px_35px_rgba(0,0,0,0.35)] !bg-neutral-700 !text-white hover:!bg-neutral-600',
+              'h-12 rounded-full text-[11px] font-light tracking-wider uppercase transition-all duration-500 hover:scale-105 !bg-white/[0.03] hover:!bg-white/[0.06] !text-white/70 hover:!text-white !border !border-white/[0.06] hover:!border-white/[0.12]',
             input:
-              'h-12 rounded-2xl border border-neutral-700 bg-neutral-800 text-sm text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:ring-2 focus:ring-neutral-600',
-            label: 'text-xs uppercase tracking-[0.3em] text-neutral-400',
-            divider: 'border-neutral-700 my-10',
-            loader: 'text-white/60',
-            message: '!bg-neutral-700 !text-white !border-neutral-600',
+              'h-12 rounded-2xl border border-white/[0.06] bg-[#0a0a0a] text-sm text-white placeholder:text-white/35 focus:border-white/[0.12] focus:ring-2 focus:ring-white/[0.06] transition-all',
+            label: 'text-xs uppercase tracking-[0.3em] text-white/50',
+            divider: 'border-white/[0.2] my-8',
+            loader: 'text-white/50',
+            message: '!bg-white/[0.03] !text-white !border-white/[0.06]',
           },
         }}
       />

@@ -102,7 +102,9 @@ export function HeroSection({
           transition={{ duration: 0.8, ease: 'easeOut', delay: 1.05 }}
           className="eyebrow mt-8 max-w-[720px] font-medium leading-relaxed"
         >
-          Grounded in tradition. Evolved through innovation. <br />
+          <span className="whitespace-nowrap">Grounded in tradition.</span>{' '}
+          <span className="whitespace-nowrap">Evolved through innovation.</span>
+          <br />
           Ownership transformed.
         </motion.p>
       </div>

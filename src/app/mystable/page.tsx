@@ -154,13 +154,21 @@ export default function MyStablePage() {
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 lg:px-12">
         
         {/* Header */}
-        <header className="mb-12">
-          <p className="text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
-          <h1 className="mt-2 text-4xl font-medium tracking-tight md:text-5xl">MyStable</h1>
-          <p className="mt-4 text-base text-white/60 max-w-2xl">
-            Welcome, <span className="text-white/90">{firstName}</span>. This is your personal command center 
-            for managing ownership positions, tracking performance, and staying connected to your stable.
-          </p>
+        <header className="mb-12 flex items-start justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
+            <h1 className="mt-2 text-4xl font-medium tracking-tight md:text-5xl">MyStable</h1>
+            <p className="mt-4 text-base text-white/60 max-w-2xl">
+              Welcome, <span className="text-white/90">{firstName}</span>. This is your personal command center 
+              for managing ownership positions, tracking performance, and staying connected to your stable.
+            </p>
+          </div>
+          <button
+            onClick={() => router.push('/valuation')}
+            className="rounded-lg bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10 border border-white/10 hover:border-white/20"
+          >
+            Valuation
+          </button>
         </header>
 
         

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Session } from '@supabase/supabase-js';
 import { useSupabase } from '@/providers/supabase-provider';
 import Modal from '@/components/ui/Modal';
@@ -154,7 +155,7 @@ export default function MyStablePage() {
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 lg:px-12">
         
         {/* Header */}
-        <header className="mb-12 flex items-start justify-between">
+        <header className="mb-12">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-white/40">Evolution Stables</p>
             <h1 className="mt-2 text-4xl font-medium tracking-tight md:text-5xl">MyStable</h1>
@@ -163,12 +164,6 @@ export default function MyStablePage() {
               for managing ownership positions, tracking performance, and staying connected to your stable.
             </p>
           </div>
-          <button
-            onClick={() => router.push('/valuation')}
-            className="rounded-lg bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10 border border-white/10 hover:border-white/20"
-          >
-            Valuation
-          </button>
         </header>
 
         
@@ -343,6 +338,25 @@ export default function MyStablePage() {
             </div>
           </div>
         </section>
+
+        {/* Evolution Stables Engine Section */}
+        <div className="border-t border-neutral-800 pt-12 mt-24">
+          <div className="flex flex-col items-center text-center gap-4">
+            <h3 className="text-xl font-medium">Evolution Stables Engine</h3>
+            <p className="text-sm text-neutral-400 max-w-md">
+              Studio • Valuation • Registration
+              <br/>
+              Powerful tools for owners, trainers, and partners.
+            </p>
+
+            <Link
+              href="/engine"
+              className="px-5 py-2.5 rounded-md bg-white text-black hover:bg-neutral-200 transition"
+            >
+              Open Evolution Stables Engine
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   );

@@ -38,12 +38,24 @@ export default function AuthForm() {
   }, [redirectTarget, router, supabase])
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const origin = window.location.origin
-      const callbackUrl = new URL('/auth/callback', origin)
-      callbackUrl.searchParams.set('redirectedFrom', redirectTarget)
-      setRedirectTo(callbackUrl.toString())
+    if (typeof document !== 'undefined') {
+      document.cookie = `auth_redirect_path=${encodeURIComponent(redirectTarget)}; path=/; max-age=300; SameSite=Lax`
     }
+  }, [redirectTarget])
+
+  useEffect(() => {
+    const resolveOrigin = () => {
+      if (typeof window !== 'undefined') {
+        return window.location.origin
+      }
+      return process.env.NEXT_PUBLIC_SITE_URL
+    }
+
+    const origin = resolveOrigin()
+    if (!origin) return
+
+    const callbackUrl = new URL('/auth/callback', origin)
+    setRedirectTo(callbackUrl.toString())
   }, [redirectTarget])
 
   useEffect(() => {

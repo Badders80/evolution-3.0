@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
 
 const NotFoundPage = () => {
@@ -26,10 +23,11 @@ const NotFoundPage = () => {
           </div>
         </div>
 
-        <Link href="/">
-          <Button size="lg" className="rounded-full bg-white/[0.08] px-8 text-sm font-medium tracking-[0.25em] uppercase text-white/80 transition-all duration-500 hover:bg-white/[0.12] hover:text-white">
-            Return Home
-          </Button>
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center rounded-full bg-white/[0.08] px-8 py-3 text-sm font-medium uppercase tracking-[0.25em] text-white/80 transition-all duration-500 hover:bg-white/[0.12] hover:text-white focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/60"
+        >
+          Return Home
         </Link>
       </div>
 

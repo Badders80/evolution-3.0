@@ -4,9 +4,11 @@ import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
+  const cookieStore = cookies();
   const code = requestUrl.searchParams.get('code');
   const error = requestUrl.searchParams.get('error');
-  const redirectedFrom = requestUrl.searchParams.get('redirectedFrom');
+  const redirectCookie = cookieStore.get('auth_redirect_path')?.value;
+  const redirectedFrom = requestUrl.searchParams.get('redirectedFrom') ?? redirectCookie;
   const safeRedirectPath =
     redirectedFrom && redirectedFrom.startsWith('/') ? redirectedFrom : '/mystable';
 
@@ -21,7 +23,6 @@ export async function GET(request: Request) {
   // If there's a code, exchange it for a session
   if (code) {
     try {
-      const cookieStore = cookies();
       const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
       
       console.log('Exchanging code for session...');
@@ -42,5 +43,7 @@ export async function GET(request: Request) {
   }
 
   // Redirect to home page after successful sign-in
-  return NextResponse.redirect(new URL(safeRedirectPath, requestUrl.origin));
+  const response = NextResponse.redirect(new URL(safeRedirectPath, requestUrl.origin));
+  response.cookies.delete('auth_redirect_path');
+  return response;
 }

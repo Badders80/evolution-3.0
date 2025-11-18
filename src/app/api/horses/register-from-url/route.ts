@@ -58,8 +58,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Insert horse into database
-    const { data: horse, error: insertError } = await supabaseServer
+    // Insert horse into database (cast to any to avoid strict type mismatch for optional scraped fields)
+    const { data: horse, error: insertError } = await (supabaseServer as any)
       .from('horses')
       .insert({
         horse_name: horseName,

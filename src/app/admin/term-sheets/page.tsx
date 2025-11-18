@@ -13,7 +13,11 @@ export default async function AdminTermSheetsPage() {
   const enriched = await Promise.all(
     (termSheets || []).map(async (ts) => {
       const [syndicatorResult, horseResult] = await Promise.all([
-        supabaseServer.from('syndicators').select('name').eq('id', ts.owner_id).single(),
+        supabaseServer
+          .from('syndicators')
+          .select('name')
+          .eq('id', ts.syndicator_id)
+          .single(),
         supabaseServer.from('horses').select('horse_name').eq('id', ts.horse_id).single(),
       ]);
 

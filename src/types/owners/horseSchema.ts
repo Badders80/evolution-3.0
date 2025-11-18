@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { termSheetSchema } from "./termSheetSchema";
 
 /**
  * Derived Horse Schema
@@ -8,16 +7,16 @@ import { termSheetSchema } from "./termSheetSchema";
  * and Tokinvest metadata.
  */
 
-export const horseSchema = termSheetSchema.pick({
-  horseName: true,
-  microchipNumber: true,
-  lifeNumber: true,
-  sex: true,
-  heightHands: true,
-  trainerName: true,
-  trainingLocation: true,
-  horseOwnerName: true,
-  propertyName: true,
+export const horseSchema = z.object({
+  horseName: z.string().nullable().optional(),
+  microchipNumber: z.string().nullable().optional(),
+  lifeNumber: z.string().nullable().optional(),
+  sex: z.string().nullable().optional(),
+  heightHands: z.string().nullable().optional(),
+  trainerName: z.string().nullable().optional(),
+  trainingLocation: z.string().nullable().optional(),
+  horseOwnerName: z.string().nullable().optional(),
+  propertyName: z.string().nullable().optional(),
 });
 
 export type HorseDetails = z.infer<typeof horseSchema>;

@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { createHorse } from '@/services/horses';
 
-export default function CreateHorseProfilePage() {
+function CreateHorseProfilePageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const syndicatorId = searchParams?.get('syndicatorId');
@@ -218,5 +218,21 @@ export default function CreateHorseProfilePage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+export default function CreateHorseProfilePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen w-full bg-black text-white pt-32 md:pt-36">
+          <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20 py-12 md:py-16">
+            <p className="text-white/60 text-sm">Loading horse profile form...</p>
+          </div>
+        </div>
+      }
+    >
+      <CreateHorseProfilePageInner />
+    </Suspense>
   );
 }

@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { termSheetSchema } from "./termSheetSchema";
 
 /**
  * Derived Owner Schema
@@ -9,12 +8,12 @@ import { termSheetSchema } from "./termSheetSchema";
  * - Owner onboarding
  */
 
-export const ownerSchema = termSheetSchema.pick({
-  ownerName: true,
-  ownerEmail: true,
-  ownerPhone: true,
-  ownerConfirmsRightToLease: true,
-  ownerApprovesDigitalSyndication: true,
+export const ownerSchema = z.object({
+  ownerName: z.string().nullable().optional(),
+  ownerEmail: z.string().nullable().optional(),
+  ownerPhone: z.string().nullable().optional(),
+  ownerConfirmsRightToLease: z.boolean().nullable().optional(),
+  ownerApprovesDigitalSyndication: z.boolean().nullable().optional(),
 });
 
 export type OwnerDetails = z.infer<typeof ownerSchema>;

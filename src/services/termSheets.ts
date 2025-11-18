@@ -7,7 +7,7 @@ export type TermSheetInsert = Database["public"]["Tables"]["term_sheets"]["Inser
 export type TermSheetUpdate = Database["public"]["Tables"]["term_sheets"]["Update"];
 
 export async function createTermSheet(input: {
-  ownerId: string;
+  syndicatorId: string;
   horseId: string;
 
   syndicateName: string;
@@ -33,7 +33,7 @@ export async function createTermSheet(input: {
   trainerConfirmsHorseDetails: boolean;
 }): Promise<TermSheetRow> {
   const insertData: TermSheetInsert = {
-    owner_id: input.ownerId,
+    syndicator_id: input.syndicatorId,
     horse_id: input.horseId,
     syndicate_name: input.syndicateName,
     lease_type: input.leaseType,

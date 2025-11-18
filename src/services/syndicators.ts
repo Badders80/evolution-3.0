@@ -1,7 +1,6 @@
 import { supabase } from "@/lib/supabaseClient";
 import type { Database } from "@/lib/supabase.types";
 
-// Use generated types - will update to syndicators once migration is run
 export type SyndicatorRow = Database["public"]["Tables"]["syndicators"]["Row"];
 export type SyndicatorInsert = Database["public"]["Tables"]["syndicators"]["Insert"];
 export type SyndicatorUpdate = Database["public"]["Tables"]["syndicators"]["Update"];

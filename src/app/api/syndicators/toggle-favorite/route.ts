@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data, error } = await supabaseServer
-      .from('owners')
+      .from('syndicators')
       .update({ is_favorite: isFavorite })
       .eq('id', syndicatorId)
       .select()

@@ -4,10 +4,10 @@ import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
-  const cookieStore = cookies();
+  const cookieStorePromise = cookies();
   const code = requestUrl.searchParams.get('code');
   const error = requestUrl.searchParams.get('error');
-  const redirectCookie = cookieStore.get('auth_redirect_path')?.value;
+  const redirectCookie = (await cookieStorePromise).get('auth_redirect_path')?.value;
   const redirectedFrom = requestUrl.searchParams.get('redirectedFrom') ?? redirectCookie;
   const safeRedirectPath =
     redirectedFrom && redirectedFrom.startsWith('/') ? redirectedFrom : '/mystable';
@@ -23,7 +23,7 @@ export async function GET(request: Request) {
   // If there's a code, exchange it for a session
   if (code) {
     try {
-      const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
+      const supabase = createRouteHandlerClient({ cookies: () => cookieStorePromise });
       
       console.log('Exchanging code for session...');
       const { data, error: authError } = await supabase.auth.exchangeCodeForSession(code);

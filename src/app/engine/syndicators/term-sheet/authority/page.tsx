@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 
-export default function AuthorityChecksPage() {
+function AuthorityChecksPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -85,5 +85,21 @@ export default function AuthorityChecksPage() {
         </button>
       </form>
     </div>
+  );
+}
+
+export default function AuthorityChecksPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="max-w-xl mx-auto py-8 pt-24">
+          <div className="rounded-lg border border-gray-200 bg-white/5 p-6 text-sm text-gray-200">
+            Loading authority checks...
+          </div>
+        </div>
+      }
+    >
+      <AuthorityChecksPageInner />
+    </Suspense>
   );
 }

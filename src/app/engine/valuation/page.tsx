@@ -32,8 +32,10 @@ interface ValuationResults {
   upfrontIncome: number;
   ownerReturnLease: number;
   ownerReturnNoLease: number;
-  breakevenTTT: number;
-  breakevenWWW: number;
+  syndicatorBreakevenTTT: number;
+  syndicatorBreakevenWWW: number;
+  investorBreakevenTTT: number;
+  investorBreakevenWWW: number;
   xAxisMax: number;
   chartData: Array<{
     ttt: number;
@@ -502,15 +504,6 @@ export default function ValuationPage() {
       const validated = valuationInputSchema.parse(inputs);
       return calculateValuation(validated);
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors: Partial<Record<keyof ValuationInputs, string>> = {};
-        error.errors.forEach((err) => {
-          if (err.path[0]) {
-            fieldErrors[err.path[0] as keyof ValuationInputs] = err.message;
-          }
-        });
-        setErrors(fieldErrors);
-      }
       return null;
     }
   }, [inputs]);
@@ -569,15 +562,7 @@ export default function ValuationPage() {
       valuationInputSchema.parse(inputs);
       setErrors({});
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors: Partial<Record<keyof ValuationInputs, string>> = {};
-        error.errors.forEach((err) => {
-          if (err.path[0]) {
-            fieldErrors[err.path[0] as keyof ValuationInputs] = err.message;
-          }
-        });
-        setErrors(fieldErrors);
-      }
+      // Ignore detailed field errors for now; just keep existing state.
     }
   };
   
@@ -591,7 +576,13 @@ export default function ValuationPage() {
   };
   
   return (
-    <Column fillWidth horizontal="center" paddingTop="l" paddingBottom="xl" minHeight="100vh">
+    <Column
+      fillWidth
+      horizontal="center"
+      paddingTop="l"
+      paddingBottom="xl"
+      style={{ minHeight: '100vh' }}
+    >
       <Column maxWidth="l" paddingX="l" paddingY="l" gap="l">
         {/* Header Section */}
         <Column gap="m" marginBottom="m">
@@ -620,9 +611,10 @@ export default function ValuationPage() {
             fillWidth
             padding="l"
             border="neutral-alpha-weak"
-            radius="xl"
+            radius="l"
             background="surface"
             gap="l"
+            style={{ minWidth: '400px' }}
           >
             <Column gap="s" horizontal="center">
               <Heading as="h2" variant="heading-strong-xl">
@@ -854,7 +846,7 @@ export default function ValuationPage() {
                 upfrontIncome={results.upfrontIncome}
               />
             ) : (
-              <Column fillWidth minHeight="400" vertical="center" horizontal="center">
+              <Column fillWidth minHeight={400} vertical="center" horizontal="center">
                 <Text variant="body-default-m" onBackground="neutral-weak">
                   Enter parameters and click Calculate to see the breakeven analysis
                 </Text>

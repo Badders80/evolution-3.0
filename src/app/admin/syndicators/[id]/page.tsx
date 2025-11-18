@@ -11,9 +11,7 @@ type Props = {
 export default async function AdminSyndicatorDetailPage({ params }: Props) {
   const { id } = await params;
 
-  // Cast to any here because the generated Supabase types do not currently
-  // include the 'syndicators' table shape used by this admin view.
-  const { data: syndicator } = await (supabaseServer as any)
+  const { data: syndicator } = await supabaseServer
     .from('syndicators')
     .select('*')
     .eq('id', id)
@@ -31,7 +29,7 @@ export default async function AdminSyndicatorDetailPage({ params }: Props) {
   const { data: syndicatorTermSheetsRaw } = await supabaseServer
     .from('term_sheets')
     .select('*')
-    .eq('owner_id', id)
+    .eq('syndicator_id', id)
     .order('created_at', { ascending: false });
 
   const syndicatorTermSheets = syndicatorTermSheetsRaw ?? [];

@@ -6,7 +6,7 @@ import FavoriteStar from "@/components/FavoriteStar";
 export const dynamic = 'force-dynamic';
 
 export default async function AdminSyndicatorsPage() {
-  const { data: syndicators } = await (supabaseServer as any)
+  const { data: syndicators } = await supabaseServer
     .from('syndicators')
     .select('*')
     .order('name', { ascending: true });

@@ -19,7 +19,7 @@ export default async function AdminTermSheetDetailPage({ params }: Props) {
     );
   }
 
-  const syndicator = await getSyndicatorById(termSheet.owner_id);
+  const syndicator = await getSyndicatorById(termSheet.syndicator_id);
   const horse = await getHorseById(termSheet.horse_id);
 
   return (

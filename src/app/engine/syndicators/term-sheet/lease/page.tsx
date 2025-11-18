@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 
-export default function LeaseDetailsPage() {
+function LeaseDetailsPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -143,5 +143,21 @@ export default function LeaseDetailsPage() {
         </button>
       </form>
     </div>
+  );
+}
+
+export default function LeaseDetailsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="max-w-xl mx-auto py-8 pt-24">
+          <div className="rounded-lg border border-gray-200 bg-white/5 p-6 text-sm text-gray-200">
+            Loading lease details...
+          </div>
+        </div>
+      }
+    >
+      <LeaseDetailsPageInner />
+    </Suspense>
   );
 }

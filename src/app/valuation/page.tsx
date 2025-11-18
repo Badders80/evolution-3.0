@@ -343,15 +343,6 @@ export default function ValuationPage() {
       const validated = valuationInputSchema.parse(inputs);
       return calculateValuation(validated);
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors: Partial<Record<keyof ValuationInputs, string>> = {};
-        error.errors.forEach((err) => {
-          if (err.path[0]) {
-            fieldErrors[err.path[0] as keyof ValuationInputs] = err.message;
-          }
-        });
-        setErrors(fieldErrors);
-      }
       return null;
     }
   }, [inputs]);
@@ -367,15 +358,7 @@ export default function ValuationPage() {
       valuationInputSchema.parse(inputs);
       setErrors({});
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors: Partial<Record<keyof ValuationInputs, string>> = {};
-        error.errors.forEach((err) => {
-          if (err.path[0]) {
-            fieldErrors[err.path[0] as keyof ValuationInputs] = err.message;
-          }
-        });
-        setErrors(fieldErrors);
-      }
+      // Ignore detailed field errors for now; just keep existing state.
     }
   };
   

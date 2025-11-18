@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import '@once-ui-system/core/css/tokens.css';
 import '@once-ui-system/core/css/styles.css';
 import "../styles/globals.css";
@@ -10,9 +9,8 @@ import { OnceUIProvider } from "@/providers/once-ui-provider";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { getPressArticlesForStructuredData } from "@/lib/press-articles";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
+  metadataBase: new URL("https://evolutionstables.nz"),
   title: "Evolution Stables - Digital Racehorse Ownership | Tokenized RWA Platform",
   description: "Own racehorses through digital-syndication. Evolution Stables makes racehorse ownership accessible, transparent, and liquid. Regulated real-world asset (RWA) investing powered by Tokinvest and blockchain technology.",
   keywords: [
@@ -98,11 +96,13 @@ export default function RootLayout({
         />
         <StructuredData pressArticles={getPressArticlesForStructuredData()} />
       </head>
-      <body className={`${inter.className} min-h-screen bg-black antialiased`} suppressHydrationWarning>
+      <body className="min-h-screen bg-black antialiased" suppressHydrationWarning>
         <OnceUIProvider>
           <SupabaseProvider>
             <NavBar />
-            <main className="flex-1">{children}</main>
+            <div className="min-h-screen flex flex-col">
+              <main className="flex-1">{children}</main>
+            </div>
           </SupabaseProvider>
         </OnceUIProvider>
       </body>

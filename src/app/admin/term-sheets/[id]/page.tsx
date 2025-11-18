@@ -3,11 +3,13 @@ import { getSyndicatorById } from "@/services/syndicators";
 import { getHorseById } from "@/services/horses";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function AdminTermSheetDetailPage({ params }: Props) {
-  const termSheet = await getTermSheetById(params.id);
+  const { id } = await params;
+
+  const termSheet = await getTermSheetById(id);
 
   if (!termSheet) {
     return (

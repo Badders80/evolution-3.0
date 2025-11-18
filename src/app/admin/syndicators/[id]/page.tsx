@@ -5,14 +5,18 @@ import Link from "next/link";
 export const dynamic = 'force-dynamic';
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function AdminSyndicatorDetailPage({ params }: Props) {
-  const { data: syndicator } = await supabaseServer
+  const { id } = await params;
+
+  // Cast to any here because the generated Supabase types do not currently
+  // include the 'syndicators' table shape used by this admin view.
+  const { data: syndicator } = await (supabaseServer as any)
     .from('syndicators')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (!syndicator) {
@@ -24,11 +28,13 @@ export default async function AdminSyndicatorDetailPage({ params }: Props) {
   }
 
   // Get all term sheets for this syndicator
-  const { data: syndicatorTermSheets } = await supabaseServer
+  const { data: syndicatorTermSheetsRaw } = await supabaseServer
     .from('term_sheets')
     .select('*')
-    .eq('owner_id', params.id)
+    .eq('owner_id', id)
     .order('created_at', { ascending: false });
+
+  const syndicatorTermSheets = syndicatorTermSheetsRaw ?? [];
 
   return (
     <div className="max-w-3xl mx-auto py-8 pt-24 space-y-6">

@@ -5,14 +5,16 @@ import Link from "next/link";
 export const dynamic = 'force-dynamic';
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function AdminHorseDetailPage({ params }: Props) {
+  const { id } = await params;
+
   const { data: horse } = await supabaseServer
     .from('horses')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (!horse) {
@@ -24,11 +26,13 @@ export default async function AdminHorseDetailPage({ params }: Props) {
   }
 
   // Get all term sheets for this horse
-  const { data: horseTermSheets } = await supabaseServer
+  const { data: horseTermSheetsRaw } = await supabaseServer
     .from('term_sheets')
     .select('*')
-    .eq('horse_id', params.id)
+    .eq('horse_id', id)
     .order('created_at', { ascending: false });
+
+  const horseTermSheets = horseTermSheetsRaw ?? [];
 
   return (
     <div className="max-w-3xl mx-auto py-8 pt-24 space-y-6">

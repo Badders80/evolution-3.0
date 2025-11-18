@@ -11,7 +11,9 @@ export const revalidate = 0;
 export default async function AdminDashboard() {
   // Fetch overview data directly with server client (bypasses RLS)
   const [syndicatorsResult, horsesResult, termSheetsResult] = await Promise.all([
-    supabaseServer.from('syndicators').select('*'),
+    // Cast to any here because the generated Supabase types currently
+    // do not include the 'syndicators' table used for admin overviews.
+    (supabaseServer as any).from('syndicators').select('*'),
     supabaseServer.from('horses').select('*'),
     supabaseServer.from('term_sheets').select('*'),
   ]);

@@ -53,7 +53,9 @@ export async function middleware(req: NextRequest) {
 
     // Additional check for admin routes
     if (isAdminPath(pathname)) {
-      const { data: profile } = await supabase
+      // Cast to any here to avoid issues if the generated Database types
+      // do not include the profiles table/role field used for admin checks.
+      const { data: profile } = await (supabase as any)
         .from('profiles')
         .select('role')
         .eq('id', session.user.id)

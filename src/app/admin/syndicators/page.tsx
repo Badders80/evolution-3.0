@@ -6,13 +6,13 @@ import FavoriteStar from "@/components/FavoriteStar";
 export const dynamic = 'force-dynamic';
 
 export default async function AdminSyndicatorsPage() {
-  const { data: syndicators } = await supabaseServer
+  const { data: syndicators } = await (supabaseServer as any)
     .from('syndicators')
     .select('*')
     .order('name', { ascending: true });
 
   // Sort favorites to top in-memory since column may not exist yet
-  const sortedSyndicators = syndicators?.sort((a, b) => {
+  const sortedSyndicators = syndicators?.sort((a: any, b: any) => {
     const aFav = a.is_favorite ?? false;
     const bFav = b.is_favorite ?? false;
     if (aFav === bFav) return 0;
@@ -36,7 +36,7 @@ export default async function AdminSyndicatorsPage() {
       )}
 
       <div className="grid gap-4">
-        {sortedSyndicators?.map((syndicator) => (
+        {sortedSyndicators?.map((syndicator: any) => (
           <Link
             key={syndicator.id}
             href={`/admin/syndicators/${syndicator.id}`}

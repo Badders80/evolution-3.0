@@ -6,10 +6,10 @@ const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { jobId: string } }
+  context: any
 ) {
   try {
-    const { jobId } = params;
+    const { jobId } = context?.params ?? {};
 
     if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
       return NextResponse.json(

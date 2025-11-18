@@ -811,7 +811,7 @@ export default function ValuationPage() {
                     step="1"
                   />
                   <p className="mt-2 text-xs text-white/40">
-                    Syndicator's % of stakes earnings (before NZTR)
+                    Syndicator&apos;s % of stakes earnings (before NZTR)
                   </p>
                   {errors.rrr && (
                     <p className="mt-1 text-xs text-red-400">{errors.rrr}</p>
@@ -834,7 +834,7 @@ export default function ValuationPage() {
                     step="1"
                   />
                   <p className="mt-2 text-xs text-white/40">
-                    NZTR takes this % from owner's winnings share
+                    NZTR takes this % from owner&apos;s winnings share
                   </p>
                   {errors.nztrDeduction && (
                     <p className="mt-1 text-xs text-red-400">{errors.nztrDeduction}</p>

@@ -24,12 +24,6 @@ export default function LeaseDetailsPage() {
     evolutionFeePercent: 5,
   });
 
-  useEffect(() => {
-    if (!syndicatorId || !horseId) {
-      console.error("Missing syndicatorId or horseId");
-    }
-  }, [syndicatorId, horseId]);
-
   // Show error if accessed directly without proper flow
   if (!syndicatorId || !horseId) {
     return (

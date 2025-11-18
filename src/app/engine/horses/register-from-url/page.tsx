@@ -96,9 +96,9 @@ export default function RegisterHorseFromURLPage() {
           <ol className="space-y-2 text-sm text-white/60">
             <li>1. Find a horse on LoveRacing.nz</li>
             <li>2. Copy the URL from your browser</li>
-            <li>3. Paste it above and click "Register Horse"</li>
+            <li>3. Paste it above and click &quot;Register Horse&quot;</li>
             <li>4. The system will automatically fetch all horse details</li>
-            <li>5. You'll be redirected to the horse profile page</li>
+            <li>5. You&apos;ll be redirected to the horse profile page</li>
           </ol>
         </div>
       </div>

@@ -24,6 +24,18 @@ export default function LeaseDetailsPage() {
     evolutionFeePercent: 5,
   });
 
+  // Auto calculate months between start / end
+  useEffect(() => {
+    if (form.leaseStart && form.leaseEnd) {
+      const start = new Date(form.leaseStart);
+      const end = new Date(form.leaseEnd);
+      const months =
+        (end.getFullYear() - start.getFullYear()) * 12 +
+        (end.getMonth() - start.getMonth());
+      setForm(f => ({ ...f, leaseDurationMonths: months }));
+    }
+  }, [form.leaseStart, form.leaseEnd]);
+
   // Show error if accessed directly without proper flow
   if (!syndicatorId || !horseId) {
     return (
@@ -43,18 +55,6 @@ export default function LeaseDetailsPage() {
       </div>
     );
   }
-
-  // Auto calculate months between start / end
-  useEffect(() => {
-    if (form.leaseStart && form.leaseEnd) {
-      const start = new Date(form.leaseStart);
-      const end = new Date(form.leaseEnd);
-      const months =
-        (end.getFullYear() - start.getFullYear()) * 12 +
-        (end.getMonth() - start.getMonth());
-      setForm(f => ({ ...f, leaseDurationMonths: months }));
-    }
-  }, [form.leaseStart, form.leaseEnd]);
 
   function handleNext(e: React.FormEvent) {
     e.preventDefault();

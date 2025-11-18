@@ -14,7 +14,7 @@ export async function createHorse(input: {
   heightHands?: string;
   trainingLocation?: string;
   propertyName?: string;
-  horseOwnerName?: string;
+  horseSyndicatorName?: string;
   trainerId?: string;
 }): Promise<HorseRow> {
   const insertData: HorseInsert = {
@@ -25,7 +25,7 @@ export async function createHorse(input: {
     height_hands: input.heightHands ?? null,
     training_location: input.trainingLocation ?? null,
     property_name: input.propertyName ?? null,
-    horse_owner_name: input.horseOwnerName ?? null,
+    horse_owner_name: input.horseSyndicatorName ?? null,
     trainer_id: input.trainerId ?? null,
   };
 

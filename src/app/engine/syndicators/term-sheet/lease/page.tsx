@@ -7,7 +7,7 @@ export default function LeaseDetailsPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const ownerId = searchParams.get("ownerId");
+  const syndicatorId = searchParams.get("syndicatorId");
   const horseId = searchParams.get("horseId");
 
   const [form, setForm] = useState({
@@ -25,22 +25,22 @@ export default function LeaseDetailsPage() {
   });
 
   useEffect(() => {
-    if (!ownerId || !horseId) {
-      console.error("Missing ownerId or horseId");
+    if (!syndicatorId || !horseId) {
+      console.error("Missing syndicatorId or horseId");
     }
-  }, [ownerId, horseId]);
+  }, [syndicatorId, horseId]);
 
   // Show error if accessed directly without proper flow
-  if (!ownerId || !horseId) {
+  if (!syndicatorId || !horseId) {
     return (
       <div className="max-w-xl mx-auto py-8 pt-24">
         <div className="bg-red-50 border border-red-200 rounded-lg p-6">
           <h2 className="text-lg font-semibold text-red-800 mb-2">Missing Required Information</h2>
           <p className="text-red-600 mb-4">
-            This page requires an owner and horse to be created first.
+            This page requires a syndicator and horse to be created first.
           </p>
           <button
-            onClick={() => router.push('/engine/owners/profile/create')}
+            onClick={() => router.push('/engine/syndicators/profile/create')}
             className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
           >
             Start from Syndicator Profile
@@ -70,7 +70,7 @@ export default function LeaseDetailsPage() {
 
     // Redirect to authority page
     router.push(
-      `/engine/owners/term-sheet/authority?ownerId=${ownerId}&horseId=${horseId}`
+      `/engine/syndicators/term-sheet/authority?syndicatorId=${syndicatorId}&horseId=${horseId}`
     );
   }
 

@@ -9,7 +9,7 @@ import { createHorse } from '@/services/horses';
 export default function CreateHorseProfilePage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const ownerId = searchParams?.get('ownerId');
+  const syndicatorId = searchParams?.get('syndicatorId');
 
   const [formData, setFormData] = useState({
     horseName: '',
@@ -19,17 +19,17 @@ export default function CreateHorseProfilePage() {
     heightHands: '',
     trainerName: '',
     trainingLocation: '',
-    horseOwnerName: '',
+    horseSyndicatorName: '',
     propertyName: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  if (!ownerId) {
+  if (!syndicatorId) {
     return (
       <div className="min-h-screen w-full bg-black text-white pt-32 md:pt-36">
         <div className="max-w-6xl mx-auto px-12 md:px-16 lg:px-20 py-12 md:py-16">
-          <p className="text-red-400">Missing ownerId in query string.</p>
+          <p className="text-red-400">Missing syndicatorId in query string.</p>
         </div>
       </div>
     );
@@ -42,7 +42,7 @@ export default function CreateHorseProfilePage() {
     
     try {
       const horse = await createHorse(formData);
-      router.push(`/engine/owners/term-sheet/lease?ownerId=${ownerId}&horseId=${horse.id}`);
+      router.push(`/engine/syndicators/term-sheet/lease?syndicatorId=${syndicatorId}&horseId=${horse.id}`);
     } catch (err: any) {
       setError(err.message ?? 'Failed to create horse profile');
     } finally {
@@ -176,15 +176,15 @@ export default function CreateHorseProfilePage() {
               />
             </div>
 
-            {/* Horse Owner Name */}
+            {/* Horse Syndicator Name */}
             <div>
               <label className="block text-sm font-light mb-2 text-white/70">
-                Registered Owner Name
+                Registered Syndicator Name
               </label>
               <input
                 type="text"
-                value={formData.horseOwnerName}
-                onChange={(e) => setFormData({ ...formData, horseOwnerName: e.target.value })}
+                value={formData.horseSyndicatorName}
+                onChange={(e) => setFormData({ ...formData, horseSyndicatorName: e.target.value })}
                 className="w-full px-4 py-2.5 bg-black/50 border border-white/[0.06] rounded-lg text-white placeholder:text-white/30 focus:outline-none focus:border-white/[0.12] transition-colors"
                 placeholder="As registered with NZTR"
                 required

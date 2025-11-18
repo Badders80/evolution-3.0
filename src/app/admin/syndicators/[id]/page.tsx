@@ -1,13 +1,19 @@
-import { getOwnerById } from "@/services/owners";
-import { listTermSheets } from "@/services/termSheets";
+import { supabaseServer } from "@/lib/supabaseServer";
 import Link from "next/link";
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: { id: string };
 };
 
 export default async function AdminSyndicatorDetailPage({ params }: Props) {
-  const syndicator = await getOwnerById(params.id);
+  const { data: syndicator } = await supabaseServer
+    .from('syndicators')
+    .select('*')
+    .eq('id', params.id)
+    .single();
 
   if (!syndicator) {
     return (
@@ -18,10 +24,11 @@ export default async function AdminSyndicatorDetailPage({ params }: Props) {
   }
 
   // Get all term sheets for this syndicator
-  const allTermSheets = await listTermSheets();
-  const syndicatorTermSheets = allTermSheets.filter(
-    (ts) => ts.owner_id === params.id
-  );
+  const { data: syndicatorTermSheets } = await supabaseServer
+    .from('term_sheets')
+    .select('*')
+    .eq('owner_id', params.id)
+    .order('created_at', { ascending: false });
 
   return (
     <div className="max-w-3xl mx-auto py-8 pt-24 space-y-6">
@@ -53,11 +60,11 @@ export default async function AdminSyndicatorDetailPage({ params }: Props) {
           </p>
           <p>
             <strong>Right to Lease Confirmed:</strong>{" "}
-            {syndicator.owner_confirms_right_to_lease ? "Yes" : "No"}
+            {syndicator.syndicator_confirms_right_to_lease ? "Yes" : "No"}
           </p>
           <p>
             <strong>Digital Syndication Approved:</strong>{" "}
-            {syndicator.owner_approves_digital_syndication ? "Yes" : "No"}
+            {syndicator.syndicator_approves_digital_syndication ? "Yes" : "No"}
           </p>
           <p className="text-sm text-gray-500 pt-2">
             Created: {new Date(syndicator.created_at || "").toLocaleString()}

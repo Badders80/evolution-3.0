@@ -4,17 +4,17 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { createOwner } from '@/services/owners';
+import { createSyndicator } from '@/services/syndicators';
 
-export default function CreateOwnerProfilePage() {
+export default function CreateSyndicatorProfilePage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     contactPerson: '',
     email: '',
     phone: '',
-    ownerConfirmsRightToLease: false,
-    ownerApprovesDigitalSyndication: false,
+    syndicatorConfirmsRightToLease: false,
+    syndicatorApprovesDigitalSyndication: false,
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,8 +25,8 @@ export default function CreateOwnerProfilePage() {
     setLoading(true);
     
     try {
-      const owner = await createOwner(formData);
-      router.push(`/engine/horses/profile/create?ownerId=${owner.id}`);
+      const syndicator = await createSyndicator(formData);
+      router.push(`/engine/horses/profile/create?syndicatorId=${syndicator.id}`);
     } catch (err: any) {
       setError(err.message ?? 'Failed to create syndicator profile');
     } finally {
@@ -116,8 +116,8 @@ export default function CreateOwnerProfilePage() {
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={formData.ownerConfirmsRightToLease}
-                  onChange={(e) => setFormData({ ...formData, ownerConfirmsRightToLease: e.target.checked })}
+                  checked={formData.syndicatorConfirmsRightToLease}
+                  onChange={(e) => setFormData({ ...formData, syndicatorConfirmsRightToLease: e.target.checked })}
                   className="mt-1"
                   required
                 />
@@ -129,8 +129,8 @@ export default function CreateOwnerProfilePage() {
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={formData.ownerApprovesDigitalSyndication}
-                  onChange={(e) => setFormData({ ...formData, ownerApprovesDigitalSyndication: e.target.checked })}
+                  checked={formData.syndicatorApprovesDigitalSyndication}
+                  onChange={(e) => setFormData({ ...formData, syndicatorApprovesDigitalSyndication: e.target.checked })}
                   className="mt-1"
                   required
                 />

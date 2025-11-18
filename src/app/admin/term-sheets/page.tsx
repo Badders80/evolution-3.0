@@ -1,20 +1,26 @@
-import { listTermSheets } from "@/services/termSheets";
-import { getOwnerById } from "@/services/owners";
-import { getHorseById } from "@/services/horses";
+import { supabaseServer } from "@/lib/supabaseServer";
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
 
 export default async function AdminTermSheetsPage() {
-  const termSheets = await listTermSheets();
+  const { data: termSheets } = await supabaseServer
+    .from('term_sheets')
+    .select('*')
+    .order('created_at', { ascending: false });
 
-  // Preload owner + horse names
+  // Preload syndicator + horse names
   const enriched = await Promise.all(
-    termSheets.map(async (ts) => {
-      const owner = await getOwnerById(ts.owner_id);
-      const horse = await getHorseById(ts.horse_id);
+    (termSheets || []).map(async (ts) => {
+      const [syndicatorResult, horseResult] = await Promise.all([
+        supabaseServer.from('syndicators').select('name').eq('id', ts.owner_id).single(),
+        supabaseServer.from('horses').select('horse_name').eq('id', ts.horse_id).single(),
+      ]);
 
       return {
         ...ts,
-        ownerName: owner?.name ?? "Unknown Syndicator",
-        horseName: horse?.horse_name ?? "Unknown Horse",
+        syndicatorName: syndicatorResult.data?.name ?? "Unknown Syndicator",
+        horseName: horseResult.data?.horse_name ?? "Unknown Horse",
       };
     })
   );
@@ -39,7 +45,7 @@ export default async function AdminTermSheetsPage() {
                 Horse: {ts.horseName}
               </p>
               <p className="text-sm text-gray-600">
-                Syndicator: {ts.ownerName}
+                Syndicator: {ts.syndicatorName}
               </p>
             </div>
 

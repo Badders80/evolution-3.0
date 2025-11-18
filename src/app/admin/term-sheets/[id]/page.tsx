@@ -1,5 +1,5 @@
 import { getTermSheetById } from "@/services/termSheets";
-import { getOwnerById } from "@/services/owners";
+import { getSyndicatorById } from "@/services/syndicators";
 import { getHorseById } from "@/services/horses";
 
 type Props = {
@@ -17,7 +17,7 @@ export default async function AdminTermSheetDetailPage({ params }: Props) {
     );
   }
 
-  const owner = await getOwnerById(termSheet.owner_id);
+  const syndicator = await getSyndicatorById(termSheet.owner_id);
   const horse = await getHorseById(termSheet.horse_id);
 
   return (
@@ -26,10 +26,10 @@ export default async function AdminTermSheetDetailPage({ params }: Props) {
 
       <section className="border rounded p-4">
         <h2 className="font-semibold mb-2">Syndicator</h2>
-        <p><strong>Authorised Syndicator:</strong> {owner?.name}</p>
-        <p><strong>Contact Person:</strong> {owner?.contact_person}</p>
-        <p><strong>Email:</strong> {owner?.email}</p>
-        <p><strong>Phone:</strong> {owner?.phone || "N/A"}</p>
+        <p><strong>Authorised Syndicator:</strong> {syndicator?.name}</p>
+        <p><strong>Contact Person:</strong> {syndicator?.contact_person}</p>
+        <p><strong>Email:</strong> {syndicator?.email}</p>
+        <p><strong>Phone:</strong> {syndicator?.phone || "N/A"}</p>
       </section>
 
       <section className="border rounded p-4">

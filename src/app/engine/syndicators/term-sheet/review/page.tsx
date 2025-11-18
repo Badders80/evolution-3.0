@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { getOwnerById } from "@/services/owners";
+import { getSyndicatorById } from "@/services/syndicators";
 import { getHorseById } from "@/services/horses";
 import { createTermSheet } from "@/services/termSheets";
 
@@ -10,10 +10,10 @@ export default function ReviewPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const ownerId = searchParams.get("ownerId");
+  const syndicatorId = searchParams.get("syndicatorId");
   const horseId = searchParams.get("horseId");
 
-  const [owner, setOwner] = useState<any>(null);
+  const [syndicator, setSyndicator] = useState<any>(null);
   const [horse, setHorse] = useState<any>(null);
   const [leaseDetails, setLeaseDetails] = useState<any>(null);
   const [authorityDetails, setAuthorityDetails] = useState<any>(null);
@@ -23,33 +23,33 @@ export default function ReviewPage() {
   // Load everything from Supabase + sessionStorage
   useEffect(() => {
     async function load() {
-      if (!ownerId || !horseId) {
-        setError("Missing owner ID or horse ID");
+      if (!syndicatorId || !horseId) {
+        setError("Missing syndicator ID or horse ID");
         return;
       }
 
       try {
-        const ownerData = await getOwnerById(ownerId as string);
+        const syndicatorData = await getSyndicatorById(syndicatorId as string);
         const horseData = await getHorseById(horseId as string);
 
         const lease = sessionStorage.getItem("leaseDetails");
         const authority = sessionStorage.getItem("authorityDetails");
 
-        setOwner(ownerData);
+        setSyndicator(syndicatorData);
         setHorse(horseData);
         setLeaseDetails(lease ? JSON.parse(lease) : null);
         setAuthorityDetails(authority ? JSON.parse(authority) : null);
       } catch (err) {
         console.error("Failed to load data:", err);
-        setError("Failed to load owner or horse data");
+        setError("Failed to load syndicator or horse data");
       }
     }
 
     load();
-  }, [ownerId, horseId]);
+  }, [syndicatorId, horseId]);
 
   async function handleCreate() {
-    if (!ownerId || !horseId || !leaseDetails || !authorityDetails) {
+    if (!syndicatorId || !horseId || !leaseDetails || !authorityDetails) {
       setError("Missing required data.");
       return;
     }
@@ -59,7 +59,7 @@ export default function ReviewPage() {
 
     try {
       const termSheet = await createTermSheet({
-        ownerId,
+        ownerId: syndicatorId,
         horseId,
 
         // Lease
@@ -105,7 +105,7 @@ export default function ReviewPage() {
     }
   }
 
-  if (!owner || !horse || !leaseDetails || !authorityDetails) {
+  if (!syndicator || !horse || !leaseDetails || !authorityDetails) {
     return (
       <div className="max-w-xl mx-auto py-8">
         <p>Loading...</p>
@@ -121,10 +121,10 @@ export default function ReviewPage() {
 
       <section className="border rounded p-4">
         <h2 className="font-semibold mb-2">Syndicator</h2>
-        <p><strong>Authorised Syndicator:</strong> {owner.name}</p>
-        <p><strong>Contact Person:</strong> {owner.contact_person}</p>
-        <p><strong>Email:</strong> {owner.email}</p>
-        <p><strong>Phone:</strong> {owner.phone || "N/A"}</p>
+        <p><strong>Authorised Syndicator:</strong> {syndicator.name}</p>
+        <p><strong>Contact Person:</strong> {syndicator.contact_person}</p>
+        <p><strong>Email:</strong> {syndicator.email}</p>
+        <p><strong>Phone:</strong> {syndicator.phone || "N/A"}</p>
       </section>
 
       <section className="border rounded p-4">

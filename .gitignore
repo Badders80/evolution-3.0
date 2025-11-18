@@ -10,11 +10,19 @@ Next.js
 /out/
 Production
 /build
-Environment
+# Environment
 .env*.local
 .env
 .env.*
 !.env.example # Keep example file
+
+# Security - Never commit these
+**/service-role-key*
+**/service_role_key*
+**/*secret*
+**/*SECRET*
+**/*key*.json
+**/*KEY*.json
 Vercel
 .vercel
 TypeScript

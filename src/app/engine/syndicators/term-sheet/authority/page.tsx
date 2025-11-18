@@ -7,7 +7,7 @@ export default function AuthorityChecksPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const ownerId = searchParams.get("ownerId");
+  const syndicatorId = searchParams.get("syndicatorId");
   const horseId = searchParams.get("horseId");
 
   const [form, setForm] = useState({
@@ -17,10 +17,10 @@ export default function AuthorityChecksPage() {
   });
 
   useEffect(() => {
-    if (!ownerId || !horseId) {
-      console.error("Missing ownerId or horseId");
+    if (!syndicatorId || !horseId) {
+      console.error("Missing syndicatorId or horseId");
     }
-  }, [ownerId, horseId]);
+  }, [syndicatorId, horseId]);
 
   function handleNext(e: React.FormEvent) {
     e.preventDefault();
@@ -30,7 +30,7 @@ export default function AuthorityChecksPage() {
 
     // Redirect to Step 5 (Review)
     router.push(
-      `/engine/owners/term-sheet/review?ownerId=${ownerId}&horseId=${horseId}`
+      `/engine/syndicators/term-sheet/review?syndicatorId=${syndicatorId}&horseId=${horseId}`
     );
   }
 

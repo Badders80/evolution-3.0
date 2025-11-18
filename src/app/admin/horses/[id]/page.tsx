@@ -1,13 +1,19 @@
-import { getHorseById } from "@/services/horses";
-import { listTermSheets } from "@/services/termSheets";
+import { supabaseServer } from "@/lib/supabaseServer";
 import Link from "next/link";
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: { id: string };
 };
 
 export default async function AdminHorseDetailPage({ params }: Props) {
-  const horse = await getHorseById(params.id);
+  const { data: horse } = await supabaseServer
+    .from('horses')
+    .select('*')
+    .eq('id', params.id)
+    .single();
 
   if (!horse) {
     return (
@@ -18,10 +24,11 @@ export default async function AdminHorseDetailPage({ params }: Props) {
   }
 
   // Get all term sheets for this horse
-  const allTermSheets = await listTermSheets();
-  const horseTermSheets = allTermSheets.filter(
-    (ts) => ts.horse_id === params.id
-  );
+  const { data: horseTermSheets } = await supabaseServer
+    .from('term_sheets')
+    .select('*')
+    .eq('horse_id', params.id)
+    .order('created_at', { ascending: false });
 
   return (
     <div className="max-w-3xl mx-auto py-8 pt-24 space-y-6">
